@@ -12,13 +12,13 @@ const Login = () => {
   return ( 
     <div>
       <GoogleLogin
-        clientId="780582464161-06hdton6je6o0uu485f0rtbdej7rnvf5.apps.googleusercontent.com"
+        clientId={process.env.GOOGLE_AUTH_CLIENT_ID}
         buttonText="Login"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}/>
       <GoogleLogout
-        clientId="780582464161-06hdton6je6o0uu485f0rtbdej7rnvf5.apps.googleusercontent.com"
+        clientId={process.env.GOOGLE_AUTH_CLIENT_ID}
         buttonText="Logout"
         onLogoutSuccess={responseGoogle}
         onFailure={responseGoogle}/>
