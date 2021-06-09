@@ -4,8 +4,8 @@ const LandingPage = () => {
   return (
     <div>
       <h2>LANDING PAGE!!!</h2>
-      <a>Director Login</a>
-      <a>Investor Login</a>
+      <a href="/filmer-registration">Director Login</a>
+      <a href="/investor-registration">Investor Login</a>
     </div>
   );
 };
