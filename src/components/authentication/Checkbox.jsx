@@ -24,10 +24,15 @@ const VideoCheckbox = withStyles({
 
 export default function CheckboxLabels() {
   const [state, setState] = React.useState({
-    checkedA: true,
-    checkedB: true,
-    checkedF: true,
-    checkedH: true,
+    checkedA: false,
+    checkedB: false,
+    checkedC: false,
+    checkedD: false,
+    checkedE: false,
+    checkedF: false,
+    checkedG: false,
+    checkedH: false,
+    checkedI: false,
   });
 
   const handleChange = (event) => {
@@ -71,7 +76,7 @@ export default function CheckboxLabels() {
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="checkedD" checked={state.checkedD} 
+          name="checkedE" checked={state.checkedE} 
           onChange={handleChange}
         />}
         label="Thriller"
@@ -79,7 +84,7 @@ export default function CheckboxLabels() {
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="checkedD" checked={state.checkedD} 
+          name="checkedF" checked={state.checkedF} 
           onChange={handleChange}
         />}
         label="Drama"
@@ -87,7 +92,7 @@ export default function CheckboxLabels() {
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="checkedD" checked={state.checkedD} 
+          name="checkedG" checked={state.checkedG} 
           onChange={handleChange}
         />}
         label="Fantasy"
@@ -95,7 +100,7 @@ export default function CheckboxLabels() {
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="checkedD" checked={state.checkedD} 
+          name="checkedH" checked={state.checkedH} 
           onChange={handleChange}
         />}
         label="Mystery"
@@ -103,7 +108,7 @@ export default function CheckboxLabels() {
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="checkedD" checked={state.checkedD} 
+          name="checkedI" checked={state.checkedI} 
           onChange={handleChange}
         />}
         label="Western"
