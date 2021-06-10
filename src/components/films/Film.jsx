@@ -10,4 +10,10 @@ const Film = ({ name, image }) => {
   );
 };
 
+Film.propTypes = { 
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired
+
+};
+
 export default Film;

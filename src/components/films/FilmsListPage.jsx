@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import useFilms from '../hooks/useFilms';
 import Film from '../films/Film';
 
