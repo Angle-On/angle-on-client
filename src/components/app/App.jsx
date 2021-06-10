@@ -6,6 +6,7 @@ import InvestorRegistration from '../authentication/InvestorRegistration';
 import FilmsListPage from '../films/FilmsListPage';
 import ResourcesPage from '../resources/ResourcesPage';
 import About from '../aboutus/About';
+import FilmerApplication from '../authentication/FilmerApplication';
 
 export default function App() {
   return (
@@ -21,6 +22,11 @@ export default function App() {
             path="/filmer-registration"
             exact
             component={FilmerRegistration}
+          />
+          <Route
+            path="/filmer-application"
+            exact
+            component={FilmerApplication}
           />
           <Route
             path="/investor-registration"
