@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable max-len */
+import React from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 // import { useLocation } from 'react-router';
 
@@ -6,7 +7,7 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
 
 const Login = () => { 
-  const [uri, setUri] = useState(''); 
+  // const [uri, setUri] = useState(''); 
   // const url = useLocation(); 
 
 
@@ -37,8 +38,8 @@ const Login = () => {
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
         uxMode="redirect"
-        redirectUri = 
-        "http://localhost:3000/film-application"
+        // redirectUri = 
+        // "http://localhost:3000/film-application"
         // {(url === '/filmer-registration')? "http://localhost:3000/filmer-application" : "http://localhost:3000/FilmsListPage"}
       />
 
