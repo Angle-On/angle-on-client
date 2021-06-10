@@ -1,12 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import useFilms from '../hooks/useFilms';
+import Film from '../films/Film';
 
 const FilmsListPage = () => { 
-    return( 
-        <div>
-            <h2>filmslist</h2>
-        </div>
-    );
+
+  const { films, loading } = useFilms();
+
+  const shortFilms = films.map(film => (<li key={film.id}>
+    <Film {...film}/>
+  </li>));
+        
+    
+  if(loading) return <h2>Loading...</h2>;
+  return ( 
+    <div>
+      {shortFilms}
+    </div>
+  );
 };
 
 export default FilmsListPage;
