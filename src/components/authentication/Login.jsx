@@ -24,9 +24,21 @@ const Login = () => {
 
 
   const responseGoogle = (response) => { 
-    console.log(response);
-    console.log(response.profileObj);
+    console.log(response.profileObj.familyName);
+    const obj =  {
+      last_name: response.profileObj.familyName,
+      first_name: response.profileObj.givenName,
+      email: response.profileObj.email,
+      image: response.profileObj.imageUrl     
+    }
+    console.log(obj);
+    return obj
   };
+
+
+
+ 
+
 
 
   return ( 
@@ -37,7 +49,7 @@ const Login = () => {
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
-        uxMode="redirect"
+        // uxMode="redirect"
         // redirectUri = 
         // "http://localhost:3000/film-application"
         // {(url === '/filmer-registration')? "http://localhost:3000/filmer-application" : "http://localhost:3000/FilmsListPage"}

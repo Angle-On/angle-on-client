@@ -24,27 +24,28 @@ const VideoCheckbox = withStyles({
 
 export default function CheckboxLabels() {
   const [state, setState] = React.useState({
-    checkedA: false,
-    checkedB: false,
-    checkedC: false,
-    checkedD: false,
-    checkedE: false,
-    checkedF: false,
-    checkedG: false,
-    checkedH: false,
-    checkedI: false,
+    Documentary: false,
+    Romance: false,
+    Comedy: false,
+    Horror: false,
+    Thriller: false,
+    Drama: false,
+    Fantasy: false,
+    Mystery: false,
+    Western: false,
   });
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
+    console.log(event.target.name)
   };
 
   return (
-    <FormGroup row>
+    <FormGroup column="true">
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="checkedA" checked={state.checkedA} 
+          name="Documentary" checked={state.Documentary} 
           onChange={handleChange}
         />}
         label="Documentary"
@@ -52,7 +53,7 @@ export default function CheckboxLabels() {
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="checkedB" checked={state.checkedB} 
+          name="Romance" checked={state.Romance} 
           onChange={handleChange}
         />}
         label="Romance"
@@ -60,7 +61,7 @@ export default function CheckboxLabels() {
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="checkedC" checked={state.checkedC} 
+          name="Comedy" checked={state.Comedy} 
           onChange={handleChange}
         />}
         label="Comedy"
@@ -68,15 +69,15 @@ export default function CheckboxLabels() {
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="checkedD" checked={state.checkedD} 
+          name="Horror" checked={state.Horror} 
           onChange={handleChange}
         />}
-        label="Horror"
+        label= "Horror"
       />
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="checkedE" checked={state.checkedE} 
+          name="Thriller" checked={state.Thriller} 
           onChange={handleChange}
         />}
         label="Thriller"
@@ -84,7 +85,7 @@ export default function CheckboxLabels() {
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="checkedF" checked={state.checkedF} 
+          name="Drama" checked={state.Drama} 
           onChange={handleChange}
         />}
         label="Drama"
@@ -92,7 +93,7 @@ export default function CheckboxLabels() {
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="checkedG" checked={state.checkedG} 
+          name="Fantasy" checked={state.Fantasy} 
           onChange={handleChange}
         />}
         label="Fantasy"
@@ -100,7 +101,7 @@ export default function CheckboxLabels() {
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="checkedH" checked={state.checkedH} 
+          name="Mystery" checked={state.Mystery} 
           onChange={handleChange}
         />}
         label="Mystery"
@@ -108,7 +109,7 @@ export default function CheckboxLabels() {
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="checkedI" checked={state.checkedI} 
+          name="Western" checked={state.Western} 
           onChange={handleChange}
         />}
         label="Western"

@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
+// import styles from './films.css';
 
 const Film = ({ films_name, films_image, films_description, films_budget, films_url, films_genre }) => { 
   console.log(films_image); 
