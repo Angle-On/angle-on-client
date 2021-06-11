@@ -55,6 +55,51 @@ const resources = [
     resource_description:
       'Shore Scripts was set up to help emerging screenwrites break into the industry by putting your film in front of its network of film industry professionals',
   },
+  {
+    resource_id: '7',
+    resource_name: 'Pacific Arts Movement',
+    resource_url: 'https://pacarts.org/',
+    resource_image: 'https://yt3.ggpht.com/ytc/AAUvwnjSgn_0FZwKwY2hiIOEwz5yd75QxWsuiDbjEzvn1g=s900-c-k-c0x00ffffff-no-rj',
+    resource_description: 'One of the largest media arts organizations in North America aiming to amplify Asian American and Asian internation cinema.'
+
+  },
+  {
+    resource_id: '8',
+    resource_name: 'APIA MN Film Collective',
+    resource_url: 'https://www.apiamnfilm.com/',
+    resource_image: 'https://static1.squarespace.com/static/5c2ff7ad25bf023536803f5c/t/5c2ff9e38a922d582284ea31/1612312276622/?format=1500w',
+    resource_description: 'The Asian Pacific Islander American is an initiative to create, promote, and empower underrepresented and low-income filmmakers in Minnesota.'
+
+  }, {
+    resource_id: '',
+    resource_name: '',
+    resource_url: '',
+    resource_image: '',
+    resource_description: ''
+
+  },  {
+    resource_id: '',
+    resource_name: '',
+    resource_url: '',
+    resource_image: '',
+    resource_description: ''
+
+  },  {
+    resource_id: '',
+    resource_name: '',
+    resource_url: '',
+    resource_image: '',
+    resource_description: ''
+
+  }, {
+    resource_id: '',
+    resource_name: '',
+    resource_url: '',
+    resource_image: '',
+    resource_description: ''
+
+  }
+
 ];
 
 export default resources;
