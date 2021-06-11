@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -9,15 +10,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import MovieFilterIcon from '@material-ui/icons/MovieFilter';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home'; 
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonIcon from '@material-ui/icons/Person';
 import BuildIcon from '@material-ui/icons/Build';
-import MenuIcon from '@material-ui/icons/Menu';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import QueueMusicIcon from '@material-ui/icons/QueueMusic';
-import PostAddIcon from '@material-ui/icons/PostAdd';
 import SubjectIcon from '@material-ui/icons/Subject';
-import InfoIcon from '@material-ui/icons/Info';
 import Tooltip from '@material-ui/core/Tooltip';
 
 
@@ -38,14 +34,10 @@ const useStyles = makeStyles({
 
 });
 
-export default function NavigationDrawer(props) {
-  console.log(props);
+function NavigationDrawer(props) {
   const classes = useStyles();
   
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
+  const [state, setState] = useState({
     right: false,
   });
 
@@ -89,17 +81,17 @@ export default function NavigationDrawer(props) {
             <ListItemIcon>
               {(() => { 
                 if(index === 0) { 
-                  return <HomeIcon style={{ color: '#3d5afe' }} />;
+                  return <HomeIcon style={{ color: '#3d5afe' }}/>;
                 } else if(index === 1) { 
-                  return <MovieFilterIcon style={{ color: '#2196f3' }}  />;
+                  return <MovieFilterIcon style={{ color: '#2196f3' }}/>;
                 } else if(index === 2) { 
-                  return <BuildIcon style={{ color: '#304ffe' }}  />;
+                  return <BuildIcon style={{ color: '#304ffe' }}/>;
                 } else if(index === 3) {
-                  return <DashboardIcon style={{ color: '#82b1ff' }}  />;
+                  return <DashboardIcon style={{ color: '#82b1ff' }}/>;
                 } else if(index === 4) {
-                  return <PersonIcon style={{ color: '#3f51b5' }}  />;
+                  return <PersonIcon style={{ color: '#3f51b5' }}/>;
                 } else { 
-                  return <PersonIcon style={{ color: 'rgba(255,211,25)' }} />;
+                  return <PersonIcon style={{ color: 'rgba(255,211,25)' }}/>;
 
                 }}) ()}
             
@@ -126,3 +118,13 @@ export default function NavigationDrawer(props) {
     </div>
   );
 }
+
+NavigationDrawer.propTypes = { 
+  redirectHome: PropTypes.func.isRequired,
+  redirectFilms: PropTypes.func.isRequired,
+  redirectResources: PropTypes.func.isRequired,
+  redirectAboutUs: PropTypes.func.isRequired
+
+};
+
+export default NavigationDrawer;
