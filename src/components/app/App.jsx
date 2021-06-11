@@ -9,11 +9,39 @@ import About from '../aboutus/About';
 import FilmerApplication from '../authentication/FilmerApplication';
 import FilmerPanel from '../filmerpanel/FilmerPanel'; 
 import InvestorPanel from '../investorpanel/InvestorPanel'; 
+import NavigationDrawer from '../navigation/NavigationDrawer';
 
 export default function App() {
+
+  const redirectHome = () => { 
+    window.location.replace('/');
+  };
+
+  const redirectFilms = () => { 
+    window.location.replace('/films');
+  };
+
+  const redirectResources = () => { 
+    window.location.replace('/resources');
+  };
+
+  // const redirectMyDashboard = () => { 
+  //   window.location.replace('/filmer-dashboard);
+  // };
+
+  const redirectAboutUs = () => { 
+    window.location.replace('/about-us');
+  };
+
+
   return (
     <>
       <Router>
+        <NavigationDrawer
+          redirectHome={redirectHome}
+          redirectFilms={redirectFilms}
+          redirectResources={redirectResources}
+          redirectAboutUs={redirectAboutUs}/>
         <Switch>
           <Route
             path="/"
@@ -61,7 +89,6 @@ export default function App() {
             component={About}
           />
 
-          {/* <NavigationDrawer/> */}
   
           {/* 
           <FilmerDashboard/>
