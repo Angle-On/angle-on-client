@@ -24,22 +24,15 @@ const Login = () => {
 
 
   const responseGoogle = (response) => { 
-    console.log(response.profileObj.familyName);
     const obj =  {
       last_name: response.profileObj.familyName,
       first_name: response.profileObj.givenName,
       email: response.profileObj.email,
       image: response.profileObj.imageUrl     
-    }
+    };
     console.log(obj);
-    return obj
+    return obj;
   };
-
-
-
- 
-
-
 
   return ( 
     <div>
