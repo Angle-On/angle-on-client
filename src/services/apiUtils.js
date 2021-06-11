@@ -68,6 +68,16 @@ export const updateInvestorById = async (id, jsonBody) => {
   return investor;
 };
 
+export const deleteInvestorById = async (id) => {
+  const res = await fetch(`${URL}/investors/${id}`, {
+    method: 'DELETE',
+  });
+
+  const investor = await res.json();
+
+  return investor;
+};
+
 //filmer
 
 export const getFilmerById = async () => {

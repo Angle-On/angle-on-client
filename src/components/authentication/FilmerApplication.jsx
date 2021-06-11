@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -32,18 +33,18 @@ const FilmerApplication = () => {
   return (
     <div>
       <h1>Short Film Application</h1>
-    <form className={classes.root}>
-      <TextField id="standard-basic" label="Title" onChange={handleChange}/>
-      <TextField id="standard-basic" label="Directors Name" onChange={handleChange}/>
-      <TextField id="standard-basic" label="$ Budget" onChange={handleChange}/>
-      <TextField id="standard-basic" label="Trailer URL" onChange={handleChange}/>
-      <TextArea />
+      <form className={classes.root}>
+        <TextField id="standard-basic" label="Title" onChange={handleChange}/>
+        <TextField id="standard-basic" label="Directors Name" onChange={handleChange}/>
+        <TextField id="standard-basic" label="$ Budget" type="number" onChange={handleChange}/>
+        <TextField id="standard-basic" label="Trailer URL" onChange={handleChange}/>
+        <TextArea />
 
-      <AWSUpload/>
+        <AWSUpload/>
       
-      <Checkbox /> 
-      <SubmitButton />
-    </form>
+        <Checkbox /> 
+        <SubmitButton />
+      </form>
     </div>
   );
 }; 

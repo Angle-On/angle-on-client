@@ -13,8 +13,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PanelTextField({ first_name, last_name, email }) {
+export default function PanelTextField({ first_name, last_name, email, edit },) {
   const classes = useStyles();
+  console.log(edit, 'in panel buttons');
   return (
     <div className={classes.root} noValidate autoComplete="off">
       <TextField
@@ -24,7 +25,7 @@ export default function PanelTextField({ first_name, last_name, email }) {
         helperText="Some important text"
         variant="outlined"
         InputProps={{
-          readOnly: true,
+          readOnly: edit,
         }}
       />
       <TextField
@@ -34,7 +35,7 @@ export default function PanelTextField({ first_name, last_name, email }) {
         helperText="Some important text"
         variant="outlined"
         InputProps={{
-          readOnly: true,
+          readOnly: edit,
         }}
       />
       <TextField
@@ -53,6 +54,7 @@ PanelTextField.propTypes = {
   email: PropTypes.string.isRequired,
   first_name: PropTypes.string.isRequired,
   last_name: PropTypes.string.isRequired,
+  edit: PropTypes.boolean
 };
 
 

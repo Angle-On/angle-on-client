@@ -13,9 +13,13 @@ const useStyles = makeStyles((theme) => ({
 export default function PanelButtons() {
   const classes = useStyles();
 
+  const handleClick = () => {
+    return true; 
+  }; 
+
   return (
     <div className={classes.root}>
-      <Button variant="contained">Edit</Button>
+      <Button variant="contained" onClick={handleClick}>Edit</Button>
       <Button variant="contained">Update</Button>
     </div>
   );

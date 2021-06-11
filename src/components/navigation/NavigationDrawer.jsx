@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
@@ -123,8 +124,8 @@ NavigationDrawer.propTypes = {
   redirectHome: PropTypes.func.isRequired,
   redirectFilms: PropTypes.func.isRequired,
   redirectResources: PropTypes.func.isRequired,
-  redirectAboutUs: PropTypes.func.isRequired
-
+  redirectAboutUs: PropTypes.func.isRequired,
+  redirectMyDashboard: PropTypes.func
 };
 
 export default NavigationDrawer;
