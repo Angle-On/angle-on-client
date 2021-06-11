@@ -4,8 +4,9 @@ import TextField from '@material-ui/core/TextField';
 import Checkbox from './Checkbox'; 
 import SubmitButton from './SubmitButton';
 import TextArea from './TextArea';
-import UploadButton from './UploadButton';
 import './form.css';
+import AWSUpload from './awsUpload';
+
 
 
 
@@ -29,16 +30,21 @@ const FilmerApplication = () => {
 
   
   return (
+    <div>
+      <h1>Short Film Application</h1>
     <form className={classes.root}>
       <TextField id="standard-basic" label="Title" onChange={handleChange}/>
       <TextField id="standard-basic" label="Directors Name" onChange={handleChange}/>
       <TextField id="standard-basic" label="$ Budget" onChange={handleChange}/>
       <TextField id="standard-basic" label="Trailer URL" onChange={handleChange}/>
       <TextArea />
-      <UploadButton/>
+
+      <AWSUpload/>
+      
       <Checkbox /> 
       <SubmitButton />
     </form>
+    </div>
   );
 }; 
 export default FilmerApplication;
