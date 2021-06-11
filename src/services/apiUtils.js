@@ -67,3 +67,34 @@ export const updateInvestorById = async (id, jsonBody) => {
 
   return investor;
 };
+
+//filmer
+
+export const getFilmerById = async () => {
+  const res = await fetch(`${URL}/filmers/{id}`);
+
+  const filmer = await res.json();
+
+  return filmer;
+};
+
+export const updateFilmerById = async (id, jsonBody) => {
+  const res = await fetch(`${URL}/filmers/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'Application/JSON' },
+    body: JSON.stringify(jsonBody),
+  });
+
+  const filmer = await res.json();
+
+  return filmer;
+};
+
+//donations
+export const getDonationById = async (id) => {
+  const res = await fetch(`${URL}/donations/${id}`);
+
+  const donation = await res.json();
+
+  return donation;
+};
