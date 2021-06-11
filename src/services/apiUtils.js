@@ -108,3 +108,12 @@ export const getDonationById = async (id) => {
 
   return donation;
 };
+
+//films
+export const getFilmsById = async (id) => {
+  const res = await fetch(`${URL}/donations/${id}`);
+
+  const films = await res.json();
+
+  return films;
+};

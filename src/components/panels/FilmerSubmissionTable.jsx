@@ -8,9 +8,11 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import FilmData from '../../components/films/mockDataFilm'; 
 
-// import useDonation from '../hooks/useDonation'; 
+
+import FilmData from '../../components/films/mockDataFilm'; 
+//when time comes 
+// import useFilmsById from '../hooks/useFilmsById'; 
 
 
 const useStyles = makeStyles({
@@ -43,7 +45,7 @@ export default function FilmerSubmissionTable() {
             {/* <TableCell align="right">Description</TableCell> */}
             <TableCell align="right">URL</TableCell>
             <TableCell align="right">Genre</TableCell>
-            <TableCell align="right">Image</TableCell>
+            <TableCell align="right">Film Still</TableCell>
           </TableRow> 
         </TableHead>
         <TableBody>
