@@ -94,7 +94,6 @@ function NavigationDrawer(props) {
                   return <PersonIcon style={{ color: 'rgba(255,211,25)' }}/>;
 
                 }}) ()}
-            
             </ListItemIcon>
             <ListItemText primary={text.name} />
           </ListItem>
