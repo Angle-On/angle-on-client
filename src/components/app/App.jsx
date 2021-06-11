@@ -7,6 +7,8 @@ import FilmsListPage from '../films/FilmsListPage';
 import ResourcesPage from '../resources/ResourcesPage';
 import About from '../aboutus/About';
 import FilmerApplication from '../authentication/FilmerApplication';
+import FilmerPanel from '../filmerpanel/FilmerPanel'; 
+import InvestorPanel from '../investorpanel/InvestorPanel'; 
 import NavigationDrawer from '../navigation/NavigationDrawer';
 
 export default function App() {
@@ -70,6 +72,16 @@ export default function App() {
             path="/resources"
             exact
             component={ResourcesPage}
+          />
+          <Route
+            path="/filmer-panel"
+            exact
+            component={FilmerPanel}
+          />
+          <Route
+            path="/investor-panel"
+            exact
+            component={InvestorPanel}
           />
           <Route
             path="/about-us"
