@@ -12,7 +12,7 @@ import { updateInvestorById } from '../../services/apiUtils';
 // import useInvestor from '../hooks/useInvestor'; 
 
 import investor from './mockinvestor'; 
-import donationData from './mockdonationinfo'; 
+// import donationData from './mockdonationinfo'; 
 
 
 const useStyles = makeStyles((theme) => ({
@@ -51,7 +51,7 @@ const InvestorPanel = () => {
         <Button variant="contained" onClick={handleUpdate}>Update</Button>
       </div>
       <h1>Donations</h1>
-      <DonationTable {...[donationData]}/> 
+      <DonationTable/> 
       <DeleteProfileButton /> 
       <p>Donations will not be refunded, please contact support@angle-on.com if you have further questions</p>
       

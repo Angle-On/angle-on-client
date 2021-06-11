@@ -19,20 +19,22 @@ export default function PanelTextField({ first_name, last_name, email, edit },) 
   return (
     <div className={classes.root} noValidate autoComplete="off">
       <TextField
+        required
         id="outlined-helperText"
         label="First Name"
         defaultValue={first_name}
-        helperText="Some important text"
+        // helperText="Some important text"
         variant="outlined"
         InputProps={{
           readOnly: edit,
         }}
       />
       <TextField
+        required
         id="outlined-helperText"
         label="Last Name"
         defaultValue={last_name}
-        helperText="Some important text"
+        // helperText="Some important text"
         variant="outlined"
         InputProps={{
           readOnly: edit,

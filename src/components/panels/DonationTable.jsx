@@ -7,8 +7,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import donationData from './mockdonationinfo'; 
+
+//when the time comes, use hook 
 // import useDonation from '../hooks/useDonation'; 
+import donationData from './mockdonationinfo'; 
 
 
 const useStyles = makeStyles({
@@ -20,7 +22,7 @@ const useStyles = makeStyles({
 
 export default function DenseTable() {
   const classes = useStyles();
-  
+
   const rows = donationData.map((donation) => ({
     id: donation.donations_id,  
     film_name: donation.films_name,
@@ -41,7 +43,7 @@ export default function DenseTable() {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow key={row.name}>
+            <TableRow key={row.film_name}>
               <TableCell component="th" scope="row">
                 {row.donation_date}
               </TableCell>

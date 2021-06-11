@@ -7,8 +7,8 @@ import FilmsListPage from '../films/FilmsListPage';
 import ResourcesPage from '../resources/ResourcesPage';
 import About from '../aboutus/About';
 import FilmerApplication from '../authentication/FilmerApplication';
-import FilmerPanel from '../filmerpanel/FilmerPanel'; 
-import InvestorPanel from '../investorpanel/InvestorPanel'; 
+import FilmerPanel from '../panels/FilmerPanel'; 
+import InvestorPanel from '../panels/InvestorPanel'; 
 import NavigationDrawer from '../navigation/NavigationDrawer';
 
 export default function App() {
