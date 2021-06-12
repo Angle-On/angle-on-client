@@ -10,6 +10,7 @@ import FilmerApplication from '../authentication/FilmerApplication';
 import FilmerPanel from '../filmerpanel/FilmerPanel'; 
 import InvestorPanel from '../investorpanel/InvestorPanel'; 
 import NavigationDrawer from '../navigation/NavigationDrawer';
+import ModalParent from '../modal/ModalParent';
 
 export default function App() {
 
@@ -88,13 +89,11 @@ export default function App() {
             exact
             component={About}
           />
-
-  
-          {/* 
-          <FilmerDashboard/>
-          <InvestorDashboard/>
-          */}
-
+          <Route
+            path="/modal"
+            exact
+            component={ModalParent}
+          />
         </Switch>
       </Router>
     </>
