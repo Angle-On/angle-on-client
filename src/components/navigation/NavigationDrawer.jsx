@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
@@ -94,7 +95,6 @@ function NavigationDrawer(props) {
                   return <PersonIcon style={{ color: 'rgba(255,211,25)' }}/>;
 
                 }}) ()}
-            
             </ListItemIcon>
             <ListItemText primary={text.name} />
           </ListItem>
@@ -123,7 +123,8 @@ NavigationDrawer.propTypes = {
   redirectHome: PropTypes.func.isRequired,
   redirectFilms: PropTypes.func.isRequired,
   redirectResources: PropTypes.func.isRequired,
-  redirectAboutUs: PropTypes.func.isRequired
+  redirectAboutUs: PropTypes.func.isRequired,
+  redirectMyDashboard: PropTypes.func.isRequired
 
 };
 
