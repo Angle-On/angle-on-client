@@ -38,7 +38,8 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
             <ModalWrapper showModal={showModal}>
               <ModalImg 
                 src={films_image} 
-                alt="film image"/>
+                alt="film image"
+              />
               <ModalContent>
                 <h1>{films_name}</h1>
                 <p>{films_description}</p>

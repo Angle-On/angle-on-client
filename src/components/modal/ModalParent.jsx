@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Modal from '../modal/Modal';
 
 const Container = styled.div`
@@ -27,8 +28,8 @@ const ModalParent = ({ films_name, films_image, films_description, films_budget,
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
-      console.log('in modal');
-      setShowModal(prev => !prev); 
+    console.log('in modal');
+    setShowModal(prev => !prev); 
 
   };
 
@@ -49,6 +50,17 @@ const ModalParent = ({ films_name, films_image, films_description, films_budget,
       </Container>
     </>
   );
+};
+
+ModalParent.propTypes = { 
+  showModal: PropTypes.bool.isRequired,
+  setShowModal: PropTypes.func.isRequired,
+  films_name: PropTypes.string.isRequired,
+  films_image: PropTypes.string.isRequired,
+  films_description: PropTypes.string.isRequired,
+  films_budget: PropTypes.number.isRequired,
+  films_url: PropTypes.string.isRequired,
+  films_genre: PropTypes.array.isRequired,
 };
 
 export default ModalParent;
