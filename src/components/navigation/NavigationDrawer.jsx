@@ -95,7 +95,6 @@ function NavigationDrawer(props) {
                   return <PersonIcon style={{ color: 'rgba(255,211,25)' }}/>;
 
                 }}) ()}
-            
             </ListItemIcon>
             <ListItemText primary={text.name} />
           </ListItem>
@@ -125,7 +124,8 @@ NavigationDrawer.propTypes = {
   redirectFilms: PropTypes.func.isRequired,
   redirectResources: PropTypes.func.isRequired,
   redirectAboutUs: PropTypes.func.isRequired,
-  redirectMyDashboard: PropTypes.func
+  redirectMyDashboard: PropTypes.func.isRequired
+
 };
 
 export default NavigationDrawer;

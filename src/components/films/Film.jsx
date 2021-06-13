@@ -3,20 +3,37 @@ import React from 'react';
 // import SocialButtons from '../socialbuttons/SocialButtons';
 
 import PropTypes from 'prop-types';
-// import styles from './films.css';
+import ModalParent from '../modal/ModalParent';
+import style from  './films.css';
+import styled from 'styled-components';
 
-const Film = ({ films_name, films_image, films_description, films_budget, films_url, films_genre }) => { 
+const FilmImage = styled.img`
+height: 300px;
+width: 300px;
 
-  console.log(films_image); 
+`;
+
+
+
+
+const Film = ({ films_name, films_image, films_description, films_budget, films_url, films_genre }) => {
   return (
-    <div>
+    <div className={style.filmContainer}>
       <p>{films_name}</p>
-      <img src={films_image} alt={films_name}/>
-      <p>{films_description}</p>
-      <p>{films_budget}</p>
-      <p>{films_url}</p>
-      <p>{films_genre}</p>
-      {/* <SocialButtons currentPage={currentPage}/>  */}
+      <FilmImage src={films_image} alt={films_name}/>
+      <ModalParent
+        films_name={films_name}
+        films_image={films_image}
+        films_description={films_description}
+        films_budget={films_budget}
+        films_url={films_url}
+        films_genre={films_genre}
+      />
+      {/* 
+            <p>{films_description}</p>
+            <p>{films_budget}</p>
+            <p>{films_url}</p>
+            <p>{films_genre}</p> */}
     </div>
   );
 };

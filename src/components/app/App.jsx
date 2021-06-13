@@ -10,6 +10,7 @@ import FilmerApplication from '../authentication/FilmerApplication';
 import FilmerPanel from '../panels/FilmerPanel'; 
 import InvestorPanel from '../panels/InvestorPanel'; 
 import NavigationDrawer from '../navigation/NavigationDrawer';
+import ModalParent from '../modal/ModalParent';
 
 export default function App() {
 
@@ -25,9 +26,9 @@ export default function App() {
     window.location.replace('/resources');
   };
 
-  // const redirectMyDashboard = () => { 
-  //   window.location.replace('/filmer-dashboard);
-  // };
+  const redirectMyDashboard = () => { 
+    window.location.replace('/filmer-panel');
+  };
 
   const redirectAboutUs = () => { 
     window.location.replace('/about-us');
@@ -41,7 +42,8 @@ export default function App() {
           redirectHome={redirectHome}
           redirectFilms={redirectFilms}
           redirectResources={redirectResources}
-          redirectAboutUs={redirectAboutUs}/>
+          redirectAboutUs={redirectAboutUs}
+          redirectMyDashboard={redirectMyDashboard}/>
         <Switch>
           <Route
             path="/"
@@ -88,13 +90,11 @@ export default function App() {
             exact
             component={About}
           />
-
-  
-          {/* 
-          <FilmerDashboard/>
-          <InvestorDashboard/>
-          */}
-
+          <Route
+            path="/modal"
+            exact
+            component={ModalParent}
+          />
         </Switch>
       </Router>
     </>

@@ -1,0 +1,33 @@
+.filmContainer { 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+    height: auto;
+    width: 500px;
+    
+}
+
+.shortFilms { 
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    background: #fff;
+
+};
+
