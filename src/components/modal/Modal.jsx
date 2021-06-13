@@ -43,7 +43,7 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
               <ModalContent>
                 <h1>{films_name}</h1>
                 <p>{films_description}</p>
-                <p>${films_budget}. 00</p>
+                <p>Short Film Budget: ${films_budget}. 00</p>
                 <a href={films_url}>Short Film Link</a>
                 <DonateNowButton onClick={() => donateNow()}>Donate Now!</DonateNowButton>
               </ModalContent>

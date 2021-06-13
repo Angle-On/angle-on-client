@@ -67,3 +67,53 @@ export const updateInvestorById = async (id, jsonBody) => {
 
   return investor;
 };
+
+export const deleteInvestorById = async (id) => {
+  const res = await fetch(`${URL}/investors/${id}`, {
+    method: 'DELETE',
+  });
+
+  const investor = await res.json();
+
+  return investor;
+};
+
+//filmer
+
+export const getFilmerById = async () => {
+  const res = await fetch(`${URL}/filmers/{id}`);
+
+  const filmer = await res.json();
+
+  return filmer;
+};
+
+export const updateFilmerById = async (id, jsonBody) => {
+  const res = await fetch(`${URL}/filmers/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'Application/JSON' },
+    body: JSON.stringify(jsonBody),
+  });
+
+  const filmer = await res.json();
+
+  return filmer;
+};
+
+//donations
+export const getDonationById = async (id) => {
+  const res = await fetch(`${URL}/donations/${id}`);
+
+  const donation = await res.json();
+
+  return donation;
+};
+
+//films
+export const getFilmsById = async (id) => {
+  const res = await fetch(`${URL}/donations/${id}`);
+
+  const films = await res.json();
+
+  return films;
+};

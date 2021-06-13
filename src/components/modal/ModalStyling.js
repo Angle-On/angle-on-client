@@ -55,16 +55,6 @@ export const ModalContent = styled.div`
     padding: 10px;
 `;
 
-// p { 
-//     margin-bottom: 1rem;
-// }
-
-// button { 
-//     padding: 10px 24px;
-//     background: #141414;
-//     color: #fff;
-//     border:none;
-// };
 
 export const DonateNowButton = styled.button`
 min-width: 100px;

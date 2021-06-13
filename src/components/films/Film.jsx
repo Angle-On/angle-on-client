@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
+// import SocialButtons from '../socialbuttons/SocialButtons';
+
 import PropTypes from 'prop-types';
 import ModalParent from '../modal/ModalParent';
 import style from  './films.css';
@@ -26,8 +28,8 @@ const Film = ({ films_name, films_image, films_description, films_budget, films_
         films_budget={films_budget}
         films_url={films_url}
         films_genre={films_genre}
-        />
-        {/* 
+      />
+      {/* 
             <p>{films_description}</p>
             <p>{films_budget}</p>
             <p>{films_url}</p>
