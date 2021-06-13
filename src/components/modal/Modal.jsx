@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import PropTypes from 'prop-types';
 import { Background, ModalWrapper, ModalImg, ModalContent, DonateNowButton, CloseModalButton } from './ModalStyling'; 
 
 
 
-const Modal = ({ showModal, setShowModal, films_description, films_image, films_name, films_budget, films_url, films_genre }) => { 
+const Modal = ({ showModal, setShowModal, films_description, films_image, films_name, films_budget, films_url, }) => { 
  
   const modalRef = useRef();
 
