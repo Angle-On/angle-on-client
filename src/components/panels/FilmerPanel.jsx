@@ -4,7 +4,7 @@ import PanelTextField from './PanelTextField';
 import DeleteProfileButton from './DeleteProfileButton'; 
 import FilmerSubmissionTable from './FilmerSubmissionTable'; 
 
-import filmer from './mockfilmer'; 
+import filmer from './mock-data/mockfilmer'; 
 
 const FilmerPanel = () => {
 

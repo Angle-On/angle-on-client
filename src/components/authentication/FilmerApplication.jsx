@@ -8,9 +8,6 @@ import TextArea from './TextArea';
 import './form.css';
 import AWSUpload from './awsUpload';
 
-
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -27,6 +24,7 @@ const FilmerApplication = () => {
   const handleChange = (event) => {
     console.log(event.target.value);
     setValue(event.target.value);
+    console.log(value); 
   };
 
   

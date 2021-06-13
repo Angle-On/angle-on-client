@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 
 //when the time comes, use hook 
 // import useDonation from '../hooks/useDonation'; 
-import donationData from './mockdonationinfo'; 
+import donationData from './mock-data/mockdonationinfo'; 
 
 
 const useStyles = makeStyles({

@@ -4,7 +4,7 @@ import InvestorPanelTextField from './InvestorPanelTextField';
 import DeleteProfileButton from './DeleteProfileButton'; 
 import DonationTable from './DonationTable'; 
 
-import investor from './mockinvestor';
+import investor from './mock-data/mockinvestor';
 // import useInvestor from '../hooks/useInvestor'; 
 // import donationData from './mockdonationinfo'; 
 

@@ -1,9 +1,12 @@
 /* eslint-disable max-len */
 import React from 'react';
+// import SocialButtons from '../socialbuttons/SocialButtons';
+
 import PropTypes from 'prop-types';
 // import styles from './films.css';
 
 const Film = ({ films_name, films_image, films_description, films_budget, films_url, films_genre }) => { 
+
   console.log(films_image); 
   return (
     <div>
@@ -13,6 +16,7 @@ const Film = ({ films_name, films_image, films_description, films_budget, films_
       <p>{films_budget}</p>
       <p>{films_url}</p>
       <p>{films_genre}</p>
+      {/* <SocialButtons currentPage={currentPage}/>  */}
     </div>
   );
 };

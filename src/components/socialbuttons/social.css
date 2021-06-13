@@ -1,0 +1,21 @@
+.socialShareLinks li {
+  float: left;
+  margin: 2px;
+}
+.socialShareLinks {
+  list-style: none;
+}
+.socialShareLinks li a {
+  display: block;
+  height: 30px;
+  overflow: hidden;
+  width: 30px;
+  background-color: #eee;
+  border-radius: 10px;
+}
+.socialShareLinks li a:hover {
+  background-color: #fff;
+}
+.socialShareLinks li a img {
+  width: 100%;
+}
