@@ -26,9 +26,9 @@ export default function App() {
     window.location.replace('/resources');
   };
 
-  // const redirectMyDashboard = () => { 
-  //   window.location.replace('/filmer-dashboard);
-  // };
+  const redirectMyDashboard = () => { 
+    window.location.replace('/filmer-panel');
+  };
 
   const redirectAboutUs = () => { 
     window.location.replace('/about-us');
@@ -42,7 +42,8 @@ export default function App() {
           redirectHome={redirectHome}
           redirectFilms={redirectFilms}
           redirectResources={redirectResources}
-          redirectAboutUs={redirectAboutUs}/>
+          redirectAboutUs={redirectAboutUs}
+          redirectMyDashboard={redirectMyDashboard}/>
         <Switch>
           <Route
             path="/"

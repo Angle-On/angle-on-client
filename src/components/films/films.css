@@ -1,0 +1,23 @@
+.filmContainer { 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    margin: 50px;
+    border: black 2px solid;
+    
+}
+
+.shortFilms { 
+    list-style: none;
+    background-color: aquamarine;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+        
+}

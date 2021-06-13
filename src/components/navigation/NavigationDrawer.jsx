@@ -122,7 +122,8 @@ NavigationDrawer.propTypes = {
   redirectHome: PropTypes.func.isRequired,
   redirectFilms: PropTypes.func.isRequired,
   redirectResources: PropTypes.func.isRequired,
-  redirectAboutUs: PropTypes.func.isRequired
+  redirectAboutUs: PropTypes.func.isRequired,
+  redirectMyDashboard: PropTypes.func.isRequired
 
 };
 
