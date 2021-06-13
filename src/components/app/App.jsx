@@ -7,10 +7,14 @@ import FilmsListPage from '../films/FilmsListPage';
 import ResourcesPage from '../resources/ResourcesPage';
 import About from '../aboutus/About';
 import FilmerApplication from '../authentication/FilmerApplication';
-import FilmerPanel from '../filmerpanel/FilmerPanel'; 
-import InvestorPanel from '../investorpanel/InvestorPanel'; 
+import FilmerPanel from '../panels/FilmerPanel'; 
+import InvestorPanel from '../panels/InvestorPanel'; 
 import NavigationDrawer from '../navigation/NavigationDrawer';
+<<<<<<< HEAD
 import './App.css';
+=======
+import ModalParent from '../modal/ModalParent';
+>>>>>>> cc042428691bb01ea9a20309366d5b06b4dc6ed8
 
 export default function App() {
 
@@ -26,9 +30,9 @@ export default function App() {
     window.location.replace('/resources');
   };
 
-  // const redirectMyDashboard = () => { 
-  //   window.location.replace('/filmer-dashboard);
-  // };
+  const redirectMyDashboard = () => { 
+    window.location.replace('/filmer-panel');
+  };
 
   const redirectAboutUs = () => { 
     window.location.replace('/about-us');
@@ -42,7 +46,8 @@ export default function App() {
           redirectHome={redirectHome}
           redirectFilms={redirectFilms}
           redirectResources={redirectResources}
-          redirectAboutUs={redirectAboutUs}/>
+          redirectAboutUs={redirectAboutUs}
+          redirectMyDashboard={redirectMyDashboard}/>
         <Switch>
           <Route
             path="/"
@@ -89,13 +94,11 @@ export default function App() {
             exact
             component={About}
           />
-
-  
-          {/* 
-          <FilmerDashboard/>
-          <InvestorDashboard/>
-          */}
-
+          <Route
+            path="/modal"
+            exact
+            component={ModalParent}
+          />
         </Switch>
       </Router>
     </>
