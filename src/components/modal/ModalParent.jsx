@@ -13,12 +13,12 @@ const Container = styled.div`
     
 const Button = styled.button`
     min-width: 100px;
-    padding: 16px 32px;
-    border-radius: 4px;
-    border: none;
-    background-color: palevioletred;
-    color: white;
-    font-size: 24px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: 2px solid blue;
+    backgroud: transparent;
+    color: blue;
+    font-size: 16px;
     cursor: pointer;
 
 `;
