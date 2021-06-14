@@ -1,5 +1,8 @@
 import styled, { keyframes } from 'styled-components';
+import fadeInDownBig from 'react-animations/lib/fade-in-down-big';
+import zoomOut from 'react-animations/lib/zoom-out';
 import { MdClose } from 'react-icons/md';
+
 
 
 export const Background = styled.div`
@@ -12,18 +15,28 @@ export const Background = styled.div`
     position: relative;
     `;
 
-const fade = keyframes`
-from { 
-    opacity: 0;
-    visibility: hidden;    
-}
-to { 
-    opacity: 1;
-    visibility: visible;  
-}`;
+// const fade = keyframes`
+// from { 
+//     opacity: 0;
+//     visibility: hidden; 
+// }
+// to { 
+//     opacity: 1;
+//     visibility: visible; 
+ 
+// }`;
+
+export const CloseModalAnimate = styled.div`
+    animation: 1.5s ${keyframes(zoomOut)};
+`;
 
 export const OpaqueCover = styled.div`
-    animation: ${fade} .7s;
+    animation: 1.0s ${keyframes(fadeInDownBig)};
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    
+         
 `;
 
 

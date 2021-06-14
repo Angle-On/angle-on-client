@@ -13,7 +13,7 @@ const Container = styled.div`
     `;
     
 const Button = styled.button`
-    min-width: 100px;
+    min-width: 150px;
     padding: 7px 14px;
     border-radius: 20px;
     border: 2px solid blue;
@@ -22,13 +22,21 @@ const Button = styled.button`
     font-size: 16px;
     cursor: pointer;
 
+    &:hover { 
+        background-color: blue;
+        color: white;
+        transform: scale(1.2)
+    }
+    &:click
+
 `;
+
+
 
 const ModalParent = ({ films_name, films_image, films_description, films_budget, films_url, films_genre }) => { 
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
-    console.log('in modal');
     setShowModal(prev => !prev); 
 
   };
