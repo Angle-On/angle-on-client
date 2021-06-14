@@ -35,7 +35,6 @@ export const OpaqueCover = styled.div`
     position: fixed;
     left: 50%;
     top: 50%;
-    
          
 `;
 
@@ -77,14 +76,22 @@ export const ModalContent = styled.div`
 
 
 export const DonateNowButton = styled.button`
-min-width: 100px;
-padding: 16px 32px;
+min-width: 150px;
+padding: 10px;
 border-radius: 4px;
 border: none;
 background-color: blue;
 color: white;
 font-size: 18px;
 cursor: pointer;
+margin-top: 50px;
+
+&:hover { 
+    background-color: blue;
+    color: white;
+    transform: scale(1.1)
+}
+
 `;
 
 

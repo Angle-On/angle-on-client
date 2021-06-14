@@ -49,6 +49,8 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
                 <a href={films_url}>Short Film Link</a>
                 <DonateNowButton onClick={() => donateNow()}>Donate Now!</DonateNowButton>
               </ModalContent>
+              <br/>
+            
               <CloseModalButton aria-label="Close Modal" onClick={() => setShowModal(prev => !prev)}/>
             </ModalWrapper>
           </OpaqueCover>

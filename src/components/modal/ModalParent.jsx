@@ -27,7 +27,6 @@ const Button = styled.button`
         color: white;
         transform: scale(1.2)
     }
-    &:click
 
 `;
 
