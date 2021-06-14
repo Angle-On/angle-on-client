@@ -1,34 +1,9 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Modal from '../modal/Modal';
+import { Container, Button } from './ModalStyling';
 
-const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
-    
-    `;
-    
-const Button = styled.button`
-    min-width: 150px;
-    padding: 7px 14px;
-    border-radius: 20px;
-    border: 2px solid blue;
-    backgroud: transparent;
-    color: blue;
-    font-size: 16px;
-    cursor: pointer;
-
-    &:hover { 
-        background-color: blue;
-        color: white;
-        transform: scale(1.2)
-    }
-
-`;
 
 
 
