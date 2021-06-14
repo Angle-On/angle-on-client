@@ -22,95 +22,79 @@ const VideoCheckbox = withStyles({
 })((props) => <Checkbox color="default" {...props} />);
 
 
-export default function CheckboxLabels() {
-  const [state, setState] = React.useState({
-    Documentary: false,
-    Romance: false,
-    Comedy: false,
-    Horror: false,
-    Thriller: false,
-    Drama: false,
-    Fantasy: false,
-    Mystery: false,
-    Western: false,
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-    console.log(event.target.name)
-  };
+export default function CheckboxLabels({ handleGenreChange, genre }) {
 
   return (
     <FormGroup column="true">
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="Documentary" checked={state.Documentary} 
-          onChange={handleChange}
+          name="Documentary" checked={genre.Documentary} 
+          onChange={handleGenreChange}
         />}
         label="Documentary"
       />
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="Romance" checked={state.Romance} 
-          onChange={handleChange}
+          name="Romance" checked={genre.Romance} 
+          onChange={handleGenreChange}
         />}
         label="Romance"
       />
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="Comedy" checked={state.Comedy} 
-          onChange={handleChange}
+          name="Comedy" checked={genre.Comedy} 
+          onChange={handleGenreChange}
         />}
         label="Comedy"
       />
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="Horror" checked={state.Horror} 
-          onChange={handleChange}
+          name="Horror" checked={genre.Horror} 
+          onChange={handleGenreChange}
         />}
         label= "Horror"
       />
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="Thriller" checked={state.Thriller} 
-          onChange={handleChange}
+          name="Thriller" checked={genre.Thriller} 
+          onChange={handleGenreChange}
         />}
         label="Thriller"
       />
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="Drama" checked={state.Drama} 
-          onChange={handleChange}
+          name="Drama" checked={genre.Drama} 
+          onChange={handleGenreChange}
         />}
         label="Drama"
       />
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="Fantasy" checked={state.Fantasy} 
-          onChange={handleChange}
+          name="Fantasy" checked={genre.Fantasy} 
+          onChange={handleGenreChange}
         />}
         label="Fantasy"
       />
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="Mystery" checked={state.Mystery} 
-          onChange={handleChange}
+          name="Mystery" checked={genre.Mystery} 
+          onChange={handleGenreChange}
         />}
         label="Mystery"
       />
       <FormControlLabel
         control={<VideoCheckbox icon={<VideocamOutlinedIcon />} 
           checkedIcon={<VideocamIcon />} 
-          name="Western" checked={state.Western} 
-          onChange={handleChange}
+          name="Western" checked={genre.Western} 
+          onChange={handleGenreChange}
         />}
         label="Western"
       />

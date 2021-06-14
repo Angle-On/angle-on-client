@@ -11,13 +11,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TextArea() {
+export default function TextArea({ handleDescriptionChange, description }) {
   const classes = useStyles();
-  const [value, setValue] = React.useState('');
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
 
   return (
     <div className={classes.root} noValidate autoComplete="off">
@@ -27,8 +22,8 @@ export default function TextArea() {
         multiline
         rows={4}
         variant="outlined"
-        onChange={handleChange}
-        value={value}
+        onChange={handleDescriptionChange}
+        description={description}
       />
     </div>
   );
