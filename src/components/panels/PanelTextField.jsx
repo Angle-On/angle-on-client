@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function PanelTextField({ first_name, last_name, email },) {
+export default function PanelTextField({ first_name, last_name, email }) {
   const classes = useStyles();
   const [edit, setEdit] = useState(true); 
 
