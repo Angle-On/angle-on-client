@@ -1,8 +1,7 @@
 /* eslint-disable max-len */
 import React, { useRef } from 'react';
-import { useSpring, animated } from 'react-spring';
 import PropTypes from 'prop-types';
-import { Background, ModalWrapper, ModalImg, ModalContent, DonateNowButton, CloseModalButton } from './ModalStyling'; 
+import { Background, ModalWrapper, ModalImg, ModalContent, DonateNowButton, CloseModalButton, OpaqueCover } from './ModalStyling'; 
 
 
 
@@ -10,13 +9,6 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
  
   const modalRef = useRef();
 
-  const animation = useSpring({
-    config: { 
-      duration: 250
-    },
-    opacity: showModal ? 1 : 0,
-    trasnform: showModal ? 'translateY(0%)' : 'translateY(-100%)'
-  });
 
   const closeModal = (e) => { 
     if(modalRef.current === e.target) { 
@@ -24,6 +16,7 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
     }
   };
 
+  
   const donateNow = () => { 
     //link to take you to donation page??
     console.log('hello! In the button!');
@@ -34,7 +27,7 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
     <>
       { showModal ? (
         <Background ref={modalRef} onClick={closeModal}>
-          <animated.div style={animation}>
+          <OpaqueCover>
             <ModalWrapper showModal={showModal}>
               <ModalImg 
                 src={films_image} 
@@ -49,7 +42,7 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
               </ModalContent>
               <CloseModalButton aria-label="Close Modal" onClick={() => setShowModal(prev => !prev)}/>
             </ModalWrapper>
-          </animated.div>
+          </OpaqueCover>
         </Background>
       ) : null }
     </>

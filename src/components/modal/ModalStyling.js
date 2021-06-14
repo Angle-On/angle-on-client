@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { MdClose } from 'react-icons/md';
 
 
@@ -11,6 +11,20 @@ export const Background = styled.div`
     align-items: center;
     position: relative;
     `;
+
+const fade = keyframes`
+from { 
+    opacity: 0;
+    visibility: hidden;    
+}
+to { 
+    opacity: 1;
+    visibility: visible;  
+}`;
+
+export const OpaqueCover = styled.div`
+    animation: ${fade} .7s;
+`;
 
 
 export const ModalWrapper = styled.div`
@@ -29,14 +43,7 @@ export const ModalWrapper = styled.div`
     transform: translate(-50%, -50%);
     margin: auto;
     `;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // position: fixed;
-    // left: 0;
-    // top: 0;
-    // right: 0;
-    // bottom: 0;
+
 
 export const ModalImg = styled.img`
     width: 100%;
