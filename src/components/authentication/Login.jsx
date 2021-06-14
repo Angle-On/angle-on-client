@@ -2,38 +2,8 @@
 import React from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { verifyToken } from '../../services/apiUtils';
-// import { useLocation } from 'react-router';
-
-
-
 
 const Login = () => { 
-  // const [uri, setUri] = useState(''); 
-  // const url = useLocation(); 
-
-
-  // const redirect = () => {
-
-  //   if(url === '/investor-registration') {
-  //     setUri('../../films/FilmListPage');  
-  //     return uri;
-  //   }
-  //   setUri('./FilmerApplication');  
-  //   return uri;
-  // }; 
-
-
-
-  // const responseGoogle = (response) => { 
-  //   const obj =  {
-  //     last_name: response.profileObj.familyName,
-  //     first_name: response.profileObj.givenName,
-  //     email: response.profileObj.email,
-  //     image: response.profileObj.imageUrl     
-  //   };
-  //   console.log(obj);
-  //   return obj;
-  // };
 
   async function responseGoogle(response) {
     const verify = await verifyToken(response);
