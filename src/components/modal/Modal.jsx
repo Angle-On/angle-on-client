@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React, { useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { 
   Background,
@@ -18,12 +18,28 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
  
   const modalRef = useRef();
 
-
+  //close modal with x in upper right-hand corner
   const closeModal = (e) => { 
     if(modalRef.current === e.target) { 
       setShowModal(false);
     }
   };
+
+  //close modal by pressing the esc key
+  const keyEscape = useCallback(
+    e => { 
+      if(e.key === 'Escape') { 
+        setShowModal(false);
+      }
+    },
+    [showModal, setShowModal]
+  );
+
+  useEffect(() => { 
+    document.addEventListener('keydown', keyEscape);
+    return () => document.removeEventListener('keydown', keyEscape);
+  }, [keyEscape]
+  );
 
   
   const donateNow = () => { 
@@ -48,9 +64,7 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
                 <p>Short Film Budget: ${films_budget}.00</p>
                 <a href={films_url}>Short Film Link</a>
                 <DonateNowButton onClick={() => donateNow()}>Donate Now!</DonateNowButton>
-              </ModalContent>
-              <br/>
-            
+              </ModalContent>            
               <CloseModalButton aria-label="Close Modal" onClick={() => setShowModal(prev => !prev)}/>
             </ModalWrapper>
           </OpaqueCover>
