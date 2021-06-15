@@ -94,8 +94,6 @@ const FilmerApplication = () => {
       fetch(`${URL}/api/v1/films`, {
         method: 'POST',
         headers: {
-          'Access-Control-Allow-Origin': true,
-          accept: 'application/json',
           'Accept-Language': 'en-US,en;q=0.8',
           'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
         },
