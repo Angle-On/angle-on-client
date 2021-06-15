@@ -28,11 +28,11 @@ function MainSection() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </MainP>
         <MainBtnWrapper>
-          <Button
+          <Button onClick={() => window.location.replace('/investor-registration')}
           >
             Investor LogIn {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
-          <Button
+          <Button onClick={() => window.location.replace('/filmer-registration')}
           >
             Filmmaker LogIn {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
