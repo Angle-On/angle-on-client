@@ -7,33 +7,8 @@ import { verifyDirectorToken } from '../../services/apiUtils';
 
 
 
-const Login = () => { 
-  // const [uri, setUri] = useState(''); 
-  // const url = useLocation(); 
+const DirectorLogin = () => { 
 
-
-  // const redirect = () => {
-
-  //   if(url === '/investor-registration') {
-  //     setUri('../../films/FilmListPage');  
-  //     return uri;
-  //   }
-  //   setUri('./FilmerApplication');  
-  //   return uri;
-  // }; 
-
-
-
-  // const responseGoogle = (response) => { 
-  //   const obj =  {
-  //     last_name: response.profileObj.familyName,
-  //     first_name: response.profileObj.givenName,
-  //     email: response.profileObj.email,
-  //     image: response.profileObj.imageUrl     
-  //   };
-  //   console.log(obj);
-  //   return obj;
-  // };
 
   async function responseGoogle(response) {
     const verify = await verifyDirectorToken(response);
@@ -52,7 +27,6 @@ const Login = () => {
         cookiePolicy={'single_host_origin'}
         uxMode="redirect"
         redirectUri="http://localhost:3000/filmer-panel"
-        // {(url === '/filmer-registration')? "http://localhost:3000/filmer-application" : "http://localhost:3000/FilmsListPage"}
       />
 
       <GoogleLogout
@@ -65,4 +39,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default DirectorLogin;
