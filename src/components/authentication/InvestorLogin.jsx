@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import { verifyToken } from '../../services/apiUtils';
+import { verifyInvestorToken } from '../../services/apiUtils';
 // import { useLocation } from 'react-router';
 
 
@@ -36,7 +36,7 @@ const Login = () => {
   // };
 
   async function responseGoogle(response) {
-    const verify = await verifyToken(response);
+    const verify = await verifyInvestorToken(response);
     
     console.log(response);
   }
