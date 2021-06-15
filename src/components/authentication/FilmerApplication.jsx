@@ -79,53 +79,50 @@ const FilmerApplication = () => {
     e.preventDefault();
     console.log(selectedImageFile, 'selected image file'); 
     const data = new FormData(e.target); // If file selected
-    if(true) {
-      // data.append('image', selectedImageFile, selectedImageFile.name);
-      // data.append('filmName', title);
-      // data.append('filmBudget', budget);
-      // data.append('filmUrl', trailer);
-      // data.append('filmGenre', JSON.stringify(genre));
-      // data.append('filmDescription', description);
-      console.log(data, 'WHY ARE YOU EMPTY');
+    // data.append('image', selectedImageFile, selectedImageFile.name);
+    // data.append('filmName', title);
+    // data.append('filmBudget', budget);
+    // data.append('filmUrl', trailer);
+    data.append('filmGenre', JSON.stringify(genre));
+    // data.append('filmDescription', description);
+    console.log(data, 'WHY ARE YOU EMPTY');
       
-      const DEVURL = 'https://angle-on.herokuapp.com';
-      const localURL = 'http://localhost:7890';
-      const URL = DEVURL;
-      // axios
-      // axios.defaults.withCredentials = true
-      fetch(`${URL}/api/v1/films`, {
-        method: 'POST',
-        // headers: {
-        //   'Accept-Language': 'en-US,en;q=0.8',
-        //   'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
-        // },
-        body: data,
-        // withCredentials: true,
-      })
-        .then((response) => {
-          if(200 === response.status) {
-            if(response.data.error) {
-              if('LIMIT_FILE_SIZE' === response.data.error.code) {
-                console.log('error');
-              } else {
-                console.log(response.data); 
-              }
+    const DEVURL = 'https://angle-on.herokuapp.com';
+    const localURL = 'http://localhost:7890';
+    const URL = DEVURL;
+    // axios
+    // axios.defaults.withCredentials = true
+    fetch(`${URL}/api/v1/films`, {
+      method: 'POST',
+      // headers: {
+      //   'Accept-Language': 'en-US,en;q=0.8',
+      //   'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+      // },
+      body: data,
+      // withCredentials: true,
+    })
+      .then((response) => {
+        if(200 === response.status) {
+          if(response.data.error) {
+            if('LIMIT_FILE_SIZE' === response.data.error.code) {
+              console.log('error');
             } else {
-              const fileName = response.data;
-              console.log('HELLO FILENAME', fileName);
-              setAwsFile(fileName); 
-
+              console.log(response.data); 
             }
+          } else {
+            const fileName = response.data;
+            console.log('HELLO FILENAME', fileName);
+            setAwsFile(fileName); 
+
           }
-        })
-        .finally(setData(data))
-        .catch((error) => {
-          console.log(setData, 'SETDATA');
-          console.log(error);
-        });
-    } else {
-      console.log('no file detected');
-    }
+        }
+      })
+      .finally(setData(data))
+      .catch((error) => {
+        console.log(setData, 'SETDATA');
+        console.log(error);
+      });
+   
     // window.location.replace('/filmer-panel');
   }; 
 
