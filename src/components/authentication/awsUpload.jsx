@@ -22,7 +22,7 @@ const AWSUpload = ({ singleFileChangeHandler }) => {
     <div>
       <div>
         <p>Please upload an image for your profile</p>
-        <input type="file" name="files" onChange={singleFileChangeHandler}/>
+        <input type="file" name="image"/>
       </div>
     </div>
   );

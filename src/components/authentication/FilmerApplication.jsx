@@ -75,19 +75,21 @@ const FilmerApplication = () => {
     setGenre({ ...genre, [event.target.name]: event.target.checked });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     console.log(selectedImageFile, 'selected image file'); 
-    const data = new FormData(); // If file selected
-    if(selectedImageFile) {
-      data.append('image', selectedImageFile, selectedImageFile.name);
-      data.append('filmName', title);
-      data.append('filmBudget', budget);
-      data.append('filmUrl', trailer);
-      data.append('filmGenre', JSON.stringify(genre));
-      data.append('filmDescription', description);
+    const data = new FormData(e.target); // If file selected
+    if(true) {
+      // data.append('image', selectedImageFile, selectedImageFile.name);
+      // data.append('filmName', title);
+      // data.append('filmBudget', budget);
+      // data.append('filmUrl', trailer);
+      // data.append('filmGenre', JSON.stringify(genre));
+      // data.append('filmDescription', description);
       console.log(data, 'WHY ARE YOU EMPTY');
       
-      const DEVURL = 'https://secure-taiga-78931.herokuapp.com';
+      const DEVURL = 'https://angle-on.herokuapp.com';
+      const localURL = 'http://localhost:7890';
       const URL = DEVURL;
       // axios
       // axios.defaults.withCredentials = true
@@ -133,21 +135,20 @@ const FilmerApplication = () => {
   return (
     <div>
       <h1>Short Film Application</h1>
-      <form className={classes.root}>
-        <TextField id="standard-basic" label="Title" onChange={handleTitleChange}/>
-        <TextField id="standard-basic" label="$ Budget" type="number" onChange={handleBudgetChange}/>
-        <TextField id="standard-basic" label="Trailer URL" onChange={handleTrailerChange}/>
+      <form className={classes.root} onSubmit={handleSubmit}>
+        <TextField name="filmName" id="standard-basic" label="Title" onChange={handleTitleChange}/>
+        <TextField name="filmBudget" id="standard-basic" label="$ Budget" type="number" onChange={handleBudgetChange}/>
+        <TextField name="filmUrl" id="standard-basic" label="Trailer URL" onChange={handleTrailerChange}/>
+        <TextArea name="filmDescription" handleDescriptionChange={handleDescriptionChange} description={description}/>
 
-        <TextArea handleDescriptionChange={handleDescriptionChange} description={description}/>
-
-        <AWSUpload 
+        {/* <AWSUpload 
           singleFileChangeHandler={singleFileChangeHandler}
-          // singleUploadHandler={singleUploadHandler}
           selectedFile={selectedImageFile}
-        />
+        /> */}
+        <input type="file" name="image"></input>
       
         <Checkbox handleGenreChange={handleGenreChange} genre={genre}/> 
-        <SubmitButton handleSubmit={handleSubmit}/>
+        <SubmitButton/>
       </form>
     </div>
   );
