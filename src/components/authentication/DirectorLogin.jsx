@@ -50,9 +50,8 @@ const Login = () => {
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
-        // uxMode="redirect"
-        // redirectUri = 
-        // "http://localhost:3000/film-application"
+        uxMode="redirect"
+        redirectUri="http://localhost:3000/filmer-panel"
         // {(url === '/filmer-registration')? "http://localhost:3000/filmer-application" : "http://localhost:3000/FilmsListPage"}
       />
 
