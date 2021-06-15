@@ -1,11 +1,11 @@
 import React from 'react';
-import Login from './Login';
+import DirectorLogin from './DirectorLogin';
 
 const FilmerRegistration = () => { 
   return (
     <div>
       <h2>Filmer Registration</h2>
-      <Login/>
+      <DirectorLogin/>
     </div>
   );
 };
