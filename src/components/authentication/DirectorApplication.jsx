@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const FilmerApplication = () => {
+const DirectorApplication = () => {
   const classes = useStyles();
   const [title, setTitle] = useState('');
   const [budget, setBudget] = useState('');
@@ -206,4 +206,4 @@ const FilmerApplication = () => {
     </div>
   );
 }; 
-export default FilmerApplication;
+export default DirectorApplication;

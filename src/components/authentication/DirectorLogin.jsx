@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import { verifyToken } from '../../services/apiUtils';
+import { verifyDirectorToken } from '../../services/apiUtils';
 
 const Login = () => { 
 
   async function responseGoogle(response) {
-    const verify = await verifyToken(response);
+    const verify = await verifyDirectorToken(response);
     
     console.log(response);
   }

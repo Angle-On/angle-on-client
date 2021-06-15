@@ -119,7 +119,7 @@ export const getFilmsById = async (id) => {
 };
 
 //google oAuth
-export const verifyToken = async ({ profileObj, tokenId }) => {
+export const verifyDirectorToken = async ({ profileObj, tokenId }) => {
   const response = await fetch('http://localhost:7890/api/v1/directors/auth', {
     credentials: 'include',
     method: 'POST',
@@ -136,6 +136,26 @@ export const verifyToken = async ({ profileObj, tokenId }) => {
   });
   return response;
 };
+
+//google oAuth
+export const verifyInvestorToken = async ({ profileObj, tokenId }) => {
+  const response = await fetch('http://localhost:7890/api/v1/investors/auth', {
+    credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      firstName: profileObj.givenName,
+      lastName: profileObj.familyName,
+      email: profileObj.email,
+      directorImg: profileObj.imageUrl,
+      tokenId,
+    }),
+  });
+  return response;
+};
+
 
 //film application
 export const sendFilm = async ({ filmObj }) => {
