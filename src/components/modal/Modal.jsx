@@ -1,29 +1,46 @@
 /* eslint-disable max-len */
-import React, { useRef } from 'react';
-import { useSpring, animated } from 'react-spring';
+import React, { useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Background, ModalWrapper, ModalImg, ModalContent, DonateNowButton, CloseModalButton } from './ModalStyling'; 
+import { 
+  Background,
+  ModalWrapper,
+  ModalImg,
+  ModalContent, 
+  DonateNowButton, 
+  CloseModalButton, 
+  OpaqueCover,
+} from './ModalStyling'; 
 
 
 
-const Modal = ({ showModal, setShowModal, films_description, films_image, films_name, films_budget, films_url, }) => { 
+const Modal = ({ showModal, setShowModal, films_description, films_image, films_name, films_budget, films_url, director_name }) => { 
  
   const modalRef = useRef();
 
-  const animation = useSpring({
-    config: { 
-      duration: 250
-    },
-    opacity: showModal ? 1 : 0,
-    trasnform: showModal ? 'translateY(0%)' : 'translateY(-100%)'
-  });
-
+  //close modal with x in upper right-hand corner
   const closeModal = (e) => { 
     if(modalRef.current === e.target) { 
       setShowModal(false);
     }
   };
 
+  //close modal by pressing the esc key
+  const keyEscape = useCallback(
+    e => { 
+      if(e.key === 'Escape') { 
+        setShowModal(false);
+      }
+    },
+    [showModal, setShowModal]
+  );
+
+  useEffect(() => { 
+    document.addEventListener('keydown', keyEscape);
+    return () => document.removeEventListener('keydown', keyEscape);
+  }, [keyEscape]
+  );
+
+  
   const donateNow = () => { 
     //link to take you to donation page??
     console.log('hello! In the button!');
@@ -34,7 +51,7 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
     <>
       { showModal ? (
         <Background ref={modalRef} onClick={closeModal}>
-          <animated.div style={animation}>
+          <OpaqueCover>
             <ModalWrapper showModal={showModal}>
               <ModalImg 
                 src={films_image} 
@@ -42,14 +59,15 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
               />
               <ModalContent>
                 <h1>{films_name}</h1>
-                <p>{films_description}</p>
-                <p>${films_budget}. 00</p>
+                <h4>Created By: {director_name}</h4>
+                <p>Summary: {films_description}</p>
+                <p>Short Film Budget: ${films_budget}.00</p>
                 <a href={films_url}>Short Film Link</a>
                 <DonateNowButton onClick={() => donateNow()}>Donate Now!</DonateNowButton>
-              </ModalContent>
+              </ModalContent>            
               <CloseModalButton aria-label="Close Modal" onClick={() => setShowModal(prev => !prev)}/>
             </ModalWrapper>
-          </animated.div>
+          </OpaqueCover>
         </Background>
       ) : null }
     </>
@@ -65,6 +83,7 @@ Modal.propTypes = {
   films_budget: PropTypes.number.isRequired,
   films_url: PropTypes.string.isRequired,
   films_genre: PropTypes.array.isRequired,
+  director_name: PropTypes.string.isRequired
 };
 
 export default Modal;

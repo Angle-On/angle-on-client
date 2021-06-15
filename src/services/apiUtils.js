@@ -25,6 +25,7 @@ export const getFilms = async () => {
 
   return films.map((film) => ({
     films_id: film.films_id,
+    director_name: film.director_name,
     director_id: film.director_id,
     films_name: film.films_name,
     films_image: film.films_image,
