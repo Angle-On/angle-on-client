@@ -55,10 +55,6 @@ const FilmerApplication = () => {
     setSelectedImageFile(imageFile);
   };
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
   const handleBudgetChange = (event) => {
     setBudget(event.target.value);
   };
