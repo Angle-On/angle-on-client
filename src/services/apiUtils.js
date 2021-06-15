@@ -117,7 +117,6 @@ export const getFilmsById = async (id) => {
 
 //google oAuth
 export const verifyDirectorToken = async ({ profileObj, tokenId }) => {
-
   const response = await fetch(`${URL}/api/v1/directors/auth`, {
     credentials: 'include',
     method: 'POST',
@@ -161,12 +160,11 @@ export const sendFilm = async ({ filmObj }) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      // 'content-type': 'application/x-www-form-urlencoded',  
-      'Access-Control-Allow-Origin': '*'
+      // 'content-type': 'application/x-www-form-urlencoded',
+      'Access-Control-Allow-Origin': '*',
     },
     body: JSON.stringify(filmObj),
   });
   console.log(response);
   return response;
 };
-

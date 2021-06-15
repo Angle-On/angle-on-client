@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,14 +10,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SubmitButton({ handleSubmit }) {
+export default function SubmitButton() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Button variant="contained" color="primary" onClick={handleSubmit}>
+      <button variant="contained" color="primary">
         Submit
-      </Button>
+      </button>
     </div>
   );
 }
