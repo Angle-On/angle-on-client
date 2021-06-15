@@ -89,16 +89,19 @@ const FilmerApplication = () => {
       
       const DEVURL = 'https://secure-taiga-78931.herokuapp.com';
       const URL = DEVURL;
-      axios
-        .post(`${URL}/api/v1/films`, data, {
-          headers: {
-            'Access-Control-Allow-Origin': true,
-            accept: 'application/json',
-            'Accept-Language': 'en-US,en;q=0.8',
-            'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
-          },
-          // withCredentials: true,
-        })
+      // axios
+      // axios.defaults.withCredentials = true
+      fetch(`${URL}/api/v1/films`, {
+        method: 'POST',
+        headers: {
+          'Access-Control-Allow-Origin': true,
+          accept: 'application/json',
+          'Accept-Language': 'en-US,en;q=0.8',
+          'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+        },
+        body: data,
+        // withCredentials: true,
+      })
         .then((response) => {
           if(200 === response.status) {
             if(response.data.error) {
