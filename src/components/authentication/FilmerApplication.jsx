@@ -179,6 +179,7 @@ const FilmerApplication = () => {
     // };
     // console.log(filmObj);
     // await sendFilm(filmObj); 
+    window.location.replace('/filmer-panel');
   }; 
 
 
