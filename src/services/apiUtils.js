@@ -1,7 +1,6 @@
 import FilmData from '../components/films/mockDataFilm';
 
-// eslint-disable-next-line max-len
-const DEVURL = 'https://cors-anywhere.herokuapp.com/https://secure-taiga-78931.herokuapp.com';
+const DEVURL = 'https://secure-taiga-78931.herokuapp.com';
 const URL = DEVURL;
 
 export const getCharacters = async () => {
