@@ -122,7 +122,6 @@ const FilmerApplication = () => {
     } else {
       console.log('no file detected');
     }
-
     // window.location.replace('/filmer-panel');
   }; 
 
