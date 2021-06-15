@@ -95,6 +95,7 @@ const FilmerApplication = () => {
       axios
       //change name
         .post('http://localhost:7890/api/v1/films', data, {
+          mode: 'no-cors',
           headers: {
             accept: 'application/json',
             'Accept-Language': 'en-US,en;q=0.8',
