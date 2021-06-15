@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React, { useState } from 'react';
 import { Button } from './ButtonElements';
 
@@ -30,12 +29,10 @@ function MainSection() {
         </MainP>
         <MainBtnWrapper>
           <Button
-            onClick={() => window.location.replace('/investor-registration')}
           >
             Investor LogIn {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
           <Button
-            onClick={() => window.location.replace('/filmer-registration')}
           >
             Filmmaker LogIn {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
