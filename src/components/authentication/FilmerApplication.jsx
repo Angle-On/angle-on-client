@@ -97,7 +97,7 @@ const FilmerApplication = () => {
             'Accept-Language': 'en-US,en;q=0.8',
             'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
           },
-          withCredentials: true,
+          // withCredentials: true,
         })
         .then((response) => {
           if(200 === response.status) {
