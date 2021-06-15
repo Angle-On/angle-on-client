@@ -5,7 +5,7 @@ import axios from 'axios';
 export const singleFileUploadHandler = ({ selectedFile }) => {
   console.log(selectedFile, 'single file upload aws');
   const data = new FormData(); // If file selected
-  const DEVURL = 'https://secure-taiga-78931.herokuapp.com';
+  const DEVURL = 'https://cors-anywhere.herokuapp.com/https://secure-taiga-78931.herokuapp.com';
   const URL = DEVURL;
 
   if (selectedFile) {

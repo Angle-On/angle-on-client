@@ -86,7 +86,7 @@ const FilmerApplication = () => {
       data.append('filmDescription', description);
       console.log(data, 'WHY ARE YOU EMPTY');
       
-      const DEVURL = 'https://secure-taiga-78931.herokuapp.com';
+      const DEVURL = 'https://cors-anywhere.herokuapp.com/https://secure-taiga-78931.herokuapp.com';
       const URL = DEVURL;
       axios
       //change name
