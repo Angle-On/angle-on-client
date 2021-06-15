@@ -6,9 +6,6 @@ import Checkbox from './Checkbox';
 import SubmitButton from './SubmitButton';
 import TextArea from './TextArea';
 import './form.css';
-import axios from 'axios';
-import AWSUpload from './awsUpload';
-import { AllInclusiveRounded } from '@material-ui/icons';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -78,28 +75,20 @@ const FilmerApplication = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(selectedImageFile, 'selected image file'); 
+
     const data = new FormData(e.target); // If file selected
-    // data.append('image', selectedImageFile, selectedImageFile.name);
-    // data.append('filmName', title);
-    // data.append('filmBudget', budget);
-    // data.append('filmUrl', trailer);
     data.append('filmGenre', JSON.stringify(genre));
-    // data.append('filmDescription', description);
+
     console.log(data, 'WHY ARE YOU EMPTY');
       
     const DEVURL = 'https://angle-on.herokuapp.com';
     const localURL = 'http://localhost:7890';
     const URL = DEVURL;
-    // axios
-    // axios.defaults.withCredentials = true
+
+
     fetch(`${URL}/api/v1/films`, {
       method: 'POST',
-      // headers: {
-      //   'Accept-Language': 'en-US,en;q=0.8',
-      //   'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
-      // },
       body: data,
-      // withCredentials: true,
     })
       .then((response) => {
         if(200 === response.status) {
@@ -123,7 +112,6 @@ const FilmerApplication = () => {
         console.log(error);
       });
    
-    // window.location.replace('/filmer-panel');
   }; 
 
 
@@ -138,10 +126,6 @@ const FilmerApplication = () => {
         <TextField name="filmUrl" id="standard-basic" label="Trailer URL" onChange={handleTrailerChange}/>
         <TextArea name="filmDescription" handleDescriptionChange={handleDescriptionChange} description={description}/>
 
-        {/* <AWSUpload 
-          singleFileChangeHandler={singleFileChangeHandler}
-          selectedFile={selectedImageFile}
-        /> */}
         <input type="file" name="image"></input>
       
         <Checkbox handleGenreChange={handleGenreChange} genre={genre}/> 
