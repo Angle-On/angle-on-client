@@ -1,5 +1,8 @@
 import FilmData from '../components/films/mockDataFilm';
 
+const DEVURL = 'https://secure-taiga-78931.herokuapp.com';
+const URL = DEVURL;
+
 export const getCharacters = async () => {
   const res = await fetch(
     'https://hey-arnold-api.herokuapp.com/api/v1/characters'
@@ -121,7 +124,8 @@ export const getFilmsById = async (id) => {
 
 //google oAuth
 export const verifyDirectorToken = async ({ profileObj, tokenId }) => {
-  const response = await fetch('http://localhost:7890/api/v1/directors/auth', {
+
+  const response = await fetch(`${URL}/api/v1/directors/auth`, {
     credentials: 'include',
     method: 'POST',
     headers: {
@@ -140,7 +144,7 @@ export const verifyDirectorToken = async ({ profileObj, tokenId }) => {
 
 //google oAuth
 export const verifyInvestorToken = async ({ profileObj, tokenId }) => {
-  const response = await fetch('http://localhost:7890/api/v1/investors/auth', {
+  const response = await fetch(`${URL}/api/v1/investors/auth`, {
     credentials: 'include',
     method: 'POST',
     headers: {
@@ -159,7 +163,7 @@ export const verifyInvestorToken = async ({ profileObj, tokenId }) => {
 
 //film application
 export const sendFilm = async ({ filmObj }) => {
-  const response = await fetch('http://localhost:7890/api/v1/films', {
+  const response = await fetch(`${URL}/api/v1/films`, {
     credentials: 'include',
     method: 'POST',
     headers: {
