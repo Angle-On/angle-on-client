@@ -160,8 +160,8 @@ export const sendFilm = async ({ filmObj }) => {
     credentials: 'include',
     method: 'POST',
     headers: {
-      // 'Content-Type': 'application/json',
-      'content-type': 'application/x-www-form-urlencoded',  
+      'Content-Type': 'application/json',
+      // 'content-type': 'application/x-www-form-urlencoded',  
       'Access-Control-Allow-Origin': '*'
     },
     body: JSON.stringify(filmObj),
