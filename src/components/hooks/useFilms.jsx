@@ -4,6 +4,7 @@ import { getFilms } from '../../services/apiUtils';
 const useFilms = () => { 
   const [films, setFilms] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
 
   useEffect(() => { 
     getFilms()
@@ -12,7 +13,18 @@ const useFilms = () => {
 
   }, []);
 
-  return { films, loading };
+  const handleGenreSearch = (e) => { 
+    console.log(e.target.value);
+    setSearch(e.target.value);
+  };
+
+
+  // const filteredFilms = films.filter(film => {
+  //   return film.films_genre.toLowerCase().includes(search.toLowerCase());
+  // });
+
+  return { films, loading, search, handleGenreSearch };
+  // filteredFilms
 
 };
 

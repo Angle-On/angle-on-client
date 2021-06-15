@@ -1,11 +1,11 @@
 import React from 'react';
-import Login from './Login';
+import InvestorLogin from './InvestorLogin';
 
 const InvestorRegistration = () => { 
   return (
     <div>
       <h2>Investor Registration</h2>
-      <Login/>
+      <InvestorLogin/>
     </div>
   );
 };

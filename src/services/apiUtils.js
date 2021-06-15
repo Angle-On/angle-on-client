@@ -1,5 +1,8 @@
 import FilmData from '../components/films/mockDataFilm';
 
+const DEVURL = 'https://secure-taiga-78931.herokuapp.com';
+const URL = DEVURL;
+
 export const getCharacters = async () => {
   const res = await fetch(
     'https://hey-arnold-api.herokuapp.com/api/v1/characters'
@@ -15,16 +18,11 @@ export const getCharacters = async () => {
 };
 
 export const getFilms = async () => {
-  // const res = await fetch(
-  //   'https://hey-arnold-api.herokuapp.com/api/v1/characters'
-  // );
-
-  // const characters = await res.json();
-
   const films = FilmData;
 
   return films.map((film) => ({
     films_id: film.films_id,
+    director_name: film.director_name,
     director_id: film.director_id,
     films_name: film.films_name,
     films_image: film.films_image,
@@ -79,7 +77,6 @@ export const deleteInvestorById = async (id) => {
 };
 
 //filmer
-
 export const getFilmerById = async () => {
   const res = await fetch(`${URL}/filmers/{id}`);
 
@@ -116,4 +113,58 @@ export const getFilmsById = async (id) => {
   const films = await res.json();
 
   return films;
+};
+
+//google oAuth
+export const verifyDirectorToken = async ({ profileObj, tokenId }) => {
+  const response = await fetch(`${URL}/api/v1/directors/auth`, {
+    credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      firstName: profileObj.givenName,
+      lastName: profileObj.familyName,
+      email: profileObj.email,
+      directorImg: profileObj.imageUrl,
+      tokenId,
+    }),
+  });
+  return response;
+};
+
+//google oAuth
+export const verifyInvestorToken = async ({ profileObj, tokenId }) => {
+  const response = await fetch(`${URL}/api/v1/investors/auth`, {
+    credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      firstName: profileObj.givenName,
+      lastName: profileObj.familyName,
+      email: profileObj.email,
+      directorImg: profileObj.imageUrl,
+      tokenId,
+    }),
+  });
+  return response;
+};
+
+//film application
+export const sendFilm = async ({ filmObj }) => {
+  const response = await fetch(`${URL}/api/v1/films`, {
+    credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      // 'content-type': 'application/x-www-form-urlencoded',
+      'Access-Control-Allow-Origin': '*',
+    },
+    body: JSON.stringify(filmObj),
+  });
+  console.log(response);
+  return response;
 };

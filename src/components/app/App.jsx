@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import LandingPage from '../home/LandingPage';
+import LandingPage from '../home/index';
 import FilmerRegistration from '../authentication/FilmerRegistration';
 import InvestorRegistration from '../authentication/InvestorRegistration';
 import FilmsListPage from '../films/FilmsListPage';
@@ -10,6 +10,7 @@ import FilmerApplication from '../authentication/FilmerApplication';
 import FilmerPanel from '../panels/FilmerPanel'; 
 import InvestorPanel from '../panels/InvestorPanel'; 
 import NavigationDrawer from '../navigation/NavigationDrawer';
+import './App.css';
 import ModalParent from '../modal/ModalParent';
 
 export default function App() {

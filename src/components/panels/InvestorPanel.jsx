@@ -19,6 +19,7 @@ const InvestorPanel = () => {
       <DonationTable/> 
       <DeleteProfileButton /> 
       <p>Donations will not be refunded, please contact support@angle-on.com if you have further questions</p>
+      <button onClick={() => window.location.replace('/films')}>Discover New Talent!</button>
       
     </>
   );

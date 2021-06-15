@@ -1,7 +1,8 @@
 import React from 'react';
 import useFilms from '../hooks/useFilms';
 import Film from '../films/Film';
-import styles from './films.css';
+import { ShortFilms } from './FilmElements';
+import SearchBox from '../search/SearchBox'; 
 
 const FilmsListPage = () => { 
 
@@ -10,13 +11,17 @@ const FilmsListPage = () => {
   const shortFilms = films.map(film => (<li key={film.films_id}>
     <Film {...film}/>
   </li>));
-        
+
+
     
   if(loading) return <h2>Loading...</h2>;
-  return ( 
-    <div className={styles.shortFilms}>
+  return (<div>
+    <SearchBox
+      shortFilms={shortFilms}/>
+    <ShortFilms>
       {shortFilms}
-    </div>
+    </ShortFilms>
+  </div>
   );
 };
 
