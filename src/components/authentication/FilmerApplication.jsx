@@ -73,6 +73,7 @@ const FilmerApplication = () => {
   //           'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
   //         },
   //       })
+  
   //       .then((response) => {
   //         if (200 === response.status) {
   //           // If file size is larger than expected.
