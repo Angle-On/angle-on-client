@@ -9,12 +9,11 @@ import {
   DonateNowButton, 
   CloseModalButton, 
   OpaqueCover,
-  CloseModalAnimate
 } from './ModalStyling'; 
 
 
 
-const Modal = ({ showModal, setShowModal, films_description, films_image, films_name, films_budget, films_url, }) => { 
+const Modal = ({ showModal, setShowModal, films_description, films_image, films_name, films_budget, films_url, director_name }) => { 
  
   const modalRef = useRef();
 
@@ -60,7 +59,8 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
               />
               <ModalContent>
                 <h1>{films_name}</h1>
-                <p>{films_description}</p>
+                <h4>Created By: {director_name}</h4>
+                <p>Summary: {films_description}</p>
                 <p>Short Film Budget: ${films_budget}.00</p>
                 <a href={films_url}>Short Film Link</a>
                 <DonateNowButton onClick={() => donateNow()}>Donate Now!</DonateNowButton>
@@ -83,6 +83,7 @@ Modal.propTypes = {
   films_budget: PropTypes.number.isRequired,
   films_url: PropTypes.string.isRequired,
   films_genre: PropTypes.array.isRequired,
+  director_name: PropTypes.string.isRequired
 };
 
 export default Modal;

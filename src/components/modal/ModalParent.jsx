@@ -7,7 +7,13 @@ import { Container, Button } from './ModalStyling';
 
 
 
-const ModalParent = ({ films_name, films_image, films_description, films_budget, films_url, films_genre }) => { 
+const ModalParent = ({ films_name,
+  films_image,
+  films_description,
+  films_budget,
+  films_url, films_genre,
+  director_name
+}) => { 
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
@@ -28,6 +34,7 @@ const ModalParent = ({ films_name, films_image, films_description, films_budget,
           films_budget={films_budget}
           films_url={films_url}
           films_genre={films_genre}
+          director_name={director_name}
         />
       </Container>
     </>
@@ -35,14 +42,13 @@ const ModalParent = ({ films_name, films_image, films_description, films_budget,
 };
 
 ModalParent.propTypes = { 
-  showModal: PropTypes.bool.isRequired,
-  setShowModal: PropTypes.func.isRequired,
   films_name: PropTypes.string.isRequired,
   films_image: PropTypes.string.isRequired,
   films_description: PropTypes.string.isRequired,
   films_budget: PropTypes.number.isRequired,
   films_url: PropTypes.string.isRequired,
   films_genre: PropTypes.array.isRequired,
+  director_name: PropTypes.string.isRequired
 };
 
 export default ModalParent;

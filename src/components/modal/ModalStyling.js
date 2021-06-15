@@ -15,15 +15,15 @@ export const Container = styled.div`
 export const Button = styled.button`
     min-width: 150px;
     padding: 7px 14px;
-    border-radius: 20px;
-    border: 2px solid blue;
+    border-radius: 4px;
+    border: 2px solid #3d5afe;
     backgroud: transparent;
-    color: blue;
+    color: #3d5afe;
     font-size: 16px;
     cursor: pointer;
 
     &:hover { 
-        background-color: blue;
+        background-color: #3d5afe;
         color: white;
         transform: scale(1.2)
     }
@@ -108,14 +108,14 @@ min-width: 150px;
 padding: 10px;
 border-radius: 4px;
 border: none;
-background-color: blue;
+background-color: #3d5afe;
 color: white;
 font-size: 18px;
 cursor: pointer;
 margin-top: 50px;
 
 &:hover { 
-    background-color: blue;
+    background-color: #3d5afe;
     color: white;
     transform: scale(1.1)
 }
