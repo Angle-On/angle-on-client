@@ -1,5 +1,36 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import fadeInDownBig from 'react-animations/lib/fade-in-down-big';
+import zoomOut from 'react-animations/lib/zoom-out';
 import { MdClose } from 'react-icons/md';
+
+
+export const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    
+    `;
+    
+export const Button = styled.button`
+    min-width: 150px;
+    padding: 7px 14px;
+    border-radius: 4px;
+    border: 2px solid #3d5afe;
+    backgroud: transparent;
+    color: #3d5afe;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover { 
+        background-color: #3d5afe;
+        color: white;
+        transform: scale(1.2)
+    }
+
+`;
+
+
 
 
 export const Background = styled.div`
@@ -11,6 +42,29 @@ export const Background = styled.div`
     align-items: center;
     position: relative;
     `;
+
+// const fade = keyframes`
+// from { 
+//     opacity: 0;
+//     visibility: hidden; 
+// }
+// to { 
+//     opacity: 1;
+//     visibility: visible; 
+ 
+// }`;
+
+export const CloseModalAnimate = styled.div`
+    animation: 1.5s ${keyframes(zoomOut)};
+`;
+
+export const OpaqueCover = styled.div`
+    animation: 1.0s ${keyframes(fadeInDownBig)};
+    position: fixed;
+    left: 50%;
+    top: 50%;
+         
+`;
 
 
 export const ModalWrapper = styled.div`
@@ -29,14 +83,7 @@ export const ModalWrapper = styled.div`
     transform: translate(-50%, -50%);
     margin: auto;
     `;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // position: fixed;
-    // left: 0;
-    // top: 0;
-    // right: 0;
-    // bottom: 0;
+
 
 export const ModalImg = styled.img`
     width: 100%;
@@ -55,26 +102,24 @@ export const ModalContent = styled.div`
     padding: 10px;
 `;
 
-// p { 
-//     margin-bottom: 1rem;
-// }
-
-// button { 
-//     padding: 10px 24px;
-//     background: #141414;
-//     color: #fff;
-//     border:none;
-// };
 
 export const DonateNowButton = styled.button`
-min-width: 100px;
-padding: 16px 32px;
+min-width: 150px;
+padding: 10px;
 border-radius: 4px;
 border: none;
-background-color: blue;
+background-color: #3d5afe;
 color: white;
 font-size: 18px;
 cursor: pointer;
+margin-top: 50px;
+
+&:hover { 
+    background-color: #3d5afe;
+    color: white;
+    transform: scale(1.1)
+}
+
 `;
 
 
