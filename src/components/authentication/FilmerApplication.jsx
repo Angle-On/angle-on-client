@@ -8,6 +8,7 @@ import TextArea from './TextArea';
 import './form.css';
 import axios from 'axios';
 import AWSUpload from './awsUpload';
+import { AllInclusiveRounded } from '@material-ui/icons';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -89,9 +90,9 @@ const FilmerApplication = () => {
       const DEVURL = 'https://secure-taiga-78931.herokuapp.com';
       const URL = DEVURL;
       axios
-      //change name
         .post(`${URL}/api/v1/films`, data, {
           headers: {
+            credentials: 'include',
             accept: 'application/json',
             'Accept-Language': 'en-US,en;q=0.8',
             'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
