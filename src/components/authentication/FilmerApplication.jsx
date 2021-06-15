@@ -12,7 +12,7 @@ import axios from 'axios';
 //aws
 import AWSUpload from './awsUpload';
 import { LocalConvenienceStoreOutlined } from '@material-ui/icons';
-// import { singleFileUploadHandler } from '../../services/awsUtils';
+import { singleFileUploadHandler } from '../../services/awsUtils';
 
 
 const useStyles = makeStyles((theme) => ({

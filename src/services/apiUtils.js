@@ -157,3 +157,16 @@ export const verifyInvestorToken = async ({ profileObj, tokenId }) => {
   return response;
 };
 
+//film application
+export const sendFilm = async ({ filmObj }) => {
+  const response = await fetch('http://localhost:7890/api/v1/films', {
+    credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(filmObj),
+  });
+  console.log(response);
+  return response;
+};
