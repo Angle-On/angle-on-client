@@ -90,9 +90,7 @@ const FilmerApplication = () => {
       const DEVURL = 'https://secure-taiga-78931.herokuapp.com';
       const URL = DEVURL;
       axios
-      const DEVURL = 'https://secure-taiga-78931.herokuapp.com';
-      const URL = DEVURL;
-          .post(`${URL}/api/v1/films/`, data, {
+        .post(`${URL}/api/v1/films/`, data, {
           headers: {
             accept: 'application/json',
             'Accept-Language': 'en-US,en;q=0.8',
