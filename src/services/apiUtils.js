@@ -18,12 +18,6 @@ export const getCharacters = async () => {
 };
 
 export const getFilms = async () => {
-  // const res = await fetch(
-  //   'https://hey-arnold-api.herokuapp.com/api/v1/characters'
-  // );
-
-  // const characters = await res.json();
-
   const films = FilmData;
 
   return films.map((film) => ({
@@ -83,7 +77,6 @@ export const deleteInvestorById = async (id) => {
 };
 
 //filmer
-
 export const getFilmerById = async () => {
   const res = await fetch(`${URL}/filmers/{id}`);
 
@@ -168,6 +161,7 @@ export const sendFilm = async ({ filmObj }) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
     },
     body: JSON.stringify(filmObj),
   });

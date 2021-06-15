@@ -6,13 +6,8 @@ import Checkbox from './Checkbox';
 import SubmitButton from './SubmitButton';
 import TextArea from './TextArea';
 import './form.css';
-import { sendFilm } from '../../services/apiUtils';
 import axios from 'axios';
-
-//aws
 import AWSUpload from './awsUpload';
-import { LocalConvenienceStoreOutlined } from '@material-ui/icons';
-import { singleFileUploadHandler } from '../../services/awsUtils';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -60,47 +55,6 @@ const FilmerApplication = () => {
     setSelectedImageFile(imageFile);
   };
 
-  // const singleUploadHandler = (event) => {
-  //   console.log(selectedImageFile, 'selected image file'); 
-  //   const data = new FormData(); // If file selected
-  //   if (selectedImageFile) {
-  //     data.append('image', selectedImageFile, selectedImageFile.name);
-  //     axios
-  //       .post('http://localhost:7890/api/v1/images/img-upload', data, {
-  //         headers: {
-  //           accept: 'application/json',
-  //           'Accept-Language': 'en-US,en;q=0.8',
-  //           'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
-  //         },
-  //       })
-  
-  //       .then((response) => {
-  //         if (200 === response.status) {
-  //           // If file size is larger than expected.
-  //           if (response.data.error) {
-  //             if ('LIMIT_FILE_SIZE' === response.data.error.code) {
-  //               console.log('error');
-  //             } else {
-  //               console.log(response.data); // If not the given file type
-  //             }
-  //           } else {
-  //             // Success
-  //             const fileName = response.data;
-  //             console.log('HELLO FILENAME', fileName);
-  //             setAwsFile(fileName); 
-
-  //           }
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   } else {
-  //     // if file not selected throw error
-  //     console.log('no file detected');
-  //   }
-  // };
-
 
   const handleBudgetChange = (event) => {
     setBudget(event.target.value);
@@ -141,19 +95,18 @@ const FilmerApplication = () => {
             accept: 'application/json',
             'Accept-Language': 'en-US,en;q=0.8',
             'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+            'Access-Control-Allow-Origin': '*'
           },
         })
         .then((response) => {
           if(200 === response.status) {
-            // If file size is larger than expected.
             if(response.data.error) {
               if('LIMIT_FILE_SIZE' === response.data.error.code) {
                 console.log('error');
               } else {
-                console.log(response.data); // If not the given file type
+                console.log(response.data); 
               }
             } else {
-              // Success
               const fileName = response.data;
               console.log('HELLO FILENAME', fileName);
               setAwsFile(fileName); 
@@ -167,20 +120,8 @@ const FilmerApplication = () => {
           console.log(error);
         });
     } else {
-      // if file not selected throw error
       console.log('no file detected');
     }
-
-
-    // const filmObj = {
-    //   filmName: title, 
-    //   filmDescription: description,
-    //   filmBudget: budget,
-    //   filmUrl: trailer, 
-    //   filmGenre: genre,
-    // };
-    // console.log(filmObj);
-    // await sendFilm(filmObj); 
     // window.location.replace('/filmer-panel');
   }; 
 
