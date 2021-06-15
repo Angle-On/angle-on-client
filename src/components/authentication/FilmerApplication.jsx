@@ -11,7 +11,7 @@ import axios from 'axios';
 
 //aws
 import AWSUpload from './awsUpload';
-import {LocalConvenienceStoreOutlined} from '@material-ui/icons';
+import { LocalConvenienceStoreOutlined } from '@material-ui/icons';
 // import { singleFileUploadHandler } from '../../services/awsUtils';
 
 
@@ -37,8 +37,9 @@ const FilmerApplication = () => {
   const [description, setDescription] = useState('');
   const [selectedImageFile, setSelectedImageFile] = useState(''); 
   const [awsFile, setAwsFile] = useState(''); 
+  const [data, setData] = useState({});  
 
-  const [genre, setGenre] = React.useState({
+  const [genre, setGenre] = useState({
     Documentary: false,
     Romance: false,
     Comedy: false,
@@ -51,13 +52,11 @@ const FilmerApplication = () => {
   });
 
   const handleTitleChange = (event) => {
-    console.log(event.target.value);
     setTitle(event.target.value);
   };
 
   const singleFileChangeHandler = (event) => {
     const imageFile = event.target.files[0];
-    console.log(imageFile);
     setSelectedImageFile(imageFile);
   };
 
@@ -103,40 +102,39 @@ const FilmerApplication = () => {
 
 
   const handleBudgetChange = (event) => {
-    console.log(event.target.value);
     setBudget(event.target.value);
   };
 
   const handleTrailerChange = (event) => {
-    console.log(event.target.value);
     setTrailer(event.target.value);
   };
 
 
   const handleDescriptionChange = (event) => {
-    console.log(event.target.value);
     setDescription(event.target.value);
   };
 
 
   const handleGenreChange = (event) => {
+    console.log(genre, 'GENRE');
     setGenre({ ...genre, [event.target.name]: event.target.checked });
-    console.log(event.target.name);
   };
 
   const handleSubmit = async () => {
     console.log(selectedImageFile, 'selected image file'); 
     const data = new FormData(); // If file selected
-    if (selectedImageFile) {
+    if(selectedImageFile) {
       data.append('image', selectedImageFile, selectedImageFile.name);
       data.append('filmName', title);
       data.append('filmBudget', budget);
       data.append('filmUrl', trailer);
-      data.append('filmGenre', genre);
-      // console.log(data.values);
+      data.append('filmGenre', JSON.stringify(genre));
+      data.append('filmDescription', description);
+      console.log(data, 'WHY ARE YOU EMPTY');
+      
       axios
       //change name
-        .post('http://localhost:7890/api/v1/images/img-upload', data, {
+        .post('http://localhost:7890/api/v1/films/', data, {
           headers: {
             accept: 'application/json',
             'Accept-Language': 'en-US,en;q=0.8',
@@ -144,10 +142,10 @@ const FilmerApplication = () => {
           },
         })
         .then((response) => {
-          if (200 === response.status) {
+          if(200 === response.status) {
             // If file size is larger than expected.
-            if (response.data.error) {
-              if ('LIMIT_FILE_SIZE' === response.data.error.code) {
+            if(response.data.error) {
+              if('LIMIT_FILE_SIZE' === response.data.error.code) {
                 console.log('error');
               } else {
                 console.log(response.data); // If not the given file type
@@ -161,13 +159,17 @@ const FilmerApplication = () => {
             }
           }
         })
+        .finally(setData(data))
         .catch((error) => {
+          console.log(setData, 'SETDATA');
           console.log(error);
         });
     } else {
       // if file not selected throw error
       console.log('no file detected');
     }
+
+
     // const filmObj = {
     //   filmName: title, 
     //   filmDescription: description,
