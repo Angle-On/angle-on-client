@@ -93,10 +93,6 @@ const FilmerApplication = () => {
       // axios.defaults.withCredentials = true
       fetch(`${URL}/api/v1/films`, {
         method: 'POST',
-        // headers: {
-        //   'Accept-Language': 'en-US,en;q=0.8',
-        //   'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
-        // },
         body: data,
         // withCredentials: true,
       })
