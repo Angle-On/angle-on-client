@@ -104,11 +104,11 @@ function NavigationDrawer(props) {
   );
 
   return (
-    <div>
+    <div style={{ backgroundColor: 'black' }}>
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Tooltip title="Menu">
-            <Button onClick={toggleDrawer(anchor, true)} style={{ color: 'black' }}><SubjectIcon fontSize="large"/></Button>
+            <Button onClick={toggleDrawer(anchor, true)} style={{ color: 'white' }}><SubjectIcon fontSize="large"/></Button>
           </Tooltip>
           <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
             {list(anchor)}
