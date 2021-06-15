@@ -17,7 +17,7 @@ const FilmerPanel = () => {
       <FilmerSubmissionTable/> 
       <DeleteProfileButton /> 
       <p>Donations will not be refunded, please contact support@angle-on.com if you have further questions</p>
-      
+      <button onClick={() => window.location.replace('/filmer-application')}>Add New Film Submission</button>
     </>
   );
 }; 
