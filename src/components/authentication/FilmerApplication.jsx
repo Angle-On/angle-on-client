@@ -104,30 +104,6 @@ const FilmerApplication = () => {
             setAwsFile(fileName); 
 
           }
-<<<<<<< HEAD
-        })
-        .finally(setData(data))
-        .catch((error) => {
-          console.log(setData, 'SETDATA');
-          console.log(error);
-        });
-    } else {
-      // if file not selected throw error
-      console.log('no file detected');
-    }
-
-
-    // const filmObj = {
-    //   filmName: title, 
-    //   filmDescription: description,
-    //   filmBudget: budget,
-    //   filmUrl: trailer, 
-    //   filmGenre: genre,
-    // };
-    // console.log(filmObj);
-    // await sendFilm(filmObj); 
-    window.location.replace('/filmer-panel');
-=======
         }
       })
       .finally(setData(data))
@@ -136,7 +112,6 @@ const FilmerApplication = () => {
         console.log(error);
       });
    
->>>>>>> 1c0711dd955f01cd3a9581b3c19d3c2a5964e95e
   }; 
 
 
