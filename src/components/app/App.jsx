@@ -13,22 +13,24 @@ import NavigationDrawer from '../navigation/NavigationDrawer';
 import './App.css';
 import ModalParent from '../modal/ModalParent';
 import { verifyUser } from '../../services/apiUtils';
+import PrivateRoute from './PrivateRoute';
 
 
-//useState 
-//useEffect verify route
-//.then 
-//pass as props
-//if no user then redirect 
 
 
 export default function App() {
   const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true); 
+  const profile = { user, loading }; 
 
+export default function App() {
+  const [user, setUser] = useState({});
+  
   useEffect(() => {
     verifyUser()
       .then(user => setUser(user));
   }, []); 
+
 
   const redirectHome = () => { 
     window.location.replace('/');
@@ -72,11 +74,12 @@ export default function App() {
             exact
             component={FilmerRegistration}
           />
-          <Route
+          <PrivateRoute
             path="/filmer-application"
             exact
             component={FilmerApplication}
-            user={user}
+            activeUser={profile}
+
           />
           <Route
             path="/investor-registration"
@@ -93,14 +96,16 @@ export default function App() {
             exact
             component={ResourcesPage}
           />
-          <Route
+          <PrivateRoute
             path="/filmer-panel"
             exact
             component={FilmerPanel}
-            user={user}
+            activeUser={profile}
+
           />
-          <Route
+          <PrivateRoute
             path="/investor-panel"
+            activeUser={profile}
             exact
             component={InvestorPanel}
             user={user}
