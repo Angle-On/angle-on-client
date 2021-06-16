@@ -6,13 +6,6 @@ import Checkbox from './Checkbox';
 import SubmitButton from './SubmitButton';
 import TextArea from './TextArea';
 import './form.css';
-import { sendFilm } from '../../services/apiUtils';
-import axios from 'axios';
-
-//aws
-import AWSUpload from './awsUpload';
-import { LocalConvenienceStoreOutlined } from '@material-ui/icons';
-import { singleFileUploadHandler } from '../../services/awsUtils';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -60,47 +53,6 @@ const FilmerApplication = () => {
     setSelectedImageFile(imageFile);
   };
 
-  // const singleUploadHandler = (event) => {
-  //   console.log(selectedImageFile, 'selected image file'); 
-  //   const data = new FormData(); // If file selected
-  //   if (selectedImageFile) {
-  //     data.append('image', selectedImageFile, selectedImageFile.name);
-  //     axios
-  //       .post('http://localhost:7890/api/v1/images/img-upload', data, {
-  //         headers: {
-  //           accept: 'application/json',
-  //           'Accept-Language': 'en-US,en;q=0.8',
-  //           'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
-  //         },
-  //       })
-  //       .then((response) => {
-  //         if (200 === response.status) {
-  //           // If file size is larger than expected.
-  //           if (response.data.error) {
-  //             if ('LIMIT_FILE_SIZE' === response.data.error.code) {
-  //               console.log('error');
-  //             } else {
-  //               console.log(response.data); // If not the given file type
-  //             }
-  //           } else {
-  //             // Success
-  //             const fileName = response.data;
-  //             console.log('HELLO FILENAME', fileName);
-  //             setAwsFile(fileName); 
-
-  //           }
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   } else {
-  //     // if file not selected throw error
-  //     console.log('no file detected');
-  //   }
-  // };
-
-
   const handleBudgetChange = (event) => {
     setBudget(event.target.value);
   };
@@ -120,44 +72,39 @@ const FilmerApplication = () => {
     setGenre({ ...genre, [event.target.name]: event.target.checked });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     console.log(selectedImageFile, 'selected image file'); 
-    const data = new FormData(); // If file selected
-    if(selectedImageFile) {
-      data.append('image', selectedImageFile, selectedImageFile.name);
-      data.append('filmName', title);
-      data.append('filmBudget', budget);
-      data.append('filmUrl', trailer);
-      data.append('filmGenre', JSON.stringify(genre));
-      data.append('filmDescription', description);
-      console.log(data, 'WHY ARE YOU EMPTY');
-      
-      axios
-      //change name
-        .post('http://localhost:7890/api/v1/films/', data, {
-          headers: {
-            accept: 'application/json',
-            'Accept-Language': 'en-US,en;q=0.8',
-            'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
-          },
-        })
-        .then((response) => {
-          if(200 === response.status) {
-            // If file size is larger than expected.
-            if(response.data.error) {
-              if('LIMIT_FILE_SIZE' === response.data.error.code) {
-                console.log('error');
-              } else {
-                console.log(response.data); // If not the given file type
-              }
-            } else {
-              // Success
-              const fileName = response.data;
-              console.log('HELLO FILENAME', fileName);
-              setAwsFile(fileName); 
 
+    const data = new FormData(e.target); // If file selected
+    data.append('filmGenre', JSON.stringify(genre));
+
+    console.log(data, 'WHY ARE YOU EMPTY');
+      
+    const DEVURL = 'https://angle-on.herokuapp.com';
+    const localURL = 'http://localhost:7890';
+    const URL = DEVURL;
+
+
+    fetch(`${URL}/api/v1/films`, {
+      method: 'POST',
+      body: data,
+    })
+      .then((response) => {
+        if(200 === response.status) {
+          if(response.data.error) {
+            if('LIMIT_FILE_SIZE' === response.data.error.code) {
+              console.log('error');
+            } else {
+              console.log(response.data); 
             }
+          } else {
+            const fileName = response.data;
+            console.log('HELLO FILENAME', fileName);
+            setAwsFile(fileName); 
+
           }
+<<<<<<< HEAD
         })
         .finally(setData(data))
         .catch((error) => {
@@ -180,6 +127,16 @@ const FilmerApplication = () => {
     // console.log(filmObj);
     // await sendFilm(filmObj); 
     window.location.replace('/filmer-panel');
+=======
+        }
+      })
+      .finally(setData(data))
+      .catch((error) => {
+        console.log(setData, 'SETDATA');
+        console.log(error);
+      });
+   
+>>>>>>> 1c0711dd955f01cd3a9581b3c19d3c2a5964e95e
   }; 
 
 
@@ -188,21 +145,16 @@ const FilmerApplication = () => {
   return (
     <div>
       <h1>Short Film Application</h1>
-      <form className={classes.root}>
-        <TextField id="standard-basic" label="Title" onChange={handleTitleChange}/>
-        <TextField id="standard-basic" label="$ Budget" type="number" onChange={handleBudgetChange}/>
-        <TextField id="standard-basic" label="Trailer URL" onChange={handleTrailerChange}/>
+      <form className={classes.root} onSubmit={handleSubmit}>
+        <TextField name="filmName" id="standard-basic" label="Title" onChange={handleTitleChange}/>
+        <TextField name="filmBudget" id="standard-basic" label="$ Budget" type="number" onChange={handleBudgetChange}/>
+        <TextField name="filmUrl" id="standard-basic" label="Trailer URL" onChange={handleTrailerChange}/>
+        <TextArea name="filmDescription" handleDescriptionChange={handleDescriptionChange} description={description}/>
 
-        <TextArea handleDescriptionChange={handleDescriptionChange} description={description}/>
-
-        <AWSUpload 
-          singleFileChangeHandler={singleFileChangeHandler}
-          // singleUploadHandler={singleUploadHandler}
-          selectedFile={selectedImageFile}
-        />
+        <input type="file" name="image"></input>
       
         <Checkbox handleGenreChange={handleGenreChange} genre={genre}/> 
-        <SubmitButton handleSubmit={handleSubmit}/>
+        <SubmitButton/>
       </form>
     </div>
   );
