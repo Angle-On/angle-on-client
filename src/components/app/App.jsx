@@ -10,6 +10,7 @@ import FilmerApplication from '../authentication/FilmerApplication';
 import FilmerPanel from '../panels/FilmerPanel'; 
 import InvestorPanel from '../panels/InvestorPanel'; 
 import NavigationDrawer from '../navigation/NavigationDrawer';
+import Stripe from '../stripe/Stripe';
 import './App.css';
 import ModalParent from '../modal/ModalParent';
 
@@ -95,6 +96,11 @@ export default function App() {
             path="/modal"
             exact
             component={ModalParent}
+          />
+          <Route
+            path="/donation"
+            exact
+            component={Stripe}
           />
         </Switch>
       </Router>
