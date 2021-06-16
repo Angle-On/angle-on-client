@@ -117,7 +117,17 @@ export const verifyDirectorToken = async ({ profileObj, tokenId }) => {
       tokenId,
     }),
   });
+  console.log(response);
   return response;
+};
+
+//verify user route
+export const verifyUser = async () => {
+  const response = await fetch(`${URL}/api/v1/directors/verify`, {
+    credentials: 'include',
+  });
+  const user = await response.json();
+  return user;
 };
 
 //google oAuth

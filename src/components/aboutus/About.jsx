@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BioDivs } from './AboutUsElements';
 import SocialButtons from '../socialbuttons/SocialButtons';
 
@@ -61,3 +61,6 @@ const About = () => {
 };
 
 export default About;
+
+
+

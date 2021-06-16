@@ -5,7 +5,9 @@ import axios from 'axios';
 export const singleFileUploadHandler = ({ selectedFile }) => {
   console.log(selectedFile, 'single file upload aws');
   const data = new FormData(); // If file selected
-  const DEVURL = 'https://angle-on.herokuapp.com';
+
+  const DEVURL = 'https://angle-on.herokuapp.com/';
+
   const URL = DEVURL;
 
   if (selectedFile) {
@@ -16,7 +18,7 @@ export const singleFileUploadHandler = ({ selectedFile }) => {
           accept: 'application/json',
           'Accept-Language': 'en-US,en;q=0.8',
           'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
-          'Access-Control-Allow-Origin': '*'
+          'Access-Control-Allow-Origin': '*',
         },
       })
       .then((response) => {

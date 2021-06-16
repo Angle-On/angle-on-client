@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LandingPage from '../home/index';
 import FilmerRegistration from '../authentication/FilmerRegistration';
@@ -13,8 +13,22 @@ import NavigationDrawer from '../navigation/NavigationDrawer';
 import Stripe from '../stripe/Stripe';
 import './App.css';
 import ModalParent from '../modal/ModalParent';
+import { verifyUser } from '../../services/apiUtils';
+import PrivateRoute from './PrivateRoute';
+
 
 export default function App() {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false); 
+  const profile = { user, loading }; 
+  
+  useEffect(() => {
+    setLoading(true); 
+    verifyUser()
+      .then(user => setUser(user))
+      .finally(() => setLoading(false)); 
+  }, []); 
+
 
   const redirectHome = () => { 
     window.location.replace('/');
@@ -45,7 +59,8 @@ export default function App() {
           redirectFilms={redirectFilms}
           redirectResources={redirectResources}
           redirectAboutUs={redirectAboutUs}
-          redirectMyDashboard={redirectMyDashboard}/>
+          redirectMyDashboard={redirectMyDashboard}
+        />
         <Switch>
           <Route
             path="/"
@@ -57,10 +72,12 @@ export default function App() {
             exact
             component={FilmerRegistration}
           />
-          <Route
+          <PrivateRoute
             path="/filmer-application"
             exact
             component={FilmerApplication}
+            activeUser={profile}
+
           />
           <Route
             path="/investor-registration"
@@ -77,13 +94,16 @@ export default function App() {
             exact
             component={ResourcesPage}
           />
-          <Route
+          <PrivateRoute
             path="/filmer-panel"
             exact
             component={FilmerPanel}
+            activeUser={profile}
+
           />
-          <Route
+          <PrivateRoute
             path="/investor-panel"
+            activeUser={profile}
             exact
             component={InvestorPanel}
           />
