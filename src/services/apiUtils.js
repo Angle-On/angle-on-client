@@ -1,21 +1,20 @@
+import { GetApp } from '@material-ui/icons';
 import FilmData from '../components/films/mockDataFilm';
 
-const DEVURL = 'https://secure-taiga-78931.herokuapp.com';
+const DEVURL = 'https://angle-on.herokuapp.com';
 const URL = DEVURL;
 
-export const getCharacters = async () => {
-  const res = await fetch(
-    'https://hey-arnold-api.herokuapp.com/api/v1/characters'
-  );
+// export const getCharacters = async () => {
+//   const res = await fetch('https://angle-on.herokuapp.com/api/v1/characters');
 
-  const characters = await res.json();
+//   const characters = await res.json();
 
-  return characters.map((character) => ({
-    id: character._id,
-    name: character.name,
-    image: character.image,
-  }));
-};
+//   return characters.map((character) => ({
+//     id: character._id,
+//     name: character.name,
+//     image: character.image,
+//   }));
+// };
 
 export const getFilms = async () => {
   const films = FilmData;
@@ -131,7 +130,17 @@ export const verifyDirectorToken = async ({ profileObj, tokenId }) => {
       tokenId,
     }),
   });
+  console.log(response);
   return response;
+};
+
+//verify user route
+export const verifyUser = async () => {
+  const response = await fetch(`${URL}/api/v1/directors/verify`, {
+    credentials: 'include',
+  });
+  const user = await response.json();
+  return user;
 };
 
 //google oAuth

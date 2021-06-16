@@ -13,7 +13,7 @@ const DirectorLogin = () => {
   async function responseGoogle(response) {
     const verify = await verifyDirectorToken(response);
     
-    console.log(response);
+    console.log(verify);
   }
 
 
