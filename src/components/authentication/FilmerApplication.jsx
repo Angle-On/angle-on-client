@@ -2,11 +2,10 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import Checkbox from './Checkbox'; 
+import Checkbox from './Checkbox';
 import SubmitButton from './SubmitButton';
 import TextArea from './TextArea';
 import './form.css';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,16 +20,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 const FilmerApplication = () => {
   const classes = useStyles();
   const [title, setTitle] = useState('');
   const [budget, setBudget] = useState('');
   const [trailer, setTrailer] = useState('');
   const [description, setDescription] = useState('');
-  const [selectedImageFile, setSelectedImageFile] = useState(''); 
-  const [awsFile, setAwsFile] = useState(''); 
-  const [data, setData] = useState({});  
+  const [selectedImageFile, setSelectedImageFile] = useState('');
+  const [awsFile, setAwsFile] = useState('');
+  const [data, setData] = useState({});
 
   const [genre, setGenre] = useState({
     Documentary: false,
@@ -61,11 +59,9 @@ const FilmerApplication = () => {
     setTrailer(event.target.value);
   };
 
-
   const handleDescriptionChange = (event) => {
     setDescription(event.target.value);
   };
-
 
   const handleGenreChange = (event) => {
     console.log(genre, 'GENRE');
@@ -74,65 +70,78 @@ const FilmerApplication = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(selectedImageFile, 'selected image file'); 
+    // console.log(selectedImageFile, 'selected image file');
 
     const data = new FormData(e.target); // If file selected
     data.append('filmGenre', JSON.stringify(genre));
 
-    console.log(data, 'WHY ARE YOU EMPTY');
-      
+    // console.log(data, 'WHY ARE YOU EMPTY');
+
     const DEVURL = 'https://angle-on.herokuapp.com';
     const localURL = 'http://localhost:7890';
     const URL = DEVURL;
 
-
-    fetch(`${URL}/api/v1/films`, {
+    await fetch(`${URL}/api/v1/films`, {
       method: 'POST',
       body: data,
     })
       .then((response) => {
-        if(200 === response.status) {
-          if(response.data.error) {
-            if('LIMIT_FILE_SIZE' === response.data.error.code) {
-              console.log('error');
+        if (200 === response.status) {
+          if (response.data.error) {
+            if ('LIMIT_FILE_SIZE' === response.data.error.code) {
+              // console.log('error');
             } else {
-              console.log(response.data); 
+              // console.log(response.data);
             }
           } else {
             const fileName = response.data;
-            console.log('HELLO FILENAME', fileName);
-            setAwsFile(fileName); 
-
+            // console.log('HELLO FILENAME', fileName);
+            setAwsFile(fileName);
           }
         }
       })
       .finally(setData(data))
       .catch((error) => {
-        console.log(setData, 'SETDATA');
-        console.log(error);
+        // console.log(setData, 'SETDATA');
+        // console.log(error);
       });
-   
-  }; 
+  };
 
-
-
-  
   return (
     <div>
       <h1>Short Film Application</h1>
       <form className={classes.root} onSubmit={handleSubmit}>
-        <TextField name="filmName" id="standard-basic" label="Title" onChange={handleTitleChange}/>
-        <TextField name="filmBudget" id="standard-basic" label="$ Budget" type="number" onChange={handleBudgetChange}/>
-        <TextField name="filmUrl" id="standard-basic" label="Trailer URL" onChange={handleTrailerChange}/>
-        <TextArea name="filmDescription" handleDescriptionChange={handleDescriptionChange} description={description}/>
+        <TextField
+          name="filmName"
+          id="standard-basic"
+          label="Title"
+          onChange={handleTitleChange}
+        />
+        <TextField
+          name="filmBudget"
+          id="standard-basic"
+          label="$ Budget"
+          type="number"
+          onChange={handleBudgetChange}
+        />
+        <TextField
+          name="filmUrl"
+          id="standard-basic"
+          label="Trailer URL"
+          onChange={handleTrailerChange}
+        />
+        <TextArea
+          name="filmDescription"
+          handleDescriptionChange={handleDescriptionChange}
+          description={description}
+        />
 
         <input type="file" name="image"></input>
-      
-        <Checkbox handleGenreChange={handleGenreChange} genre={genre}/> 
-        <SubmitButton/>
+
+        <Checkbox handleGenreChange={handleGenreChange} genre={genre} />
+        <SubmitButton />
       </form>
     </div>
   );
-}; 
+};
 export default FilmerApplication;
-
