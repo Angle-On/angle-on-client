@@ -9,7 +9,6 @@ import { verifyDirectorToken } from '../../services/apiUtils';
 
 const DirectorLogin = () => { 
 
-
   async function responseGoogle(response) {
     const verify = await verifyDirectorToken(response);
     
@@ -26,7 +25,7 @@ const DirectorLogin = () => {
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
         uxMode="redirect"
-        redirectUri="http://localhost:3000/filmer-panel"
+        redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app/filmer-panel"
       />
 
       <GoogleLogout
