@@ -47,5 +47,5 @@ flex-direction: row;
 justify-content: center;
 align-items: center;
 text-align:center;
-background: #fff;
+background: white;
 `;
