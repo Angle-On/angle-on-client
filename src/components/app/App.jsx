@@ -16,19 +16,15 @@ import { verifyUser } from '../../services/apiUtils';
 import PrivateRoute from './PrivateRoute';
 
 
-
-
 export default function App() {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true); 
   const profile = { user, loading }; 
-
-export default function App() {
-  const [user, setUser] = useState({});
   
   useEffect(() => {
     verifyUser()
-      .then(user => setUser(user));
+      .then(user => setUser(user))
+      .finally(() => setLoading(false)); 
   }, []); 
 
 
@@ -108,7 +104,6 @@ export default function App() {
             activeUser={profile}
             exact
             component={InvestorPanel}
-            user={user}
           />
           <Route
             path="/about-us"

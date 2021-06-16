@@ -1,4 +1,3 @@
-import { GetApp } from '@material-ui/icons';
 import FilmData from '../components/films/mockDataFilm';
 
 const DEVURL = 'https://angle-on.herokuapp.com';
