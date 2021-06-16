@@ -26,6 +26,7 @@ export default function TextArea() {
         label="Description"
         multiline
         rows={4}
+        name="filmDescription"
         variant="outlined"
         onChange={handleChange}
         value={value}
