@@ -17,11 +17,12 @@ import PrivateRoute from './PrivateRoute';
 
 
 export default function App() {
-  const [user, setUser] = useState({});
-  const [loading, setLoading] = useState(true); 
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false); 
   const profile = { user, loading }; 
   
   useEffect(() => {
+    setLoading(true); 
     verifyUser()
       .then(user => setUser(user))
       .finally(() => setLoading(false)); 
