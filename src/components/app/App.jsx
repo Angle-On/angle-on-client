@@ -16,12 +16,6 @@ import { verifyUser } from '../../services/apiUtils';
 import PrivateRoute from './PrivateRoute';
 
 
-//useState 
-//useEffect verify route
-//.then 
-//pass as props
-//if no user then redirect 
-
 
 
 export default function App() {
@@ -29,11 +23,14 @@ export default function App() {
   const [loading, setLoading] = useState(true); 
   const profile = { user, loading }; 
 
+export default function App() {
+  const [user, setUser] = useState({});
+  
   useEffect(() => {
     verifyUser()
-      .then(user => setUser(user))
-      .then(() => setLoading(false));  
+      .then(user => setUser(user));
   }, []); 
+
 
   const redirectHome = () => { 
     window.location.replace('/');
@@ -82,6 +79,7 @@ export default function App() {
             exact
             component={FilmerApplication}
             activeUser={profile}
+
           />
           <Route
             path="/investor-registration"
@@ -103,12 +101,14 @@ export default function App() {
             exact
             component={FilmerPanel}
             activeUser={profile}
+
           />
           <PrivateRoute
             path="/investor-panel"
             activeUser={profile}
             exact
             component={InvestorPanel}
+            user={user}
           />
           <Route
             path="/about-us"
