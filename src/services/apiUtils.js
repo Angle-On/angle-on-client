@@ -1,21 +1,7 @@
 import FilmData from '../components/films/mockDataFilm';
 
-const DEVURL = 'https://secure-taiga-78931.herokuapp.com';
+const DEVURL = 'https://angle-on.herokuapp.com';
 const URL = DEVURL;
-
-export const getCharacters = async () => {
-  const res = await fetch(
-    'https://hey-arnold-api.herokuapp.com/api/v1/characters'
-  );
-
-  const characters = await res.json();
-
-  return characters.map((character) => ({
-    id: character._id,
-    name: character.name,
-    image: character.image,
-  }));
-};
 
 export const getFilms = async () => {
   const films = FilmData;
@@ -118,7 +104,7 @@ export const getFilmsById = async (id) => {
 //google oAuth
 export const verifyDirectorToken = async ({ profileObj, tokenId }) => {
   const response = await fetch(`${URL}/api/v1/directors/auth`, {
-    credentials: 'include',
+    // credentials: 'include',
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
