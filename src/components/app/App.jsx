@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LandingPage from '../home/index';
@@ -13,7 +14,7 @@ import NavigationDrawer from '../navigation/NavigationDrawer';
 import Stripe from '../stripe/Stripe';
 import './App.css';
 import ModalParent from '../modal/ModalParent';
-import { verifyUser } from '../../services/apiUtils';
+import { verifyDirectorUser, verifyInvestorUser } from '../../services/apiUtils';
 // import { gapi } from 'gapi-script';
 // import PrivateRoute from './PrivateRoute';
 
@@ -21,14 +22,23 @@ import { verifyUser } from '../../services/apiUtils';
 
 
 export default function App() {
-  const [user, setUser] = useState(null);
+  const [director, setDirector] = useState(null);
+  const [investor, setInvestor] = useState(null); 
   const [loading, setLoading] = useState(false); 
-  const profile = { user, loading }; 
+  const profile = { director, loading }; 
+  const investorProfile = { investor, loading }; 
   
   useEffect(() => {
     setLoading(true); 
-    verifyUser()
-      .then(user => setUser(user))
+    verifyDirectorUser()
+      .then(director => setDirector(director))
+      .finally(() => setLoading(false)); 
+  }, []); 
+
+  useEffect(() => {
+    setLoading(true); 
+    verifyInvestorUser()
+      .then(investor => setInvestor(investor))
       .finally(() => setLoading(false)); 
   }, []); 
 
@@ -129,6 +139,7 @@ export default function App() {
             activeUser={profile}
             exact
             component={InvestorPanel}
+            activeUser={investorProfile}
           />
           <Route
             path="/about-us"
