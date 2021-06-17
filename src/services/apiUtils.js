@@ -1,21 +1,21 @@
-import FilmData from '../components/films/mockDataFilm';
-
-const DEVURL = 'https://angle-on.herokuapp.com';
+// const DEVURL = 'https://angle-on.herokuapp.com';
+const DEVURL = 'http://localhost:7890';
 const URL = DEVURL;
 
 export const getFilms = async () => {
-  const films = FilmData;
+  const res = await fetch('https://angle-on.herokuapp.com/api/v1/films');
+  const films = await res.json();
+  console.log(films);
 
   return films.map((film) => ({
-    films_id: film.films_id,
-    director_name: film.director_name,
-    director_id: film.director_id,
-    films_name: film.films_name,
-    films_image: film.films_image,
-    films_description: film.films_description,
-    films_budget: film.films_budget,
-    films_url: film.films_url,
-    films_genre: film.films_genre,
+    films_id: film.filmId,
+    director_id: film.filmDirectorId,
+    films_name: film.filmName,
+    films_image: film.filmImg,
+    films_description: film.filmDescription,
+    films_budget: film.filmBudget,
+    films_url: film.filmUrl,
+    films_genre: film.filmGenre,
   }));
 };
 
@@ -91,6 +91,8 @@ export const getDonationById = async (id) => {
 
   return donation;
 };
+
+
 
 //films
 export const getFilmsById = async (id) => {
@@ -172,5 +174,24 @@ export const sendFilm = async ({ filmObj }) => {
     body: JSON.stringify(filmObj),
   });
   console.log(response);
+  return response;
+};
+
+export const sendDonation = async (amount, filmId) => {
+  const response = await fetch(`${URL}/api/v1/donations`, {
+    // credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      // 'content-type': 'application/x-www-form-urlencoded',
+      'Access-Control-Allow-Origin': '*',
+    },
+    body: JSON.stringify({
+      donation_amount: amount,
+      film_id: filmId,
+      investor_id: 1
+    }),
+  });
+  console.log(response, 'STRIPE RESPONSE')  ;
   return response;
 };

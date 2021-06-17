@@ -1,56 +1,100 @@
 import styled from 'styled-components';
 
-export const BioDivs = styled.div`
-height: 30vh;
-width: 80vh;
-color: white;
-padding: 10px;
-margin: auto;
-margin-top: 20px;
-border-radius: .5em;
-background-color: #151823;
-  animation: textColor 10s ease infinite;
-  @include backlight(0, 5vw, 5vw, 0.75, #0fffc1, #7e0fff, 10s);
-    
-  @keyframes textColor {
-    0% {
-      color: #7e0fff;
-    }
-    50% {
-      color: #0fffc1;
-    }
-    100% {
-      color: #7e0fff;
-    }
-  }
-  font-family: monospace;
+export const AboutContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-color:darken(#252B37, 4%);
-  @mixin backlight($x, $y, $spread, $size, $colorA, $colorB, $duration) {
-    &:after {
-      position: absolute;
-      content: "";
-      top: $y;
-      left: $x;
-      right: 0;
-      z-index: -1;
-      height: 100%;
-      width: 100%;
-      margin: 0 auto;
-      transform: scale($size);
-      -webkit-filter: blur($spread);
-      -moz-filter: blur($spread);
-      -ms-filter: blur($spread);
-      filter: blur($spread);
-      background: linear-gradient(270deg, $colorA, $colorB);
-      background-size: 200% 200%;
-      animation: animateGlow $duration ease infinite;
-      
-      @keyframes animateGlow {
-        0%{background-position:0% 50%}
-        50%{background-position:100% 50%}
-        100%{background-position:0% 50%}
-      }
-    }
+  align-items: center;
+  text-align: center;
+  background: black;
+  height: 100%;
+  @media screen and (max-width: 768px) {
+    height: 1100px;
+  }
+  @media screen and (max-width: 480px) {
+    height: 1300px;
+  }
+`;
+
+export const AboutWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: space-between;
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+  }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+export const AboutCard = styled.div`
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  height: 340px;
+  width: 500px;
+  padding: 40px;
+  margin: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.2s ease-in-out;
+`;
+
+export const AboutIcon = styled.img`
+  height: 160px;
+  width: 160px;
+  margin-bottom: 10px;
+  border-radius: 90px;
+`;
+
+export const AboutH1 = styled.h1`
+  font-size: 2.5rem;
+  color: #2196f3;
+  margin: 50px;
+  @media screen and (max-width: 480px) {
+    font-size: 1rem;
+  }
+`;
+
+export const AboutH2 = styled.h2`
+  font-size: 1rem;
+  margin-bottom: 10px;
+`;
+
+export const AboutP = styled.p`
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.5em;
+  font-weight: 200;
+`;
+
+export const AboutButton = styled.button`
+  justify-content: center;
+  align-items: center;
+  border:none;
+  background: transparent;
+  justify-content: center;
+  align-items: center;
+  cursor:pointer;
+`;
+
+export const AboutImage = styled.img`
+  border:none;
+  border-radius: 20px;
+  background: transparent;
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  &:active, &:hover {
+    transform: scale(1.5);
   }
 `;

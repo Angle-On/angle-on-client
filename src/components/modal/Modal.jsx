@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React, { useCallback, useEffect, useRef } from 'react';
+import { useHistory } from 'react-router';
 import Stripe from '../stripe/Stripe';
 import PropTypes from 'prop-types';
 import { 
@@ -14,7 +15,9 @@ import {
 
 
 
-const Modal = ({ showModal, setShowModal, films_description, films_image, films_name, films_budget, films_url, director_name }) => { 
+const Modal = ({ showModal, setShowModal, films_description, films_image, films_name, films_budget, films_url, director_name, films_id }) => { 
+  const history = useHistory();
+
  
   const modalRef = useRef();
 
@@ -44,7 +47,14 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
   
   const donateNow = () => { 
     //link to take you to donation page??
+    // window.location.replace('/donation');
     console.log('hello! In the button!');
+
+    history.push({
+      pathname: '/donation',
+      state: { filmId: films_id }
+    });
+
   };
 
 
@@ -59,6 +69,7 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
                 alt="film image"
               />
               <ModalContent>
+                <h5>{films_id}</h5>
                 <h1>{films_name}</h1>
                 <h4>Created By: {director_name}</h4>
                 <p>Summary: {films_description}</p>

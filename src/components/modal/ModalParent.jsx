@@ -12,7 +12,8 @@ const ModalParent = ({ films_name,
   films_description,
   films_budget,
   films_url, films_genre,
-  director_name
+  director_name,
+  films_id
 }) => { 
   const [showModal, setShowModal] = useState(false);
 
@@ -25,7 +26,8 @@ const ModalParent = ({ films_name,
     <>
       <Container>
         <Button onClick={openModal}> Learn More! </Button>
-        <Modal 
+        <Modal
+          films_id={films_id} 
           showModal={showModal}
           setShowModal={setShowModal}
           films_name={films_name}

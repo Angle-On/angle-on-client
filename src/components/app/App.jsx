@@ -11,7 +11,7 @@ import FilmerApplication from '../authentication/FilmerApplication';
 import FilmerPanel from '../panels/FilmerPanel'; 
 import InvestorPanel from '../panels/InvestorPanel'; 
 import NavigationDrawer from '../navigation/NavigationDrawer';
-import Stripe from '../stripe/Stripe';
+import DonationForm from '../stripe/DonationForm';
 import './App.css';
 import ModalParent from '../modal/ModalParent';
 import { verifyDirectorUser, verifyInvestorUser } from '../../services/apiUtils';
@@ -150,7 +150,7 @@ export default function App() {
           <Route
             path="/donation"
             exact
-            component={Stripe}
+            component={DonationForm}
           />
         </Switch>
       </Router>
