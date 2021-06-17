@@ -121,7 +121,7 @@ export default function App() {
           <Route path="/about-us" exact component={About} />
           <Route path="/modal" exact component={ModalParent} />
           <PrivateRoute
-            path="/donation"
+            path="/donation/:filmId"
             exact
             component={DonationForm}
             activeUser={investorProfile}

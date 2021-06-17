@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { sendDonation } from '../../services/apiUtils';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { useParams } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,11 +20,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DonationForm = (state) => { 
+const DonationForm = () => { 
   const classes = useStyles();
   const [budget, setBudget] = useState('');
 
-  const filmId = state.location.state[0];
+  const { filmId } = useParams();
 
   const handleDonationChange = (event) => {
     console.log(budget, setBudget);

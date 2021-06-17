@@ -51,10 +51,7 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
     // window.location.replace('/donation');
     console.log('hello! In the button!');
 
-    history.push({
-      pathname: '/donation',
-      state: { filmId: films_id }
-    });
+    history.push(`/donation/${films_id}`);
 
   };
 
