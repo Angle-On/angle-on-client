@@ -8,8 +8,8 @@ import investor from './mock-data/mockinvestor';
 // import useInvestor from '../hooks/useInvestor'; 
 // import donationData from './mockdonationinfo'; 
 
-const InvestorPanel = () => {
-
+const InvestorPanel = ({ activeUser }) => {
+  console.log(activeUser); 
   return (
     <>
       <h1>Investor Panel</h1>

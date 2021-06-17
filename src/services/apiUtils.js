@@ -141,8 +141,8 @@ export const verifyInvestorToken = async ({ profileObj, tokenId }) => {
   return response;
 };
 
-//verify user route
-export const verifyUser = async () => {
+//verify director user route
+export const verifyDirectorUser = async () => {
   const response = await fetch(`${URL}/api/v1/directors/verify`, {
     credentials: 'include',
   });
@@ -150,7 +150,14 @@ export const verifyUser = async () => {
   return user;
 };
 
-
+//verify director user route
+export const verifyInvestorUser = async () => {
+  const response = await fetch(`${URL}/api/v1/investors/verify`, {
+    credentials: 'include',
+  });
+  const user = await response.json();
+  return user;
+};
 
 //film application
 export const sendFilm = async ({ filmObj }) => {
