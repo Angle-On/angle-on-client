@@ -6,15 +6,15 @@ import PropTypes from 'prop-types';
 // import ModalParent from '../modal/ModalParent';
 // import { FilmContainer } from './FilmElements';
 import MediaCard from './MediaCard';
-import './films.css'
+import './films.css';
 
 
 
 
-const Film = ({ films_name, films_image, films_description, films_budget, films_url, films_genre, director_name }) => {
+const Film = ({ films_name, films_image, films_description, films_budget, films_url, films_genre, director_name, films_id }) => {
   return (
     <div>
-    {/* <FilmContainer>
+      {/* <FilmContainer>
       <h2>{films_name}</h2>
       <Underline></Underline>
       <h4>Created by: {director_name}</h4>
@@ -35,14 +35,16 @@ const Film = ({ films_name, films_image, films_description, films_budget, films_
       />
       <SocialButtons></SocialButtons>
     </FilmContainer> */}
-    <MediaCard         
+      <MediaCard         
         films_name={films_name}
         films_image={films_image}
         films_description={films_description}
         films_budget={films_budget}
         films_url={films_url}
         films_genre={films_genre}
-        director_name={director_name}/>
+        director_name={director_name}
+        films_id={films_id}
+      />
     </div>
   );
 };
@@ -53,6 +55,7 @@ Film.propTypes = {
   films_description: PropTypes.string.isRequired,
   films_budget: PropTypes.number.isRequired,
   films_url: PropTypes.string.isRequired,
+  films_id: PropTypes.number.isRequired, 
   films_genre: PropTypes.array.isRequired,
   director_name: PropTypes.string.isRequired
 

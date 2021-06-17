@@ -32,7 +32,7 @@ const Message = ({ message }) => (
   </section>
 );
 
-export default function App() {
+export default function Stripe() {
   const [message, setMessage] = useState(''); 
 
   useEffect(() => {
@@ -61,10 +61,22 @@ export default function App() {
       return result.error.message; 
     }
   }; 
-
   return message ? (
     <Message message={message} /> 
   ) : (
     <ProductDisplay handleClick={handleClick} /> 
   ); 
+
 }
+
+
+
+
+
+
+// return (
+//   <div>
+//     <ProductDisplay handleClick={handleClick} /> 
+//     <button>Click here</button>
+//   </div>
+// ); 

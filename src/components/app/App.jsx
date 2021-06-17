@@ -147,8 +147,13 @@ export default function App() {
             exact
             component={ModalParent}
           />
-          <Route
+          {/* <Route
             path="/donation"
+            exact
+            component={Stripe}
+          /> */}
+          <Route
+            path="/donation/:id"
             exact
             component={Stripe}
           />

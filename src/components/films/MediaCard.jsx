@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -40,7 +41,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function MediaCard({ films_name, films_image, films_description, films_budget, films_url, films_genre, director_name }) {
+export default function MediaCard({ films_name, films_image, films_description, films_budget, films_url, films_genre, director_name, films_id }) {
   const classes = useStyles();
   
   return (
@@ -56,25 +57,26 @@ export default function MediaCard({ films_name, films_image, films_description, 
             {films_name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          {films_description.substring(0, 60)}..
+            {films_description.substring(0, 60)}..
           </Typography>
           <Typography gutterBottom variant="body" component="h5"
-          className={classes.text}>
+            className={classes.text}>
             Created By:{director_name}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.media}>
         <ModalParent
-        films_name={films_name}
-        films_image={films_image}
-        films_description={films_description}
-        films_budget={films_budget}
-        films_url={films_url}
-        films_genre={films_genre}
-        director_name={director_name}
-      />
-      <SocialButtons></SocialButtons>
+          films_name={films_name}
+          films_image={films_image}
+          films_description={films_description}
+          films_budget={films_budget}
+          films_url={films_url}
+          films_genre={films_genre}
+          director_name={director_name}
+          films_id={films_id}
+        />
+        <SocialButtons></SocialButtons>
       </CardActions>
     </Card>
   );

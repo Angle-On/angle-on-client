@@ -12,6 +12,7 @@ const ModalParent = ({ films_name,
   films_description,
   films_budget,
   films_url, films_genre,
+  films_id,
   director_name
 }) => { 
   const [showModal, setShowModal] = useState(false);
@@ -35,6 +36,7 @@ const ModalParent = ({ films_name,
           films_url={films_url}
           films_genre={films_genre}
           director_name={director_name}
+          films_id={films_id}
         />
       </Container>
     </>

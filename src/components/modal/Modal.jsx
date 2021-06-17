@@ -11,10 +11,11 @@ import {
   CloseModalButton, 
   OpaqueCover,
 } from './ModalStyling'; 
+import {AlternateEmailTwoTone} from '@material-ui/icons';
 
 
 
-const Modal = ({ showModal, setShowModal, films_description, films_image, films_name, films_budget, films_url, director_name }) => { 
+const Modal = ({ showModal, setShowModal, films_description, films_image, films_name, films_budget, films_url, films_id, director_name }) => { 
  
   const modalRef = useRef();
 
@@ -43,8 +44,9 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
 
   
   const donateNow = () => { 
-    //link to take you to donation page??
+    // alert('this will take you to donations'); 
     console.log('hello! In the button!');
+    window.location.replace(`/donation/${films_id}`);
   };
 
 
