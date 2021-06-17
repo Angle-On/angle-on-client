@@ -55,6 +55,17 @@ export default function App() {
   };
 
 
+  const redirectLogOut = () => {  
+    const newWindow = window.open('https://www.google.com/accounts/Logout');
+    setTimeout(() => {
+      if(newWindow) newWindow.close();
+      const url = 'https://dazzling-heyrovsky-02bd75.netlify.app';
+      window.open(url, '_top');
+    }, 2000);
+  };
+  
+
+
   return (
     <>
       <Router>
@@ -64,6 +75,7 @@ export default function App() {
           redirectResources={redirectResources}
           redirectAboutUs={redirectAboutUs}
           redirectMyDashboard={redirectMyDashboard}
+          redirectLogOut={redirectLogOut}
         />
         <Switch>
           <Route

@@ -78,6 +78,10 @@ function NavigationDrawer(props) {
           name: 'About Us',
           utility: props['redirectAboutUs']
         },
+        {
+          name: 'Logout',
+          utility: props['redirectLogOut']
+        },
         ].map((text, index) => (
           <ListItem onClick={text.utility} button key={text.name} style={{ marginTop: '25px' }}>
             <ListItemIcon>
@@ -101,7 +105,6 @@ function NavigationDrawer(props) {
           </ListItem>
         ))}
       </List>
-      <Logout/>
     </div>
   );
 

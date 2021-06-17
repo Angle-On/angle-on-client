@@ -24,14 +24,15 @@ const Logout = () => {
 
   return (
     <div>
-      <GoogleLogout
+        <a href="https://accounts.google.com/Logout?continue=https%3A%2F%2Fappengine.google.com%2F_ah%2Flogout%3Fcontinue%3D%5Bhttp%3A%2F%2Fwww.https://dazzling-heyrovsky-02bd75.netlify.app/">Logout</a>
+      {/* <GoogleLogout
         clientId={process.env.GOOGLE_AUTH_CLIENT_ID}
         buttonText="Logout"
         onLogoutSuccess={responseGoogle}
         onFailure={responseGoogle}
         uxMode="redirect"
         redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app"
-      />
+      /> */}
     </div>);
 };
 
