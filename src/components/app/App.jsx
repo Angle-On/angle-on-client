@@ -24,20 +24,21 @@ import PrivateRoute from './PrivateRoute';
 export default function App() {
   const [director, setDirector] = useState(null);
   const [investor, setInvestor] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const directorProfile = { director, loading };
-  const investorProfile = { investor, loading };
+  const [loadingInvestor, setLoadingInvestor] = useState(true);
+  const [loadingDirector, setLoadingDirector] = useState(true);
+  const directorProfile = { user:director, loading: loadingDirector };
+  const investorProfile = { user:investor, loading: loadingInvestor };
 
   useEffect(() => {
     verifyDirectorUser()
       .then((director) => setDirector(director))
-      .finally(() => setLoading(false));
+      .finally(() => setLoadingDirector(false));
   }, []);
 
   useEffect(() => {  
     verifyInvestorUser()
       .then((investor) => setInvestor(investor))
-      .finally(() => setLoading(false));
+      .finally(() => setLoadingInvestor(false));
   }, []);
 
   const redirectHome = () => {
