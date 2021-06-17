@@ -5,11 +5,20 @@ import { verifyDirectorToken } from '../../services/apiUtils';
 
 const Logout = () => { 
   async function responseGoogle(response) {
-    await verifyDirectorToken(response)
-      .then(() => window.location.replace('/'));
+    const verify = await verifyDirectorToken(response);
+    // .then(() => window.location.replace('/'));
         
-    // console.log(verify);
+    console.log(verify);
   }
+
+
+// const Logout = () => { 
+//     async function responseGoogle(response) {
+//       await verifyDirectorToken(response)
+//           .then(() => window.location.replace('/'));
+          
+//       console.log(verify);
+//     }
     
 
 
@@ -20,6 +29,8 @@ const Logout = () => {
         buttonText="Logout"
         onLogoutSuccess={responseGoogle}
         onFailure={responseGoogle}
+        uxMode="redirect"
+        redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app"
       />
     </div>);
 };

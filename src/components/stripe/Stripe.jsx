@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import React, { useState, useEffect } from 'react'; 
 import { loadStripe } from '@stripe/stripe-js'; 
+import './Stripe.css';
 
 //make sure to call 'loadStripe' outside of a component's render to avoid
 //recreating the 'Stripe' object on every render. 
@@ -38,7 +39,7 @@ export default function App() {
     //check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search); 
 
-    if (query.get('success')) {
+    if(query.get('success')) {
       setMessage('Order placed! You will receive an email confirmation.');
     }
   }, []);
