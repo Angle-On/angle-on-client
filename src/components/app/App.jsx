@@ -10,10 +10,11 @@ import FilmerApplication from '../authentication/FilmerApplication';
 import FilmerPanel from '../panels/FilmerPanel'; 
 import InvestorPanel from '../panels/InvestorPanel'; 
 import NavigationDrawer from '../navigation/NavigationDrawer';
+import Stripe from '../stripe/Stripe';
 import './App.css';
 import ModalParent from '../modal/ModalParent';
 import { verifyUser } from '../../services/apiUtils';
-import PrivateRoute from './PrivateRoute';
+// import PrivateRoute from './PrivateRoute';
 
 
 export default function App() {
@@ -71,7 +72,7 @@ export default function App() {
             exact
             component={FilmerRegistration}
           />
-          <PrivateRoute
+          <Route
             path="/filmer-application"
             exact
             component={FilmerApplication}
@@ -93,14 +94,14 @@ export default function App() {
             exact
             component={ResourcesPage}
           />
-          <PrivateRoute
+          <Route
             path="/filmer-panel"
             exact
             component={FilmerPanel}
             activeUser={profile}
 
           />
-          <PrivateRoute
+          <Route
             path="/investor-panel"
             activeUser={profile}
             exact
@@ -115,6 +116,11 @@ export default function App() {
             path="/modal"
             exact
             component={ModalParent}
+          />
+          <Route
+            path="/donation"
+            exact
+            component={Stripe}
           />
         </Switch>
       </Router>

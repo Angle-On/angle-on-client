@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React, { useCallback, useEffect, useRef } from 'react';
+import Stripe from '../stripe/Stripe';
 import PropTypes from 'prop-types';
 import { 
   Background,
