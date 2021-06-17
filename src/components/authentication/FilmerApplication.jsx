@@ -86,9 +86,9 @@ const FilmerApplication = () => {
       body: data,
     })
       .then((response) => {
-        if (200 === response.status) {
-          if (response.data.error) {
-            if ('LIMIT_FILE_SIZE' === response.data.error.code) {
+        if(200 === response.status) {
+          if(response.data.error) {
+            if('LIMIT_FILE_SIZE' === response.data.error.code) {
               // console.log('error');
             } else {
               // console.log(response.data);
@@ -105,6 +105,8 @@ const FilmerApplication = () => {
         // console.log(setData, 'SETDATA');
         // console.log(error);
       });
+
+    history.push('/filmer-panel');
   };
 
   return (
