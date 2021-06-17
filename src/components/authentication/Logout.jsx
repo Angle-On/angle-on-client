@@ -5,9 +5,10 @@ import { verifyDirectorToken } from '../../services/apiUtils';
 
 const Logout = () => { 
   async function responseGoogle(response) {
-    const verify = await verifyDirectorToken(response);
+    await verifyDirectorToken(response)
+      .then(() => window.location.replace('/'));
         
-    console.log(verify);
+    // console.log(verify);
   }
     
 
@@ -19,8 +20,6 @@ const Logout = () => {
         buttonText="Logout"
         onLogoutSuccess={responseGoogle}
         onFailure={responseGoogle}
-        uxMode="redirect"
-        redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app"
       />
     </div>);
 };
