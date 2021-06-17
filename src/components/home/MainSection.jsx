@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import { Button } from './ButtonElements';
-
+import DirectorLogin  from '../authentication/DirectorLogin';
+import InvestorLogin from '../authentication/InvestorLogin';
 
 import {
   MainContainer,

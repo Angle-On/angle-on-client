@@ -15,18 +15,33 @@ const DirectorLogin = () => {
     console.log(verify);
   }
 
+  
+
+
+
 
   return ( 
     <div>
       <GoogleLogin
         clientId={process.env.GOOGLE_AUTH_CLIENT_ID}
+        buttonText="Director Login"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        cookiePolicy={'single_host_origin'}
+        // uxMode="redirect"
+        // redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app/filmer-panel"
+      />
+      {/* <GoogleLogin
+        clientId={process.env.GOOGLE_AUTH_CLIENT_ID}
+        render={renderProps => (
+           <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Director Login</button>
+          // <button onClick={renderProps.onClick}>Director Login</button>
+        )}
         buttonText="Login"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
-        uxMode="redirect"
-        redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app/filmer-panel"
-      />
+      /> */}
     </div>
   );
 };

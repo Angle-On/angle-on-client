@@ -15,6 +15,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import BuildIcon from '@material-ui/icons/Build';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import SubjectIcon from '@material-ui/icons/Subject';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Tooltip from '@material-ui/core/Tooltip';
 
 
@@ -96,7 +97,7 @@ function NavigationDrawer(props) {
                 } else if(index === 4) {
                   return <PersonIcon style={{ color: '#3f51b5' }}/>;
                 } else { 
-                  return <PersonIcon style={{ color: 'rgba(255,211,25)' }}/>;
+                  return <ExitToAppIcon style={{ color: 'rgba(255,211,25)' }}/>;
 
                 }}) ()}
             </ListItemIcon>

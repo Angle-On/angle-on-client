@@ -12,21 +12,31 @@ const InvestorLogin = () => {
     const verify = await verifyInvestorToken(response);
 
     console.log(verify);    
-  }
-
+  };
+  
 
 
   return ( 
     <div>
       <GoogleLogin
         clientId={process.env.GOOGLE_AUTH_CLIENT_ID}
+        buttonText="Investor Login"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        cookiePolicy={'single_host_origin'}
+        // uxMode="redirect"
+        // redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app/investor-panel"
+      />
+      {/* <GoogleLogin
+        clientId={process.env.GOOGLE_AUTH_CLIENT_ID}
+        render={renderProps => (
+          <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Investor Login</button>
+        )}
         buttonText="Login"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
-        uxMode="redirect"
-        redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app/investor-panel"
-      />
+      /> */}
     </div>
 
   );
