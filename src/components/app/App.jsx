@@ -123,7 +123,7 @@ export default function App() {
             path="/donation"
             exact
             component={DonationForm}
-            activeUser={directorProfile}
+            activeUser={investorProfile}
           />
         </Switch>
       </Router>
