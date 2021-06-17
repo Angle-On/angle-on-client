@@ -31,7 +31,6 @@ const FilmerApplication = () => {
   const [awsFile, setAwsFile] = useState('');
   const [data, setData] = useState({});
   const [genre, setGenre] = useState({
-
     Documentary: false,
     Romance: false,
     Comedy: false,
@@ -83,13 +82,14 @@ const FilmerApplication = () => {
     const URL = DEVURL;
 
     await fetch(`${URL}/api/v1/films`, {
+      credentials: 'include',
       method: 'POST',
       body: data,
     })
       .then((response) => {
-        if(200 === response.status) {
-          if(response.data.error) {
-            if('LIMIT_FILE_SIZE' === response.data.error.code) {
+        if (200 === response.status) {
+          if (response.data.error) {
+            if ('LIMIT_FILE_SIZE' === response.data.error.code) {
               // console.log('error');
             } else {
               // console.log(response.data);
