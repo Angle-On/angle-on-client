@@ -5,9 +5,11 @@ const URL = DEVURL;
 export const getFilms = async () => {
   const res = await fetch('https://angle-on.herokuapp.com/api/v1/films');
   const films = await res.json();
-  console.log(films);
+  console.log(films, 'films');
 
   return films.map((film) => ({
+    director_lastname: film.lastName,
+    director_firstname: film.firstName,
     films_id: film.filmId,
     director_id: film.filmDirectorId,
     films_name: film.filmName,

@@ -32,7 +32,7 @@ const DonationForm = (state) => {
 
   const handleSubmit = (e) => { 
     e.preventDefault();
-    console.log(typeof(budget));
+    console.log(typeof(budget), 'budget');
     //films_id, budget, investor_id
     sendDonation(budget, filmId);
 
