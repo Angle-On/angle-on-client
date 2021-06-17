@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useHistory } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from './Checkbox';
 import SubmitButton from './SubmitButton';
@@ -29,8 +30,8 @@ const FilmerApplication = () => {
   const [selectedImageFile, setSelectedImageFile] = useState('');
   const [awsFile, setAwsFile] = useState('');
   const [data, setData] = useState({});
-
   const [genre, setGenre] = useState({
+
     Documentary: false,
     Romance: false,
     Comedy: false,
@@ -105,6 +106,8 @@ const FilmerApplication = () => {
         // console.log(setData, 'SETDATA');
         // console.log(error);
       });
+
+    const history = useHistory();
 
     history.push('/filmer-panel');
   };
