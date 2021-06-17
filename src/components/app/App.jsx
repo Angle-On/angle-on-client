@@ -25,7 +25,7 @@ export default function App() {
   const [director, setDirector] = useState(null);
   const [investor, setInvestor] = useState(null);
   const [loading, setLoading] = useState(false);
-  const profile = { director, loading };
+  const directorProfile = { director, loading };
   const investorProfile = { investor, loading };
 
   useEffect(() => {
@@ -98,7 +98,7 @@ export default function App() {
             path="/filmer-application"
             exact
             component={FilmerApplication}
-            activeUser={profile}
+            activeUser={directorProfile}
           />
           <Route
             path="/investor-registration"
@@ -107,13 +107,13 @@ export default function App() {
           />
           <Route path="/films" exact component={FilmsListPage} />
           <Route path="/resources" exact component={ResourcesPage} />
-          <Route
+          <PrivateRoute
             path="/filmer-panel"
             exact
             component={FilmerPanel}
-            activeUser={profile}
+            activeUser={directorProfile}
           />
-          <Route
+          <PrivateRoute
             path="/investor-panel"
             exact
             component={InvestorPanel}
@@ -121,7 +121,12 @@ export default function App() {
           />
           <Route path="/about-us" exact component={About} />
           <Route path="/modal" exact component={ModalParent} />
-          <Route path="/donation" exact component={DonationForm} />
+          <PrivateRoute
+            path="/donation"
+            exact
+            component={DonationForm}
+            activeUser={directorProfile}
+          />
         </Switch>
       </Router>
     </>
