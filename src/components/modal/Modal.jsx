@@ -66,7 +66,6 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
                 alt="film image"
               />
               <ModalContent>
-                <h5>{films_id}</h5>
                 <h1>{films_name}</h1>
                 <h4>Created By: {director_first_name} {director_last_name}</h4>
                 <p>Summary: {films_description}</p>
