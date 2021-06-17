@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import React, { useState, useEffect } from 'react'; 
 import { loadStripe } from '@stripe/stripe-js'; 
-import './App.css'; 
 
 //make sure to call 'loadStripe' outside of a component's render to avoid
 //recreating the 'Stripe' object on every render. 
