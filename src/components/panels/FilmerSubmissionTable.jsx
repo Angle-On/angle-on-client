@@ -10,7 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 
-// import FilmData from '../../components/films/mockDataFilm'; 
+import FilmData from '../../components/films/mockDataFilm'; 
 // import { getFilmsById } from '../../services/apiUtils';
 
 const useStyles = makeStyles({
@@ -19,10 +19,10 @@ const useStyles = makeStyles({
   },
 });
 
-export default function FilmerSubmissionTable({ directorProfile }) {
+export default function FilmerSubmissionTable({ activeUser }) {
   const classes = useStyles();
 
-  console.log(directorProfile.user.directorId); 
+  console.log(activeUser.user.directorId); 
 
   // async function getDirectorFilms() {
   //   await getFilmsById(id); 
