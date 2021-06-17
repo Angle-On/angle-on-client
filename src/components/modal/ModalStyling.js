@@ -10,17 +10,20 @@ export const Container = styled.div`
     align-items: center;
     height: 10vh;
     
+    
+    
     `;
     
 export const Button = styled.button`
-    min-width: 150px;
     padding: 7px 14px;
     border-radius: 4px;
     border: 2px solid #3d5afe;
     backgroud: transparent;
     color: #3d5afe;
-    font-size: 16px;
+    font-size: 12px;
     cursor: pointer;
+    position: relative;
+    z-index: 1;
 
     &:hover { 
         background-color: #3d5afe;
@@ -63,6 +66,7 @@ export const OpaqueCover = styled.div`
     position: fixed;
     left: 50%;
     top: 50%;
+    z-index: 100;
          
 `;
 
@@ -82,6 +86,8 @@ export const ModalWrapper = styled.div`
     top: 50%;
     transform: translate(-50%, -50%);
     margin: auto;
+    z-index: 100;
+    
     `;
 
 

@@ -3,6 +3,7 @@ import useFilms from '../hooks/useFilms';
 import Film from '../films/Film';
 import { ShortFilms } from './FilmElements';
 import SearchBox from '../search/SearchBox'; 
+import './films.css';
 
 const FilmsListPage = () => { 
 
