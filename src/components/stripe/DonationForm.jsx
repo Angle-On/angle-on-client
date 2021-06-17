@@ -6,6 +6,7 @@ import { sendDonation } from '../../services/apiUtils';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DonationForm = () => { 
+  const history = useHistory();
   const classes = useStyles();
   const [budget, setBudget] = useState('');
 
@@ -28,7 +30,9 @@ const DonationForm = () => {
 
   const handleDonationChange = (event) => {
     console.log(budget, setBudget);
-    setBudget(event.target.value);
+    setBudget(event.target.value)
+    .then(() => alert('Thank you for donating!'))
+    .then(() => history.push({pathname:'/investor-panel'}))
   };
 
   const handleSubmit = (e) => { 
