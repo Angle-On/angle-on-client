@@ -9,9 +9,10 @@ import { verifyInvestorToken } from '../../services/apiUtils';
 const InvestorLogin = () => { 
 
   async function responseGoogle(response) {
+    console.log(response, 'response from google'); 
     const verify = await verifyInvestorToken(response);
 
-    console.log(verify);    
+    console.log(verify, 'this is the verify');    
   }
 
 
