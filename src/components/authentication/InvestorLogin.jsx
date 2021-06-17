@@ -1,8 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { GoogleLogin } from 'react-google-login';
 import { verifyInvestorToken } from '../../services/apiUtils';
-// import { useLocation } from 'react-router';
 
 
 
@@ -10,9 +9,8 @@ import { verifyInvestorToken } from '../../services/apiUtils';
 const InvestorLogin = () => { 
 
   async function responseGoogle(response) {
-    const verify = await verifyInvestorToken(response);
+    await verifyInvestorToken(response);
     
-    console.log(response);
   }
 
 
@@ -25,7 +23,7 @@ const InvestorLogin = () => {
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
         uxMode="redirect"
-        redirectUri="http://localhost:3000/investor-panel"
+        redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app"
       />
     </div>
 
