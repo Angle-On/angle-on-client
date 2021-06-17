@@ -12,7 +12,9 @@ const DirectorLogin = () => {
   async function responseGoogle(response) {
     const verify = await verifyDirectorToken(response);
     
-    console.log(verify);
+    console.log(verify, 'CAN YOU SEE THIS');
+    console.log('CAN YOU SEE THIS');
+
   }
 
 

@@ -18,9 +18,6 @@ import { verifyDirectorUser, verifyInvestorUser } from '../../services/apiUtils'
 // import { gapi } from 'gapi-script';
 // import PrivateRoute from './PrivateRoute';
 
-
-
-
 export default function App() {
   const [director, setDirector] = useState(null);
   const [investor, setInvestor] = useState(null); 
@@ -136,7 +133,6 @@ export default function App() {
           />
           <Route
             path="/investor-panel"
-            activeUser={profile}
             exact
             component={InvestorPanel}
             activeUser={investorProfile}
