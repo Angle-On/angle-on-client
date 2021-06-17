@@ -32,7 +32,7 @@ const DonationForm = () => {
     console.log(budget, setBudget);
     setBudget(event.target.value)
     .then(() => alert('Thank you for donating!'))
-    .then(() => history.push({pathname:'/investor-panel'}))
+    .finally(() => history.push({pathname:'/investor-panel'}))
   };
 
   const handleSubmit = (e) => { 
