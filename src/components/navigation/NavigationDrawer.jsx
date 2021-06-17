@@ -16,6 +16,7 @@ import BuildIcon from '@material-ui/icons/Build';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import SubjectIcon from '@material-ui/icons/Subject';
 import Tooltip from '@material-ui/core/Tooltip';
+import Logout from '../authentication/Logout';
 
 
 
@@ -100,6 +101,7 @@ function NavigationDrawer(props) {
           </ListItem>
         ))}
       </List>
+      <Logout/>
     </div>
   );
 

@@ -14,7 +14,11 @@ import Stripe from '../stripe/Stripe';
 import './App.css';
 import ModalParent from '../modal/ModalParent';
 import { verifyUser } from '../../services/apiUtils';
+import { GoogleLogout } from 'react-google-login';
+
 // import PrivateRoute from './PrivateRoute';
+
+
 
 
 export default function App() {

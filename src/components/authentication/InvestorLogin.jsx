@@ -27,12 +27,6 @@ const InvestorLogin = () => {
         uxMode="redirect"
         redirectUri="http://localhost:3000/investor-panel"
       />
-
-      <GoogleLogout
-        clientId={process.env.GOOGLE_AUTH_CLIENT_ID2}
-        buttonText="Logout"
-        onLogoutSuccess={responseGoogle}
-        onFailure={responseGoogle}/>
     </div>
 
   );

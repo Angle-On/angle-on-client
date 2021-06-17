@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { GoogleLogin } from 'react-google-login';
 import { verifyDirectorToken } from '../../services/apiUtils';
 // import { useLocation } from 'react-router';
 
@@ -27,14 +27,7 @@ const DirectorLogin = () => {
         uxMode="redirect"
         redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app/filmer-panel"
       />
-
-      <GoogleLogout
-        clientId={process.env.GOOGLE_AUTH_CLIENT_ID}
-        buttonText="Logout"
-        onLogoutSuccess={responseGoogle}
-        onFailure={responseGoogle}/>
     </div>
-
   );
 };
 
