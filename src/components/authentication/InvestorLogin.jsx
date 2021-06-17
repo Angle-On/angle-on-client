@@ -10,10 +10,11 @@ const InvestorLogin = () => {
 
   async function responseGoogle(response) {
     console.log(response, 'response from google'); 
-    
+
     const verify = await verifyInvestorToken(response);
 
-    console.log(verify, 'this is the verify');    
+    console.log(verify, 'this is the verify');   
+    console.log('in verify');  
   }
 
 
@@ -26,8 +27,8 @@ const InvestorLogin = () => {
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
-        uxMode="redirect"
-        redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app/investor-panel"
+        // uxMode="redirect"
+        // redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app/investor-panel"
       />
     </div>
 
