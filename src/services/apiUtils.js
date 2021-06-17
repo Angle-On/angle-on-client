@@ -3,7 +3,7 @@ const DEVURL = 'https://angle-on.herokuapp.com';
 const URL = DEVURL;
 
 export const getFilms = async () => {
-  const res = await fetch('https://angle-on.herokuapp.com/api/v1/films');
+  const res = await fetch(`${URL}/api/v1/films`);
   const films = await res.json();
   console.log(films);
 
@@ -21,7 +21,7 @@ export const getFilms = async () => {
 
 //get all invstors
 export const getInvestors = async () => {
-  const res = await fetch(`${URL}/investors`);
+  const res = await fetch(`${URL}/api/v1/investors`);
 
   const investors = await res.json();
 
@@ -32,8 +32,8 @@ export const getInvestors = async () => {
   }));
 };
 
-export const getInvestorById = async () => {
-  const res = await fetch(`${URL}/investors/{id}`);
+export const getInvestorById = async (id) => {
+  const res = await fetch(`${URL}/api/v1/investors/${id}`);
 
   const investor = await res.json();
 
@@ -41,7 +41,7 @@ export const getInvestorById = async () => {
 };
 
 export const updateInvestorById = async (id, jsonBody) => {
-  const res = await fetch(`${URL}/investors/${id}`, {
+  const res = await fetch(`${URL}/api/v1/investors/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'Application/JSON' },
     body: JSON.stringify(jsonBody),
@@ -53,7 +53,7 @@ export const updateInvestorById = async (id, jsonBody) => {
 };
 
 export const deleteInvestorById = async (id) => {
-  const res = await fetch(`${URL}/investors/${id}`, {
+  const res = await fetch(`${URL}/api/v1/investors/${id}`, {
     method: 'DELETE',
   });
 
@@ -64,7 +64,7 @@ export const deleteInvestorById = async (id) => {
 
 //filmer
 export const getFilmerById = async () => {
-  const res = await fetch(`${URL}/filmers/{id}`);
+  const res = await fetch(`${URL}/api/v1/filmers/${id}`);
 
   const filmer = await res.json();
 
@@ -72,7 +72,7 @@ export const getFilmerById = async () => {
 };
 
 export const updateFilmerById = async (id, jsonBody) => {
-  const res = await fetch(`${URL}/filmers/${id}`, {
+  const res = await fetch(`${URL}/api/v1/filmers/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'Application/JSON' },
     body: JSON.stringify(jsonBody),
@@ -85,7 +85,7 @@ export const updateFilmerById = async (id, jsonBody) => {
 
 //donations
 export const getDonationById = async (id) => {
-  const res = await fetch(`${URL}/donations/${id}`);
+  const res = await fetch(`${URL}/api/v1/donations/${id}`);
 
   const donation = await res.json();
 
@@ -195,3 +195,5 @@ export const sendDonation = async (amount, filmId) => {
   console.log(response, 'STRIPE RESPONSE');
   return response;
 };
+
+

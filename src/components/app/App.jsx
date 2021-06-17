@@ -24,19 +24,17 @@ import PrivateRoute from './PrivateRoute';
 export default function App() {
   const [director, setDirector] = useState(null);
   const [investor, setInvestor] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const directorProfile = { director, loading };
   const investorProfile = { investor, loading };
 
   useEffect(() => {
-    setLoading(true);
     verifyDirectorUser()
       .then((director) => setDirector(director))
       .finally(() => setLoading(false));
   }, []);
 
-  useEffect(() => {
-    setLoading(true);
+  useEffect(() => {  
     verifyInvestorUser()
       .then((investor) => setInvestor(investor))
       .finally(() => setLoading(false));
