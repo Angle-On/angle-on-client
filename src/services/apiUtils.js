@@ -92,8 +92,6 @@ export const getDonationById = async (id) => {
   return donation;
 };
 
-
-
 //films
 export const getFilmsById = async (id) => {
   const res = await fetch(`${URL}/api/v1/films/${id}`, {
@@ -108,7 +106,7 @@ export const getFilmsById = async (id) => {
 //google oAuth
 export const verifyDirectorToken = async ({ profileObj, tokenId }) => {
   const response = await fetch(`${URL}/api/v1/directors/auth`, {
-    // credentials: 'include',
+    credentials: 'include',
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -128,7 +126,7 @@ export const verifyDirectorToken = async ({ profileObj, tokenId }) => {
 //google oAuth
 export const verifyInvestorToken = async ({ profileObj, tokenId }) => {
   const response = await fetch(`${URL}/api/v1/investors/auth`, {
-    // credentials: 'include',
+    credentials: 'include',
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -191,9 +189,9 @@ export const sendDonation = async (amount, filmId) => {
     body: JSON.stringify({
       donation_amount: amount,
       film_id: filmId,
-      investor_id: 1
+      investor_id: 1,
     }),
   });
-  console.log(response, 'STRIPE RESPONSE')  ;
+  console.log(response, 'STRIPE RESPONSE');
   return response;
 };
