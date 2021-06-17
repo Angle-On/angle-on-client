@@ -35,6 +35,7 @@ const DonationForm = () => {
     e.preventDefault();
     console.log(typeof(budget));
     //films_id, budget, investor_id
+    console.log(filmId)
     sendDonation(budget, filmId);
 
   };

@@ -180,7 +180,7 @@ export const sendFilm = async ({ filmObj }) => {
 
 export const sendDonation = async (amount, filmId) => {
   const response = await fetch(`${URL}/api/v1/donations`, {
-    // credentials: 'include',
+    credentials: 'include',
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
