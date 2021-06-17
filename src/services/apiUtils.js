@@ -1,5 +1,5 @@
-// const DEVURL = 'https://angle-on.herokuapp.com';
-const DEVURL = 'http://localhost:7890';
+const DEVURL = 'https://angle-on.herokuapp.com';
+// const DEVURL = 'http://localhost:7890';
 const URL = DEVURL;
 
 export const getFilms = async () => {
