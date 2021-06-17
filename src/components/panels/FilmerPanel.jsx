@@ -6,7 +6,7 @@ import FilmerSubmissionTable from './FilmerSubmissionTable';
 
 import filmer from './mock-data/mockfilmer'; 
 
-const FilmerPanel = ({ activeUser }) => {
+const FilmerPanel = (...activeUser) => {
   console.log(activeUser.user.directorId);
   return (
     <>
