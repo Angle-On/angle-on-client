@@ -14,7 +14,7 @@ import Stripe from '../stripe/Stripe';
 import './App.css';
 import ModalParent from '../modal/ModalParent';
 import { verifyUser } from '../../services/apiUtils';
-import { gapi } from 'gapi-script';
+// import { gapi } from 'gapi-script';
 // import PrivateRoute from './PrivateRoute';
 
 

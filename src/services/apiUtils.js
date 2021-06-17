@@ -121,6 +121,26 @@ export const verifyDirectorToken = async ({ profileObj, tokenId }) => {
   return response;
 };
 
+//google oAuth
+export const verifyInvestorToken = async ({ profileObj, tokenId }) => {
+  const response = await fetch(`${URL}/api/v1/investors/auth`, {
+    // credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      firstName: profileObj.givenName,
+      lastName: profileObj.familyName,
+      email: profileObj.email,
+      investorImg: profileObj.imageUrl,
+      tokenId,
+    }),
+  });
+  console.log(response);
+  return response;
+};
+
 //verify user route
 export const verifyUser = async () => {
   const response = await fetch(`${URL}/api/v1/directors/verify`, {
@@ -130,24 +150,7 @@ export const verifyUser = async () => {
   return user;
 };
 
-//google oAuth
-export const verifyInvestorToken = async ({ profileObj, tokenId }) => {
-  const response = await fetch(`${URL}/api/v1/investors/auth`, {
-    credentials: 'include',
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      firstName: profileObj.givenName,
-      lastName: profileObj.familyName,
-      email: profileObj.email,
-      directorImg: profileObj.imageUrl,
-      tokenId,
-    }),
-  });
-  return response;
-};
+
 
 //film application
 export const sendFilm = async ({ filmObj }) => {
