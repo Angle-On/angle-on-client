@@ -1,30 +1,40 @@
 /* eslint-disable max-len */
 import React, { useState, useEffect } from 'react'; 
+import { useParams } from 'react-router-dom'; 
 import { loadStripe } from '@stripe/stripe-js'; 
 import './Stripe.css';
+import { getFilmsById } from '../../services/apiUtils';
 
 //make sure to call 'loadStripe' outside of a component's render to avoid
 //recreating the 'Stripe' object on every render. 
 
 const stripePromise = loadStripe('pk_test_51J2mYKBEPUrE5EZhMNUxxskfORukvxnzSHoU5lMjbEop6GpVx0EjIYQeCYBd8ynK6QbzhKErM2ryNnw3q9wYXmBh002lfz8x2W');
 
-const ProductDisplay = ({ handleClick }) => (
-  <section>
-    <div className="product">
-      <img
-        src="https://i.imgur.com/EHyR2nP.png"
-        alt="The cover of stubborn attachments"
-      />
-      <div className="description">
-        <h3>Stubborn attachments</h3>
-        <h5>$20.00</h5>
+
+const ProductDisplay = ({ handleClick }) => {
+  const { id } = useParams(); 
+  const film = getFilmsById(id);
+  console.log(film, 'this is the film'); 
+
+
+  return (
+    <section>
+      <div className="product">
+        <img
+          src="https://i.imgur.com/EHyR2nP.png"
+          alt="The cover of stubborn attachments"
+        />
+        <div className="description">
+          <h3>Stubborn attachments</h3>
+          <h5>$20.00</h5>
+        </div>
       </div>
-    </div>
-    <button type="button" id="checkout-button" role="link" onClick={handleClick}>
+      <button type="button" id="checkout-button" role="link" onClick={handleClick}>
       Checkout
-    </button>
-  </section>
-);
+      </button>
+    </section>
+  );
+};
 
 const Message = ({ message }) => (
   <section>
@@ -73,10 +83,3 @@ export default function Stripe() {
 
 
 
-
-// return (
-//   <div>
-//     <ProductDisplay handleClick={handleClick} /> 
-//     <button>Click here</button>
-//   </div>
-// ); 

@@ -55,7 +55,7 @@ Film.propTypes = {
   films_description: PropTypes.string.isRequired,
   films_budget: PropTypes.number.isRequired,
   films_url: PropTypes.string.isRequired,
-  films_id: PropTypes.number.isRequired, 
+  films_id: PropTypes.string.isRequired, 
   films_genre: PropTypes.array.isRequired,
   director_name: PropTypes.string.isRequired
 
