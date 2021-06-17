@@ -17,13 +17,13 @@ const InvestorLogin = () => {
   return ( 
     <div>
       <GoogleLogin
-        clientId={process.env.GOOGLE_AUTH_CLIENT_ID2}
+        clientId={process.env.GOOGLE_AUTH_CLIENT_ID}
         buttonText="Login"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
         uxMode="redirect"
-        redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app"
+        redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app/investor-panel"
       />
     </div>
 
