@@ -8,14 +8,15 @@ export const getFilms = async () => {
   console.log(films);
 
   return films.map((film) => ({
-    films_id: film.filmId,
-    director_id: film.filmDirectorId,
-    films_name: film.filmName,
-    films_image: film.filmImg,
-    films_description: film.filmDescription,
-    films_budget: film.filmBudget,
-    films_url: film.filmUrl,
-    films_genre: film.filmGenre,
+    films_id: film.film_id,
+    director_name: film.director_name,
+    director_id: film.director_id,
+    films_name: film.film_name,
+    films_image: film.film_image,
+    films_description: film.film_description,
+    films_budget: film.film_budget,
+    films_url: film.film_url,
+    films_genre: film.film_genre,
   }));
 };
 
