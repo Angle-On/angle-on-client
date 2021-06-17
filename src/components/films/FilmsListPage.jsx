@@ -1,12 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import useFilms from '../hooks/useFilms';
+import Film from '../films/Film';
+import { ShortFilms } from './FilmElements';
+import SearchBox from '../search/SearchBox'; 
 
 const FilmsListPage = () => { 
-    return( 
-        <div>
-            <h2>filmslist</h2>
-        </div>
-    );
+
+  const { films, loading } = useFilms();
+
+  const shortFilms = films.map(film => (<li key={film.films_id}>
+    <Film {...film}/>
+  </li>));
+
+
+    
+  if(loading) return <h2>Loading...</h2>;
+  return (<div>
+    <SearchBox
+      shortFilms={shortFilms}/>
+    <ShortFilms>
+      {shortFilms}
+    </ShortFilms>
+  </div>
+  );
 };
 
 export default FilmsListPage;
