@@ -106,7 +106,9 @@ const FilmerApplication = () => {
         // console.log(setData, 'SETDATA');
         // console.log(error);
       });
+
     const history = useHistory();
+
     history.push('/filmer-panel');
   };
 
