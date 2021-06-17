@@ -19,10 +19,10 @@ const useStyles = makeStyles({
   },
 });
 
-export default function FilmerSubmissionTable(activeUser) {
+export default function FilmerSubmissionTable({ activeUser }) {
   const classes = useStyles();
 
-  console.log(activeUser); 
+  console.log(activeUser.user.directorId); 
 
   // async function getDirectorFilms() {
   //   await getFilmsById(id); 
