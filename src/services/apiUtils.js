@@ -9,8 +9,9 @@ export const getFilms = async () => {
 
   return films.map((film) => ({
     films_id: film.film_id,
-    director_name: film.director_name,
     director_id: film.director_id,
+    director_first_name: film.first_name,
+    director_last_name: film.last_name,
     films_name: film.film_name,
     films_image: film.film_image,
     films_description: film.film_description,
@@ -195,5 +196,3 @@ export const sendDonation = async (amount, filmId) => {
   console.log(response, 'STRIPE RESPONSE');
   return response;
 };
-
-
