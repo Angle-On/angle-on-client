@@ -188,9 +188,8 @@ export const sendDonation = async (amount, filmId) => {
       'Access-Control-Allow-Origin': '*',
     },
     body: JSON.stringify({
-      donation_amount: amount,
-      film_id: filmId,
-      investor_id: 1,
+      donationAmount: amount,
+      donationFilmId: filmId,
     }),
   });
   console.log(response, 'STRIPE RESPONSE');
