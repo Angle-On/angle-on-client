@@ -96,8 +96,10 @@ export const getDonationById = async (id) => {
 
 //films
 export const getFilmsById = async (id) => {
-  const res = await fetch(`${URL}/donations/${id}`);
-
+  const res = await fetch(`${URL}/api/v1/films/${id}`, {
+    credentials: 'include',
+  });
+  console.log(res, 'res');
   const films = await res.json();
 
   return films;

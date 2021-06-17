@@ -37,6 +37,7 @@ const ModalParent = ({ films_name,
           films_url={films_url}
           films_genre={films_genre}
           director_name={director_name}
+          films_id={films_id}
         />
       </Container>
     </>

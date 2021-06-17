@@ -12,6 +12,7 @@ import {
   CloseModalButton, 
   OpaqueCover,
 } from './ModalStyling'; 
+import {AlternateEmailTwoTone} from '@material-ui/icons';
 
 
 

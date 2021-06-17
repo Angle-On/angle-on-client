@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React, { useState } from 'react';
 import { Button } from './ButtonElements';
 import DirectorLogin  from '../authentication/DirectorLogin';
@@ -30,13 +29,11 @@ function MainSection() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </MainP>
         <MainBtnWrapper>
-          <Button
-            onClick={() => window.location.replace('/investor-registration')}
+          <Button onClick={() => window.location.replace('/investor-registration')}
           >
             Investor LogIn {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
-          <Button
-            onClick={() => window.location.replace('/filmer-registration')}
+          <Button onClick={() => window.location.replace('/filmer-registration')}
           >
             Filmmaker LogIn {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
