@@ -6,7 +6,7 @@ export const homeObjOne = {
   topLine: 'Lorem ipsum',
   headline: 'Lorem ipsum dolor sit amet',
   description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+    'These filmmakers need the support of their community to produce their short films. Check out our films page to learn more about the shorts and to donate to a project.',
   buttonLabel: 'Get Started',
   imgStart: false,
   alt: 'Car',

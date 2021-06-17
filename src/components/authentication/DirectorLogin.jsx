@@ -30,8 +30,8 @@ const DirectorLogin = () => {
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
-        // uxMode="redirect"
-        // redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app/filmer-panel"
+        uxMode="redirect"
+        redirectUri="https://dazzling-heyrovsky-02bd75.netlify.app/filmer-panel"
       />
       {/* <GoogleLogin
         clientId={process.env.GOOGLE_AUTH_CLIENT_ID}
