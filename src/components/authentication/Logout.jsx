@@ -15,7 +15,7 @@ const Logout = () => {
   return (
     <div>
       <GoogleLogout
-        clientId={process.env.GOOGLE_AUTH_CLIENT_ID2}
+        clientId={process.env.GOOGLE_AUTH_CLIENT_ID}
         buttonText="Logout"
         onLogoutSuccess={responseGoogle}
         onFailure={responseGoogle}/>
