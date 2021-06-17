@@ -31,16 +31,17 @@ const DonationForm = () => {
   const handleDonationChange = (event) => {
     console.log(budget, setBudget);
     setBudget(event.target.value)
-    .then(() => alert('Thank you for donating!'))
-    .finally(() => history.push({pathname:'/investor-panel'}))
+
   };
 
-  const handleSubmit = (e) => { 
+  const handleSubmit = async (e) => { 
     e.preventDefault();
     console.log(typeof(budget));
     //films_id, budget, investor_id
     console.log(filmId)
-    sendDonation(budget, filmId);
+    await sendDonation(budget, filmId)
+    .then(() => alert('Thank you for donating!'))
+    .finally(() => history.push({pathname:'/investor-panel'}))
 
   };
 
