@@ -2,18 +2,20 @@
 import React from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { verifyInvestorToken } from '../../services/apiUtils';
+import { useHistory } from 'react-router';
 
 
 
 
 const InvestorLogin = () => { 
-
+  const history = useHistory();
   async function responseGoogle(response) {
     console.log(response, 'response from google'); 
 
-    const verify = await verifyInvestorToken(response);
-
-    console.log(verify, 'this is the verify');   
+    const verify = await verifyInvestorToken(response)
+      .then(() => history.push({pathname:'/investor-panel'}))
+    
+      console.log(verify, 'this is the verify');   
     console.log('in verify');  
   }
 

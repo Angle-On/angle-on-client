@@ -8,77 +8,72 @@ import FilmsListPage from '../films/FilmsListPage';
 import ResourcesPage from '../resources/ResourcesPage';
 import About from '../aboutus/About';
 import FilmerApplication from '../authentication/FilmerApplication';
-import FilmerPanel from '../panels/FilmerPanel'; 
-import InvestorPanel from '../panels/InvestorPanel'; 
+import FilmerPanel from '../panels/FilmerPanel';
+import InvestorPanel from '../panels/InvestorPanel';
 import NavigationDrawer from '../navigation/NavigationDrawer';
 import DonationForm from '../stripe/DonationForm';
 import './App.css';
 import ModalParent from '../modal/ModalParent';
-import { verifyDirectorUser, verifyInvestorUser } from '../../services/apiUtils';
+import {
+  verifyDirectorUser,
+  verifyInvestorUser,
+} from '../../services/apiUtils';
 // import { gapi } from 'gapi-script';
-// import PrivateRoute from './PrivateRoute';
+import PrivateRoute from './PrivateRoute';
 
 export default function App() {
   const [director, setDirector] = useState(null);
-  const [investor, setInvestor] = useState(null); 
-  const [loading, setLoading] = useState(false); 
-  const profile = { director, loading }; 
-  const investorProfile = { investor, loading }; 
-  
+  const [investor, setInvestor] = useState(null);
+  const [loadingInvestor, setLoadingInvestor] = useState(true);
+  const [loadingDirector, setLoadingDirector] = useState(true);
+  const directorProfile = { user:director, loading: loadingDirector };
+  const investorProfile = { user:investor, loading: loadingInvestor };
+
   useEffect(() => {
-    setLoading(true); 
     verifyDirectorUser()
-      .then(director => setDirector(director))
-      .finally(() => setLoading(false)); 
-  }, []); 
+      .then((director) => setDirector(director))
+      .finally(() => setLoadingDirector(false));
+  }, []);
 
-  useEffect(() => {
-    setLoading(true); 
+  useEffect(() => {  
     verifyInvestorUser()
-      .then(investor => setInvestor(investor))
-      .finally(() => setLoading(false)); 
-  }, []); 
+      .then((investor) => setInvestor(investor))
+      .finally(() => setLoadingInvestor(false));
+  }, []);
 
-
-  const redirectHome = () => { 
+  const redirectHome = () => {
     window.location.replace('/');
   };
 
-  const redirectFilms = () => { 
+  const redirectFilms = () => {
     window.location.replace('/films');
   };
 
-  const redirectResources = () => { 
+  const redirectResources = () => {
     window.location.replace('/resources');
   };
 
-  const redirectMyDashboard = () => { 
+  const redirectMyDashboard = () => {
     window.location.replace('/filmer-panel');
   };
 
-  const redirectAboutUs = () => { 
+  const redirectAboutUs = () => {
     window.location.replace('/about-us');
   };
 
-
-  const redirectLogOut = () => {  
+  const redirectLogOut = () => {
     const newWindow = window.open('https://www.google.com/accounts/Logout');
     setTimeout(() => {
-      if(newWindow) newWindow.close();
+      if (newWindow) newWindow.close();
       const url = 'https://dazzling-heyrovsky-02bd75.netlify.app';
       window.open(url, '_top');
     }, 1000);
 
-    
     // const auth2 = gapi.auth2.getAuthInstance();
     // auth2.signOut().then(() => {
     //   console.log('User signed out.');
     // });
-
-    
   };
-  
-
 
   return (
     <>
@@ -92,65 +87,44 @@ export default function App() {
           redirectLogOut={redirectLogOut}
         />
         <Switch>
-          <Route
-            path="/"
-            exact
-            component={LandingPage}   
-          />
+          <Route path="/" exact component={LandingPage} />
           <Route
             path="/filmer-registration"
             exact
             component={FilmerRegistration}
           />
-          <Route
+          <PrivateRoute
             path="/filmer-application"
             exact
             component={FilmerApplication}
-            activeUser={profile}
-
+            activeUser={directorProfile}
           />
           <Route
             path="/investor-registration"
             exact
             component={InvestorRegistration}
           />
-          <Route
-            path="/films"
-            exact
-            component={FilmsListPage}
-          />
-          <Route
-            path="/resources"
-            exact
-            component={ResourcesPage}
-          />
-          <Route
+          <Route path="/films" exact component={FilmsListPage} />
+          <Route path="/resources" exact component={ResourcesPage} />
+          <PrivateRoute
             path="/filmer-panel"
             exact
             component={FilmerPanel}
-            activeUser={profile}
-
+            activeUser={directorProfile}
           />
-          <Route
+          <PrivateRoute
             path="/investor-panel"
             exact
             component={InvestorPanel}
             activeUser={investorProfile}
           />
-          <Route
-            path="/about-us"
-            exact
-            component={About}
-          />
-          <Route
-            path="/modal"
-            exact
-            component={ModalParent}
-          />
-          <Route
-            path="/donation"
+          <Route path="/about-us" exact component={About} />
+          <Route path="/modal" exact component={ModalParent} />
+          <PrivateRoute
+            path="/donation/:filmId"
             exact
             component={DonationForm}
+            activeUser={investorProfile}
           />
         </Switch>
       </Router>

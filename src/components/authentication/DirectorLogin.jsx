@@ -3,15 +3,17 @@ import React from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { verifyDirectorToken } from '../../services/apiUtils';
 // import { useLocation } from 'react-router';
+import { useHistory } from 'react-router';
 
 
 
 
 const DirectorLogin = () => { 
-
+  const history = useHistory();
   async function responseGoogle(response) {
-    const verify = await verifyDirectorToken(response);
-    
+    const verify = await verifyDirectorToken(response)
+      .then(() => history.push({pathname:'/filmer-panel'}))
+
     console.log(verify, 'CAN YOU SEE THIS');
     console.log('CAN YOU SEE THIS');
 

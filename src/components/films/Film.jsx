@@ -9,12 +9,12 @@ import { FilmContainer } from './FilmElements';
 
 
 
-const Film = ({ films_name, films_image, films_description, films_budget, films_url, films_genre, director_id, films_id, director_lastname }) => {
+const Film = ({ films_name, films_image, films_description, films_budget, films_url, films_genre, director_first_name, director_last_name, director_id, films_id }) => {
   return (
     <FilmContainer>
       <h2>{films_name}</h2>
       <Underline></Underline>
-      <h4>Created by: {director_lastname}</h4>
+      <h4>Created by: {director_first_name} {director_last_name}</h4>
       <FilmImage src={films_image} alt={films_name}/>
       {/* <div> Genre Categories: {films_genre.map(genre => <div key={genre}>
         <p>{genre}</p>
@@ -30,6 +30,8 @@ const Film = ({ films_name, films_image, films_description, films_budget, films_
         films_url={films_url}
         films_genre={films_genre}
         director_name={director_id}
+        director_first_name={director_first_name}
+        director_last_name={director_last_name}
       />
       <SocialButtons></SocialButtons>
     </FilmContainer>

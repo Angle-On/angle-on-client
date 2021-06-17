@@ -7,13 +7,16 @@ import { Container, Button } from './ModalStyling';
 
 
 
-const ModalParent = ({ films_name,
+const ModalParent = ({ 
+  films_name,
   films_image,
   films_description,
   films_budget,
-  films_url, films_genre,
-  director_name,
-  films_id
+  films_url, 
+  films_genre,
+  films_id,
+  director_first_name,
+  director_last_name
 }) => { 
   const [showModal, setShowModal] = useState(false);
 
@@ -36,8 +39,8 @@ const ModalParent = ({ films_name,
           films_budget={films_budget}
           films_url={films_url}
           films_genre={films_genre}
-          director_name={director_name}
-          films_id={films_id}
+          director_first_name={director_first_name}
+          director_last_name={director_last_name}
         />
       </Container>
     </>

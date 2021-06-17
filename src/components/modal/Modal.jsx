@@ -12,11 +12,10 @@ import {
   CloseModalButton, 
   OpaqueCover,
 } from './ModalStyling'; 
-import {AlternateEmailTwoTone} from '@material-ui/icons';
 
 
 
-const Modal = ({ showModal, setShowModal, films_description, films_image, films_name, films_budget, films_url, director_name, films_id }) => { 
+const Modal = ({ showModal, setShowModal, films_description, films_image, films_name, films_budget, films_url, director_first_name, director_last_name, films_id }) => { 
   const history = useHistory();
 
  
@@ -51,10 +50,7 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
     // window.location.replace('/donation');
     console.log('hello! In the button!');
 
-    history.push({
-      pathname: '/donation',
-      state: { filmId: films_id }
-    });
+    history.push(`/donation/${films_id}`);
 
   };
 
@@ -70,9 +66,8 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
                 alt="film image"
               />
               <ModalContent>
-                <h5>{films_id}</h5>
                 <h1>{films_name}</h1>
-                <h4>Created By: {director_name}</h4>
+                <h4>Created By: {director_first_name} {director_last_name}</h4>
                 <p>Summary: {films_description}</p>
                 <p>Short Film Budget: ${films_budget}.00</p>
                 <a href={films_url}>Short Film Link</a>

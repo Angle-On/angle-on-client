@@ -26,7 +26,7 @@ function MainSection() {
       <MainContent>
         <MainH1>Welcome to AngleOn</MainH1>
         <MainP>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        In the film industry, Angle On is the act of directing the camera to move and focus on a particular subject. Our mission is to move the lens onto individuals from underrepresented communities and focus on their creativity and talent. Our organization supports equality, equity, and economic empowerment for all. 
         </MainP>
         <MainBtnWrapper>
           <Button onClick={() => window.location.replace('/investor-registration')}
