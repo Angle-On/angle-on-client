@@ -61,7 +61,7 @@ export default function App() {
       if(newWindow) newWindow.close();
       const url = 'https://dazzling-heyrovsky-02bd75.netlify.app';
       window.open(url, '_top');
-    }, 2000);
+    }, 1000);
   };
   
 
