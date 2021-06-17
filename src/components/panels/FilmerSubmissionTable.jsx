@@ -10,10 +10,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 
-import FilmData from '../../components/films/mockDataFilm'; 
-//when time comes 
-// import useFilmsById from '../hooks/useFilmsById'; 
-
+// import FilmData from '../../components/films/mockDataFilm'; 
+// import { getFilmsById } from '../../services/apiUtils';
 
 const useStyles = makeStyles({
   table: {
@@ -21,9 +19,15 @@ const useStyles = makeStyles({
   },
 });
 
-
-export default function FilmerSubmissionTable() {
+export default function FilmerSubmissionTable(activeUser) {
   const classes = useStyles();
+
+  console.log(activeUser); 
+
+  // async function getDirectorFilms() {
+  //   await getFilmsById(id); 
+
+  // }
   
   const rows = FilmData.map((film) => ({
     id: film.film_id,  
