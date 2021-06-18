@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 export default function FilmerSubmissionTable({ user }) {
   const classes = useStyles();
 
-  console.log(user); 
+  console.log(user.user.directorId, 'this should be id'); 
 
   // async function getDirectorFilms() {
   //   await getFilmsById(id); 
