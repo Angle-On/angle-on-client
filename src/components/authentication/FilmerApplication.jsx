@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Checkbox from './Checkbox';
 import SubmitButton from './SubmitButton';
 import TextArea from './TextArea';
+import { ShortFilmWrap, FormWrap } from './FilmerElements';
 import './form.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -13,10 +14,15 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
       width: '25ch',
+      // justifyContent: 'center',
+      // alignContent: 'center',
+      flexDirection: 'row',
+      display: 'flex',
+      
     },
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
-      width: '25ch',
+      width: '50ch',
     },
   },
 }));
@@ -64,7 +70,6 @@ const FilmerApplication = () => {
   };
 
   const handleGenreChange = (event) => {
-    console.log(genre, 'GENRE');
     setGenre({ ...genre, [event.target.name]: event.target.checked });
   };
 
@@ -87,9 +92,9 @@ const FilmerApplication = () => {
       body: data,
     })
       .then((response) => {
-        if (200 === response.status) {
-          if (response.data.error) {
-            if ('LIMIT_FILE_SIZE' === response.data.error.code) {
+        if(200 === response.status) {
+          if(response.data.error) {
+            if('LIMIT_FILE_SIZE' === response.data.error.code) {
               // console.log('error');
             } else {
               // console.log(response.data);
@@ -111,40 +116,43 @@ const FilmerApplication = () => {
   };
 
   return (
-    <div>
-      <h1>Short Film Application</h1>
-      <form className={classes.root} onSubmit={handleSubmit}>
-        <TextField
-          name="filmName"
-          id="standard-basic"
-          label="Title"
-          onChange={handleTitleChange}
-        />
-        <TextField
-          name="filmBudget"
-          id="standard-basic"
-          label="$ Budget"
-          type="number"
-          onChange={handleBudgetChange}
-        />
-        <TextField
-          name="filmUrl"
-          id="standard-basic"
-          label="Trailer URL"
-          onChange={handleTrailerChange}
-        />
-        <TextArea
-          name="filmDescription"
-          handleDescriptionChange={handleDescriptionChange}
-          description={description}
-        />
+    <ShortFilmWrap>
+      <FormWrap>
+        <h1>Short Film Application</h1>
+        <form className={classes.root} onSubmit={handleSubmit}>
+          <TextField
+            name="filmName"
+            id="standard-basic"
+            label="Title"
+            onChange={handleTitleChange}
+          />
+          <TextField
+            name="filmBudget"
+            id="standard-basic"
+            label="$ Budget"
+            type="number"
+            onChange={handleBudgetChange}
+          />
+          <TextField
+            name="filmUrl"
+            id="standard-basic"
+            label="Trailer URL"
+            onChange={handleTrailerChange}
+          />
+          <TextArea
+            name="filmDescription"
+            handleDescriptionChange={handleDescriptionChange}
+            description={description}
+          />
 
-        <input type="file" name="image"></input>
+          <input type="file" name="image"></input>
 
-        <Checkbox handleGenreChange={handleGenreChange} genre={genre} />
-        <SubmitButton />
-      </form>
-    </div>
+          <Checkbox handleGenreChange={handleGenreChange} genre={genre} />
+          <SubmitButton />
+        </form>
+
+      </FormWrap>
+    </ShortFilmWrap>
   );
 };
 export default FilmerApplication;

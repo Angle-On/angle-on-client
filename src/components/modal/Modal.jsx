@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router';
-import Stripe from '../stripe/Stripe';
 import PropTypes from 'prop-types';
 import { 
   Background,
@@ -46,10 +45,6 @@ const Modal = ({ showModal, setShowModal, films_description, films_image, films_
 
   
   const donateNow = () => { 
-    //link to take you to donation page??
-    // window.location.replace('/donation');
-    console.log('hello! In the button!');
-
     history.push(`/donation/${films_id}`);
 
   };
