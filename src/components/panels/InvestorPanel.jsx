@@ -9,7 +9,7 @@ import DonationTable from './DonationTable';
 // import donationData from './mockdonationinfo'; 
 
 const InvestorPanel = ({ user }) => {
-  console.log(user); 
+  
 
   return (
     <>

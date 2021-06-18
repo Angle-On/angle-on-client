@@ -5,7 +5,6 @@ import { Route, Redirect } from 'react-router-dom';
 
 const PrivateRoute = (props) => {
   if(props.activeUser.loading) return null;
-  console.log(props);
   if(!props.activeUser.user && !props.activeUser.loading) return <Redirect to="/" />;
   return  <Route {...props} />;
 };

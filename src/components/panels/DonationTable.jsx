@@ -10,10 +10,6 @@ import Paper from '@material-ui/core/Paper';
 import { getDonationByInvestorId } from '../../services/apiUtils'; 
 
 
-//when the time comes, use hook 
-// import useDonation from '../hooks/useDonation'; 
-// import donationData from './mock-data/mockdonationinfo'; 
-
 
 const useStyles = makeStyles({
   table: {
@@ -25,7 +21,7 @@ const useStyles = makeStyles({
 export default function DenseTable({ user }) {
   const [donationData, setDonationData] = useState([]); 
   const classes = useStyles();
-  console.log(user); 
+   
   
   const id = user.user.investorId; 
 

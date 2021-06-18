@@ -5,13 +5,10 @@ import { blue } from '@material-ui/core/colors';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-// import Favorite from '@material-ui/icons/Favorite';
-// import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import VideocamOutlinedIcon from '@material-ui/icons/VideocamOutlined';
 import VideocamIcon from '@material-ui/icons/Videocam';
 
 const VideoCheckbox = withStyles({
-  //change colors of checkbox
   root: {
     color: blue[800],
     '&$checked': {
@@ -37,7 +34,6 @@ export default function CheckboxLabels() {
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
-    console.log(event.target.name);
   };
 
   return (

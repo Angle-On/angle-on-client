@@ -31,7 +31,7 @@ const MissionSection = ({
   dark2,
   image
 }) => {
-  console.log(primary);
+  
   return (
     <>
       <MissionContainer lightBg={lightBg} id={id}>

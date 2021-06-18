@@ -8,7 +8,7 @@ const SearchBox = () => {
 
 
   const handleGenreSearch = (e) => { 
-    console.log(e.target.value);
+    
     setSearch(e.target.value);
   };
 
@@ -16,7 +16,7 @@ const SearchBox = () => {
     return film.films_genre.toLowerCase().includes(search.toLowerCase());
   });
 
-  console.log(filteredFilms);
+  
         
 
  
