@@ -89,13 +89,6 @@ const resources = [
     resource_url: 'https://latinofilm.org/',
     resource_image: 'https://i2.wp.com/hollywoodglee.com/wp-content/uploads/2020/04/Latino-Film-Institute.png?fit=476%2C170&ssl=1',
     resource_description: 'The Lation Film Institute provides a pipeline, platform and launching pad for careers and growth in film-making.'
-  }, 
-  {
-    resource_id: '12',
-    resource_name: '',
-    resource_url: '',
-    resource_image: '',
-    resource_description: ''
   }
 
 ];

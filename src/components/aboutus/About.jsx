@@ -119,12 +119,14 @@ const About = () => {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-            Cierra McDonald
+            Cierra <br/> 
+             McDonald
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
               Cierra is a Software Engineer with a passion to solve
-              human-centered problems.  She is driven by impactful difference
-              utilizing tech and code as her vehicle.
+              human-centered problems with creativity and compassion.
+              When she is not coding, you'll
+              find her exploring a new hiking trail.
               Her favorite animated short film is Hair Love.
               </Typography>
             </CardContent>
