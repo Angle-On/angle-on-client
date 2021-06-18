@@ -1,4 +1,4 @@
-// /* eslint-disable max-len */
+// // /* eslint-disable max-len */
 // import React, { useState } from 'react';
 // import { sendDonation } from '../../services/apiUtils';
 // import { loadStripe } from '@stripe/stripe-js';
