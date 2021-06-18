@@ -18,7 +18,6 @@ import {
   verifyDirectorUser,
   verifyInvestorUser,
 } from '../../services/apiUtils';
-// import { gapi } from 'gapi-script';
 import PrivateRoute from './PrivateRoute';
 
 export default function App() {
@@ -68,11 +67,6 @@ export default function App() {
       const url = 'https://dazzling-heyrovsky-02bd75.netlify.app';
       window.open(url, '_top');
     }, 1000);
-
-    // const auth2 = gapi.auth2.getAuthInstance();
-    // auth2.signOut().then(() => {
-    //   console.log('User signed out.');
-    // });
   };
 
   return (

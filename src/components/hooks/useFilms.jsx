@@ -14,17 +14,12 @@ const useFilms = () => {
   }, []);
 
   const handleGenreSearch = (e) => { 
-    console.log(e.target.value);
     setSearch(e.target.value);
   };
 
 
-  // const filteredFilms = films.filter(film => {
-  //   return film.films_genre.toLowerCase().includes(search.toLowerCase());
-  // });
-
   return { films, loading, search, handleGenreSearch };
-  // filteredFilms
+
 
 };
 

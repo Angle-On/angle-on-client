@@ -3,7 +3,6 @@
 import axios from 'axios';
 
 export const singleFileUploadHandler = ({ selectedFile }) => {
-  console.log(selectedFile, 'single file upload aws');
   const data = new FormData(); // If file selected
 
   const DEVURL = 'https://angle-on.herokuapp.com/';
@@ -28,12 +27,11 @@ export const singleFileUploadHandler = ({ selectedFile }) => {
             if ('LIMIT_FILE_SIZE' === response.data.error.code) {
               console.log('error');
             } else {
-              console.log(response.data); // If not the given file type
+              console.log(response.data); 
             }
           } else {
             // Success
             const fileName = response.data;
-            console.log('HELLO FILENAME', fileName);
           }
         }
       })

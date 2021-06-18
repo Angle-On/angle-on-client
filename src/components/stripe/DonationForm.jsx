@@ -30,7 +30,6 @@ const DonationForm = () => {
   const { filmId } = useParams();
 
   const handleDonationChange = (event) => {
-    console.log(budget, setBudget);
     setBudget(event.target.value);
 
   };
@@ -41,9 +40,6 @@ const DonationForm = () => {
 
   const handleSubmit = async (e) => { 
     e.preventDefault();
-    console.log(typeof(budget), 'budget');
-    //films_id, budget, investor_id
-    console.log(filmId);
     await sendDonation(budget, filmId)
       .then(() => alert(`Thank you ${name} for your donation!`))
       .finally(() => history.push({ pathname:'/investor-panel' }));

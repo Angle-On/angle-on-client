@@ -54,9 +54,9 @@ const Footer = () => {
         <SocialMedia>
           <SocialMediaWrap>
             <SocialLogo>
-              AngleOn
+              Angle On
             </SocialLogo>
-            <WebsiteRights>AngleOn © 2021 All rights reserved.</WebsiteRights>
+            <WebsiteRights>Angle On © 2021 All rights reserved.</WebsiteRights>
             <SocialIcons>
               <SocialIconLink href='/' target='_blank' aria-label='Facebook'>
                 <FaFacebook />

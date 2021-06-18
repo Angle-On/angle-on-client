@@ -5,7 +5,7 @@ const URL = DEVURL;
 export const getFilms = async () => {
   const res = await fetch(`${URL}/api/v1/films`);
   const films = await res.json();
-  console.log(films, 'films');
+  
 
   return films.map((film) => ({
     films_id: film.film_id,
@@ -99,7 +99,7 @@ export const getDonationByInvestorId = async (id) => {
   const res = await fetch(`${URL}/api/v1/investors/${id}`, {
     credentials: 'include',
   });
-  console.log(res, 'res');
+  
   const donations = await res.json();
 
   return donations;
@@ -110,7 +110,7 @@ export const getFilmsById = async (id) => {
   const res = await fetch(`${URL}/api/v1/films/${id}`, {
     credentials: 'include',
   });
-  console.log(res, 'res');
+  
   const films = await res.json();
 
   return films;
@@ -121,7 +121,7 @@ export const getFilmsByDirectorId = async (id) => {
   const res = await fetch(`${URL}/api/v1/directors/${id}`, {
     credentials: 'include',
   });
-  console.log(res, 'res');
+  
   const films = await res.json();
 
   return films;
@@ -143,7 +143,7 @@ export const verifyDirectorToken = async ({ profileObj, tokenId }) => {
       tokenId,
     }),
   });
-  console.log(response);
+  
   return response;
 };
 
@@ -163,7 +163,7 @@ export const verifyInvestorToken = async ({ profileObj, tokenId }) => {
       tokenId,
     }),
   });
-  console.log(response);
+  
   return response;
 };
 
@@ -197,7 +197,7 @@ export const sendFilm = async ({ filmObj }) => {
     },
     body: JSON.stringify(filmObj),
   });
-  console.log(response);
+  
   return response;
 };
 
@@ -215,6 +215,5 @@ export const sendDonation = async (amount, filmId) => {
       donationFilmId: filmId,
     }),
   });
-  console.log(response, 'STRIPE RESPONSE');
   return response;
 };

@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { useHistory } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from './Checkbox';
 import SubmitButton from './SubmitButton';
@@ -14,8 +13,6 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
       width: '25ch',
-      // justifyContent: 'center',
-      // alignContent: 'center',
       flexDirection: 'row',
       display: 'flex',
       
@@ -75,12 +72,12 @@ const FilmerApplication = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(selectedImageFile, 'selected image file');
+    
 
     const data = new FormData(e.target); // If file selected
     data.append('filmGenre', JSON.stringify(genre));
 
-    // console.log(data, 'WHY ARE YOU EMPTY');
+    
 
     const DEVURL = 'https://angle-on.herokuapp.com';
     const localURL = 'http://localhost:7890';
@@ -95,21 +92,19 @@ const FilmerApplication = () => {
         if(200 === response.status) {
           if(response.data.error) {
             if('LIMIT_FILE_SIZE' === response.data.error.code) {
-              // console.log('error');
             } else {
-              // console.log(response.data);
+              console.log(response.data);
             }
           } else {
             const fileName = response.data;
-            // console.log('HELLO FILENAME', fileName);
             setAwsFile(fileName);
           }
         }
       })
       .finally(setData(data))
       .catch((error) => {
-        // console.log(setData, 'SETDATA');
-        // console.log(error);
+        console.log(setData, 'SETDATA');
+        console.log(error);
       });
 
     window.location.replace('/filmer-panel');

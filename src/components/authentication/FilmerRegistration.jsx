@@ -4,7 +4,7 @@ import DirectorLogin from './DirectorLogin';
 const FilmerRegistration = () => { 
   return (
     <div>
-      <h2>Filmer Registration</h2>
+      <h2>Director Registration</h2>
       <DirectorLogin/>
     </div>
   );
