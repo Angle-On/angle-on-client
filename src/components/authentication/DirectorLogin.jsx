@@ -11,6 +11,8 @@ import { useHistory } from 'react-router';
 const DirectorLogin = () => { 
   const history = useHistory();
   async function responseGoogle(response) {
+    console.log(response, 'response from google'); 
+
     const verify = await verifyDirectorToken(response)
       .then(() => history.push({pathname:'/filmer-panel'}))
 
