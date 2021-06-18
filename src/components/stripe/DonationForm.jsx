@@ -94,13 +94,7 @@ const DonationForm = () => {
           type="number"
           onChange={handleDonationChange}
         />
-<<<<<<< HEAD
         <CardElement/>
-=======
-        <div className="FormRow">
-          <CardElement options={CARD_OPTIONS} />
-        </div>
->>>>>>> 60d07d9d7d09a755d4a34bf6a32c41847b360bee
         <button>Donate!</button>
       </form>
     </div>
