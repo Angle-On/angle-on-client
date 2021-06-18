@@ -109,7 +109,7 @@ export default function App() {
           <PrivateRoute
             path="/filmer-panel"
             exact
-            component={FilmerPanel}
+            render={() => <FilmerPanel user={directorProfile}/>}
             activeUser={directorProfile}
           />
           <PrivateRoute

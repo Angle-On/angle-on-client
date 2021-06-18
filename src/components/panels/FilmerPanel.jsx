@@ -6,8 +6,8 @@ import FilmerSubmissionTable from './FilmerSubmissionTable';
 
 import filmer from './mock-data/mockfilmer'; 
 
-const FilmerPanel = ({ activeUser }) => {
-  console.log(activeUser);
+const FilmerPanel = ({ user }) => {
+  console.log(user);
 
   return (
     <>
@@ -15,7 +15,7 @@ const FilmerPanel = ({ activeUser }) => {
       <h1>User Information</h1>
       <PanelTextField {...filmer} /> 
       <h1>Short Film Submissions</h1>
-      <FilmerSubmissionTable activeUser={activeUser} /> 
+      <FilmerSubmissionTable user={user} /> 
       <DeleteProfileButton /> 
       <p>Donations will not be refunded, please contact support@angle-on.com if you have further questions</p>
       <button onClick={() => window.location.replace('/filmer-application')}>Add New Film Submission</button>
