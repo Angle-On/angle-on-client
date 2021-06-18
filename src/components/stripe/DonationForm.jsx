@@ -6,7 +6,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router';
-import { CardElement } from '@stripe/react-stripe-js';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,29 +20,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// const CARD_OPTIONS = {
-//   iconStyle: 'solid',
-//   style: {
-//     base: {
-//       iconColor: '#c4f0ff',
-//       color: '#fff',
-//       fontWeight: 500,
-//       fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
-//       fontSize: '16px',
-//       fontSmoothing: 'antialiased',
-//       ':-webkit-autofill': {
-//         color: '#fce883'
-//       },
-//       '::placeholder': {
-//         color: '#87bbfd'
-//       }
-//     },
-//     invalid: {
-//       iconColor: '#ffc7ee',
-//       color: '#ffc7ee'
-//     }
-//   }
-// };
 
 const DonationForm = () => { 
   const history = useHistory();
@@ -94,7 +70,12 @@ const DonationForm = () => {
           type="number"
           onChange={handleDonationChange}
         />
-        <CardElement/>
+        <TextField
+          name="creditCard"
+          id="standard-basic"
+          label="XXXX-XXXX-XXXX-XXXX"
+          type="number"
+        />   
         <button>Donate!</button>
       </form>
     </div>
