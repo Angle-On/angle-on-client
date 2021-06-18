@@ -24,18 +24,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function PanelTextField({ first_name, last_name, email },) {
+export default function PanelTextField({ user },) {
   const classes = useStyles();
   const [edit, setEdit] = useState(true); 
-
-  const [firstName, setFirstName] = useState(); 
-  const [lastName, setLastName] = useState(); 
+  const [firstName, setFirstName] = useState(user.user.firstName); 
+  const [lastName, setLastName] = useState(user.user.lastName); 
 
   const { id } = useParams(); 
 
   const handleClick = () => {
     setEdit(false); 
-    console.log(edit, 'in handle click'); 
     return edit; 
   };  
 
@@ -51,11 +49,9 @@ export default function PanelTextField({ first_name, last_name, email },) {
   const handleUpdate = () => {
 
     updateFilmerById(id, { first_name: firstName, last_name: lastName }); 
-    console.log('in handle update'); 
   };
 
 
-  console.log(edit, 'in panel buttons');
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <div >
@@ -63,9 +59,8 @@ export default function PanelTextField({ first_name, last_name, email },) {
           required
           id="outlined-helperText"
           label="First Name"
-          defaultValue={first_name}
+          defaultValue={firstName}
           onChange={handleFirstChange}
-          // helperText="Some important text"
           variant="outlined"
           InputProps={{
             readOnly: edit,
@@ -75,9 +70,8 @@ export default function PanelTextField({ first_name, last_name, email },) {
           required
           id="outlined-helperText"
           label="Last Name"
-          defaultValue={last_name}
+          defaultValue={lastName}
           onChange={handleLastChange}
-          // helperText="Some important text"
           variant="outlined"
           InputProps={{
             readOnly: edit,
@@ -87,7 +81,7 @@ export default function PanelTextField({ first_name, last_name, email },) {
           disabled
           id="outlined-disabled"
           label="Email"
-          defaultValue={email}
+          defaultValue={user.user.email}
           variant="outlined"
         />
         <div className={classes.button}>
@@ -107,7 +101,3 @@ PanelTextField.propTypes = {
   edit: PropTypes.boolean
 };
 
-
-// InputLabelProps={{
-//   shrink: true,
-// }}

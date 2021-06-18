@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { getFilmerById } from '../../services/apiUtils';
+import Spinner from '../spinner/Spinner';
 
 const useFilmer = () => { 
   const [filmer, setFilmer] = useState([]);
@@ -14,6 +15,7 @@ const useFilmer = () => {
 
   }, []);
 
+  if(loading) return <Spinner />;
   return { filmer, loading };
 
 };

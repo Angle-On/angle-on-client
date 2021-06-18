@@ -28,7 +28,8 @@ const MissionSection = ({
   primary,
   darkText,
   dark,
-  dark2
+  dark2,
+  image
 }) => {
   console.log(primary);
   return (
@@ -60,7 +61,7 @@ const MissionSection = ({
             </Column1>
             <Column2>
               <ImgWrap>
-                <Img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80" alt={alt} />
+                <Img src={image} />
               </ImgWrap>
             </Column2>
           </MissionRow>

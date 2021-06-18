@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { getDonationById } from '../../services/apiUtils';
+import Spinner from '../spinner/Spinner';
 
 const useDonation = () => { 
   const [donation, setDonation] = useState([]);
@@ -14,6 +15,7 @@ const useDonation = () => {
 
   }, []);
 
+  if(loading) return <Spinner />;
   return { donation, loading };
 
 };

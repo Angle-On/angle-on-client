@@ -12,7 +12,8 @@ export const homeObjOne = {
   alt: 'Car',
   dark: false,
   primary: false,
-  darkText: true
+  darkText: true,
+  image: 'https://images.pexels.com/photos/1870438/pexels-photo-1870438.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
 };
 
 export const homeObjTwo = {
@@ -29,7 +30,8 @@ export const homeObjTwo = {
   alt: 'Piggybank',
   dark: false,
   primary: false,
-  darkText: true
+  darkText: true,
+  image: 'https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80'
 };
 
 

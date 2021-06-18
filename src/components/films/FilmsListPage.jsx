@@ -3,6 +3,7 @@ import useFilms from '../hooks/useFilms';
 import Film from '../films/Film';
 import { ShortFilms } from './FilmElements';
 import SearchBox from '../search/SearchBox'; 
+import Spinner from '../spinner/Spinner';
 import './films.css';
 
 const FilmsListPage = () => { 
@@ -15,7 +16,7 @@ const FilmsListPage = () => {
 
 
     
-  if(loading) return <h2 style={{ textAlign: 'center' }}>Loading...</h2>;
+  if(loading) return <Spinner />;
   return (<div>
     <ShortFilms>
       {shortFilms}
