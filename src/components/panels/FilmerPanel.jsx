@@ -11,7 +11,7 @@ const FilmerPanel = ({ user }) => {
 
   return (
     <>
-      <h1>Filmer Panel</h1>
+      <h1>Director Panel</h1>
       <h1>User Information</h1>
       <PanelTextField {...filmer} /> 
       <h1>Short Film Submissions</h1>

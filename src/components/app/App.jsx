@@ -115,7 +115,7 @@ export default function App() {
           <PrivateRoute
             path="/investor-panel"
             exact
-            component={InvestorPanel}
+            render={() => <InvestorPanel user={investorProfile}/>}
             activeUser={investorProfile}
           />
           <Route path="/about-us" exact component={About} />

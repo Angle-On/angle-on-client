@@ -37,7 +37,7 @@ export default function FilmerSubmissionTable({ user }) {
     // film_description: film.films_description,
     film_budget: film.film_budget,
     film_url: film.film_url,
-    film_genre: film.film_genre,
+    // film_genre: film.film_genre,
     film_image: film.film_image
   }));
 
@@ -50,7 +50,7 @@ export default function FilmerSubmissionTable({ user }) {
             <TableCell align="right">Budget</TableCell>
             {/* <TableCell align="right">Description</TableCell> */}
             <TableCell align="right">URL</TableCell>
-            <TableCell align="right">Genre</TableCell>
+            {/* <TableCell align="right">Genre</TableCell> */}
             <TableCell align="right">Film Still</TableCell>
           </TableRow> 
         </TableHead>
@@ -63,7 +63,7 @@ export default function FilmerSubmissionTable({ user }) {
               <TableCell align="right">$ {row.film_budget}</TableCell>
               {/* <TableCell align="right">{row.film_description}</TableCell> */}
               <TableCell align="right"><a href={row.film_url} target="_blank" rel="noreferrer">Trailer</a></TableCell>
-              <TableCell align="right">{row.film_genre}</TableCell>
+              {/* <TableCell align="right">{row.film_genre}</TableCell> */}
               <TableCell align="right"><a href={row.film_image} target="_blank" rel="noreferrer">Image</a></TableCell>
             </TableRow>
           ))}
