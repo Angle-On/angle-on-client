@@ -5,7 +5,7 @@ const URL = DEVURL;
 export const getFilms = async () => {
   const res = await fetch(`${URL}/api/v1/films`);
   const films = await res.json();
-  console.log(films);
+  console.log(films, 'films');
 
   return films.map((film) => ({
     films_id: film.film_id,
