@@ -35,9 +35,9 @@ export default function DenseTable({ user }) {
   }, []); 
 
   const rows = donationData.map((donation) => ({
-    id: donation.donation_id,  
-    film_name: donation.film_name,
-    donation_amount: donation.donations_amount,
+    id: donation.donationId,  
+    film_name: donation.filmName,
+    donation_amount: donation.donationAmount,
   }));
 
   return (
