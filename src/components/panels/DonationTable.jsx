@@ -55,7 +55,7 @@ export default function DenseTable({ user }) {
               <TableCell component="th" scope="row">
                 {row.film_name}
               </TableCell>
-              <TableCell align="right">{row.donation_amount}</TableCell>
+              <TableCell align="right">${row.donation_amount}.00</TableCell>
             </TableRow>
           ))}
         </TableBody>
