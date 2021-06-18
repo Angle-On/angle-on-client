@@ -105,6 +105,17 @@ export const getFilmsById = async (id) => {
   return films;
 };
 
+//getFilmsByDirectorId
+export const getFilmsByDirectorId = async (id) => {
+  const res = await fetch(`${URL}/api/v1/directors/${id}`, {
+    credentials: 'include',
+  });
+  console.log(res, 'res');
+  const films = await res.json();
+
+  return films;
+};
+
 //google oAuth
 export const verifyDirectorToken = async ({ profileObj, tokenId }) => {
   const response = await fetch(`${URL}/api/v1/directors/auth`, {

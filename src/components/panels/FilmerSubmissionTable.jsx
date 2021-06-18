@@ -10,9 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 
-import FilmData from '../../components/films/mockDataFilm'; 
-import {getFilmsById} from '../../services/apiUtils';
-// import { getFilmsById } from '../../services/apiUtils';
+import { getFilmsByDirectorId } from '../../services/apiUtils';
 
 const useStyles = makeStyles({
   table: {
@@ -29,7 +27,7 @@ export default function FilmerSubmissionTable({ user }) {
   const id = user.user.directorId;
 
   useEffect(() => {
-    getFilmsById(id)
+    getFilmsByDirectorId(id)
       .then(filmData => setFilmData(filmData)); 
   }, []); 
   
