@@ -15,10 +15,8 @@ const FilmsListPage = () => {
 
 
     
-  if(loading) return <h2>Loading...</h2>;
+  if(loading) return <h2 style={{ textAlign: 'center' }}>Loading...</h2>;
   return (<div>
-    <SearchBox
-      shortFilms={shortFilms}/>
     <ShortFilms>
       {shortFilms}
     </ShortFilms>

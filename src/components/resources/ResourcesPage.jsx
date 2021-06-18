@@ -1,19 +1,23 @@
 import React from 'react';
 import resources from './mockResourcesData';
+import { Description, Header2, ResourceName, ResourceWrapper, Image, OutsideDiv } from './ResourceElements';
+
 
 const ResourcesPage = () => { 
   return ( 
-    <div>
-      <h2>RESOURCES</h2>
+    <OutsideDiv>
+      <Header2>Additional Resources</Header2>
       <div>
-        {resources.map(resource => <div key={resource.resource_id}>
-          <p>{resource.resource_name}</p>
-          <img src={resource.resource_image} style={{ height: '40vh' }}/>
-          <p>{resource.resource_description}</p>
-          <a href={resource.resource_url}>Link to Website</a>
-        </div>)}
+        {resources.map(resource => <ResourceWrapper key={resource.resource_id}>
+          <a href={resource.resource_url}>
+            <Image src={resource.resource_image}/>
+          </a>
+          <ResourceName>{resource.resource_name} </ResourceName>
+          <Description>{resource.resource_description}</Description>
+
+        </ResourceWrapper>)}
       </div>
-    </div>
+    </OutsideDiv>
   );
 };
 

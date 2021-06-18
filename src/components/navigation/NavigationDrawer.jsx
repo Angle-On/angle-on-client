@@ -31,7 +31,7 @@ const useStyles = makeStyles({
   },
   fullList: {
     width: 'auto',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
   },
 
 });
@@ -40,7 +40,7 @@ function NavigationDrawer(props) {
   const classes = useStyles();
   
   const [state, setState] = useState({
-    right: false,
+    left: false,
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -97,7 +97,7 @@ function NavigationDrawer(props) {
                 } else if(index === 4) {
                   return <PersonIcon style={{ color: '#3f51b5' }}/>;
                 } else { 
-                  return <ExitToAppIcon style={{ color: 'rgba(255,211,25)' }}/>;
+                  return <ExitToAppIcon style={{ color: '#2e32d9' }}/>;
 
                 }}) ()}
             </ListItemIcon>
@@ -110,7 +110,7 @@ function NavigationDrawer(props) {
 
   return (
     <div style={{ backgroundColor: 'black' }}>
-      {['right'].map((anchor) => (
+      {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Tooltip title="Menu">
             <Button onClick={toggleDrawer(anchor, true)} style={{ color: 'white' }}><SubjectIcon fontSize="large"/></Button>
