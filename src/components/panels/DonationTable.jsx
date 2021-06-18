@@ -35,9 +35,9 @@ export default function DenseTable({ user }) {
   }, []); 
 
   const rows = donationData.map((donation) => ({
-    id: donation.donationId,  
-    film_name: donation.filmName,
-    donation_amount: donation.donationAmount,
+    // id: donation.donationId,  
+    film_name: donation.film_name,
+    donation_amount: donation.donation_amount,
   }));
 
   return (
@@ -46,7 +46,6 @@ export default function DenseTable({ user }) {
         <TableHead>
           <TableRow>
             <TableCell>Previous Donations</TableCell>
-            <TableCell align="right">Film Name</TableCell>
             <TableCell align="right">Amount</TableCell>
           </TableRow> 
         </TableHead>
@@ -54,9 +53,8 @@ export default function DenseTable({ user }) {
           {rows.map((row) => (
             <TableRow key={row.film_name}>
               <TableCell component="th" scope="row">
-                {row.id}
+                {row.film_name}
               </TableCell>
-              <TableCell align="right">{row.film_name}</TableCell>
               <TableCell align="right">{row.donation_amount}</TableCell>
             </TableRow>
           ))}
