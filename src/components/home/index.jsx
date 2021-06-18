@@ -4,7 +4,9 @@ import MissionSection from './MissionSection';
 import Movies from './Movies';
 import {
   homeObjTwo,
+  homeObjOne
 } from './Data';
+import Footer from './Footer';
 
 
 
@@ -14,7 +16,8 @@ function Home() {
       <MainSection/>
       <MissionSection {...homeObjTwo} />
       <Movies />
-      <MissionSection {...homeObjTwo} />
+      <MissionSection {...homeObjOne} />
+      <Footer/>
     </>
   );
 }

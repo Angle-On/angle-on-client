@@ -9,30 +9,31 @@ import {
   MoviesP
 } from './MoviesElements';
 
+
 const Movies = () => {
   return (
     <MoviesContainer id='Movies'>
-      <MoviesH1>Trending Films</MoviesH1>
+      <MoviesH1>Spotlight Films</MoviesH1>
       <MoviesWrapper>
         <MoviesCard>
-          <MoviesIcon src='https://images.unsplash.com/photo-1535016120720-40c646be5580?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW92aWV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60' />
-          <MoviesH2>Lorem ipsum</MoviesH2>
+          <MoviesIcon src='https://angle-on.s3.us-west-2.amazonaws.com/pexels-fransa-2430945-1623990181514.jpg' />
+          <MoviesH2>Joey Always Wins</MoviesH2>
           <MoviesP>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          An enraged Joey confronts the same thugs who beat them up earlier, and through interrogation acquires a rough description of the thief.
           </MoviesP>
         </MoviesCard>
         <MoviesCard>
-          <MoviesIcon src='https://images.unsplash.com/photo-1535016120720-40c646be5580?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW92aWV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60' />
-          <MoviesH2>Lorem ipsum</MoviesH2>
+          <MoviesIcon src='https://angle-on.s3.us-west-2.amazonaws.com/pexels-black-bird-1959036-1623988122232.jpg' />
+          <MoviesH2>Trophy Magnet</MoviesH2>
           <MoviesP>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Behind the trophies and the glory, there remains a sordid history of terrible things that have gone down when the need to win eclipsed morality.
           </MoviesP>
         </MoviesCard>
         <MoviesCard>
-          <MoviesIcon src='https://images.unsplash.com/photo-1535016120720-40c646be5580?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW92aWV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60' />
-          <MoviesH2>Premium Benefits</MoviesH2>
+          <MoviesIcon src='https://angle-on.s3.us-west-2.amazonaws.com/pexels-julia-volk-5273074-1623989610123.jpg' />
+          <MoviesH2>Ancient Art Wars</MoviesH2>
           <MoviesP>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Citizens and dignitaries are assembled for the unveiling of a new monument to "Peace and Prosperity".
           </MoviesP>
         </MoviesCard>
       </MoviesWrapper>
