@@ -92,11 +92,12 @@ const About = () => {
             Wiggins
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate
-            reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-            Lizards are a widespread group of squamate
-            reptiles efjwipfjewf
+                <br/>
+              Raccoon Attack Survivor, 
+              Who Wants To Be A Millionaire Winner, 
+              International Woman of Mystery, 
+              And most importantly, 
+              Your company’s next Software Engineer.
               </Typography>
             </CardContent>
           </CardActionArea>

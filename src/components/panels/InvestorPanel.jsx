@@ -15,7 +15,7 @@ const InvestorPanel = ({ user }) => {
     <>
       <h1>Investor Panel</h1>
       <h1>User Information</h1>
-      <InvestorPanelTextField /> 
+      <InvestorPanelTextField user={user}/> 
       <h1>Donations</h1>
       <DonationTable user={user} /> 
       <DeleteProfileButton /> 

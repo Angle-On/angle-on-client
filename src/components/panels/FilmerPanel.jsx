@@ -4,16 +4,13 @@ import PanelTextField from './PanelTextField';
 import DeleteProfileButton from './DeleteProfileButton'; 
 import FilmerSubmissionTable from './FilmerSubmissionTable'; 
 
-import filmer from './mock-data/mockfilmer'; 
-
 const FilmerPanel = ({ user }) => {
-  console.log(user);
 
   return (
     <>
       <h1>Director Panel</h1>
       <h1>User Information</h1>
-      <PanelTextField {...filmer} /> 
+      <PanelTextField user={user} /> 
       <h1>Short Film Submissions</h1>
       <FilmerSubmissionTable user={user} /> 
       <DeleteProfileButton /> 
