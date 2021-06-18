@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -11,6 +11,7 @@ import Paper from '@material-ui/core/Paper';
 
 
 import FilmData from '../../components/films/mockDataFilm'; 
+import {getFilmsById} from '../../services/apiUtils';
 // import { getFilmsById } from '../../services/apiUtils';
 
 const useStyles = makeStyles({
@@ -21,22 +22,25 @@ const useStyles = makeStyles({
 
 export default function FilmerSubmissionTable({ user }) {
   const classes = useStyles();
+  const [filmData, setFilmData] = useState([]); 
 
   console.log(user.user.directorId, 'this should be id'); 
 
-  // async function getDirectorFilms() {
-  //   await getFilmsById(id); 
+  const id = user.user.directorId;
 
-  // }
+  useEffect(() => {
+    getFilmsById(id)
+      .then(filmData => setFilmData(filmData)); 
+  }, []); 
   
-  const rows = FilmData.map((film) => ({
+  const rows = filmData.map((film) => ({
     id: film.film_id,  
-    film_name: film.films_name,
+    film_name: film.film_name,
     // film_description: film.films_description,
-    film_budget: film.films_budget,
-    film_url: film.films_url,
-    film_genre: film.films_genre,
-    film_image: film.films_image
+    film_budget: film.film_budget,
+    film_url: film.film_url,
+    film_genre: film.film_genre,
+    film_image: film.film_image
   }));
 
   return (
