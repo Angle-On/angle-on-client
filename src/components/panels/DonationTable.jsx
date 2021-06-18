@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -7,10 +7,12 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { getDonationByInvestorId } from '../../services/apiUtils'; 
+
 
 //when the time comes, use hook 
 // import useDonation from '../hooks/useDonation'; 
-import donationData from './mock-data/mockdonationinfo'; 
+// import donationData from './mock-data/mockdonationinfo'; 
 
 
 const useStyles = makeStyles({
@@ -20,14 +22,22 @@ const useStyles = makeStyles({
 });
 
 
-export default function DenseTable() {
+export default function DenseTable({ user }) {
+  const [donationData, setDonationData] = useState([]); 
   const classes = useStyles();
+  console.log(user); 
+  
+  const id = user.user.investorId; 
+
+  useEffect(() => {
+    getDonationByInvestorId(id)
+      .then(donationData => setDonationData(donationData)); 
+  }, []); 
 
   const rows = donationData.map((donation) => ({
-    id: donation.donations_id,  
-    film_name: donation.films_name,
-    donation_amount: donation.donations_amount,
-    donation_date: donation.donation_date
+    // id: donation.donationId,  
+    film_name: donation.film_name,
+    donation_amount: donation.donation_amount,
   }));
 
   return (
@@ -36,8 +46,6 @@ export default function DenseTable() {
         <TableHead>
           <TableRow>
             <TableCell>Previous Donations</TableCell>
-            <TableCell align="right">ID</TableCell>
-            <TableCell align="right">Film Name</TableCell>
             <TableCell align="right">Amount</TableCell>
           </TableRow> 
         </TableHead>
@@ -45,11 +53,9 @@ export default function DenseTable() {
           {rows.map((row) => (
             <TableRow key={row.film_name}>
               <TableCell component="th" scope="row">
-                {row.donation_date}
+                {row.film_name}
               </TableCell>
-              <TableCell align="right">{row.id}</TableCell>
-              <TableCell align="right">{row.film_name}</TableCell>
-              <TableCell align="right">{row.donation_amount}</TableCell>
+              <TableCell align="right">${row.donation_amount}.00</TableCell>
             </TableRow>
           ))}
         </TableBody>

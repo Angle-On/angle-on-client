@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -10,8 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 
-// import FilmData from '../../components/films/mockDataFilm'; 
-// import { getFilmsById } from '../../services/apiUtils';
+import { getFilmsByDirectorId } from '../../services/apiUtils';
 
 const useStyles = makeStyles({
   table: {
@@ -19,24 +18,27 @@ const useStyles = makeStyles({
   },
 });
 
-export default function FilmerSubmissionTable({ activeUser }) {
+export default function FilmerSubmissionTable({ user }) {
   const classes = useStyles();
+  const [filmData, setFilmData] = useState([]); 
 
-  console.log(activeUser.user.directorId); 
+  console.log(user.user.directorId, 'this should be id'); 
 
-  // async function getDirectorFilms() {
-  //   await getFilmsById(id); 
+  const id = user.user.directorId;
 
-  // }
+  useEffect(() => {
+    getFilmsByDirectorId(id)
+      .then(filmData => setFilmData(filmData)); 
+  }, []); 
   
-  const rows = FilmData.map((film) => ({
+  const rows = filmData.map((film) => ({
     id: film.film_id,  
-    film_name: film.films_name,
+    film_name: film.film_name,
     // film_description: film.films_description,
-    film_budget: film.films_budget,
-    film_url: film.films_url,
-    film_genre: film.films_genre,
-    film_image: film.films_image
+    film_budget: film.film_budget,
+    film_url: film.film_url,
+    // film_genre: film.film_genre,
+    film_image: film.film_image
   }));
 
   return (
@@ -48,7 +50,7 @@ export default function FilmerSubmissionTable({ activeUser }) {
             <TableCell align="right">Budget</TableCell>
             {/* <TableCell align="right">Description</TableCell> */}
             <TableCell align="right">URL</TableCell>
-            <TableCell align="right">Genre</TableCell>
+            {/* <TableCell align="right">Genre</TableCell> */}
             <TableCell align="right">Film Still</TableCell>
           </TableRow> 
         </TableHead>
@@ -61,7 +63,7 @@ export default function FilmerSubmissionTable({ activeUser }) {
               <TableCell align="right">$ {row.film_budget}</TableCell>
               {/* <TableCell align="right">{row.film_description}</TableCell> */}
               <TableCell align="right"><a href={row.film_url} target="_blank" rel="noreferrer">Trailer</a></TableCell>
-              <TableCell align="right">{row.film_genre}</TableCell>
+              {/* <TableCell align="right">{row.film_genre}</TableCell> */}
               <TableCell align="right"><a href={row.film_image} target="_blank" rel="noreferrer">Image</a></TableCell>
             </TableRow>
           ))}
